@@ -1,0 +1,236 @@
+# PARAMETROS GENERALES DEL PIPELINE
+anio_vigente: 2025
+umbral_n_cuadrantes: 25
+umbral_n_bajo_programa: 5
+
+# RUTAS DE DATOS
+parquet_path: "data/Perfiles_INBC_Anuales_2016_2024.parquet"
+agregados_dir: "data/saberpro_agregados"
+processed_dir: "data/processed"
+output_json: "data/processed/datos_informe.json"
+
+# COMPETENCIAS GENERICAS OFICIALES
+competencias_genericas:
+  - "LECTURA CRÍTICA"
+  - "RAZONAMIENTO CUANTITATIVO"
+  - "COMPETENCIAS CIUDADANAS"
+  - "COMUNICACIÓN ESCRITA"
+  - "INGLÉS"
+
+# UNIVERSIDADES PERTENECIENTES AL SUE (SISTEMA UNIVERSITARIO ESTATAL)
+universidades_sue:
+  - "UNIVERSIDAD NACIONAL DE COLOMBIA"
+  - "UNIVERSIDAD DE ANTIOQUIA"
+  - "UNIVERSIDAD DEL VALLE"
+  - "UNIVERSIDAD INDUSTRIAL DE SANTANDER"
+  - "UNIVERSIDAD TECNOLOGICA DE PEREIRA"
+  - "UNIVERSIDAD DE CALDAS"
+  - "UNIVERSIDAD DE CORDOBA"
+  - "UNIVERSIDAD DEL ATLANTICO"
+  - "UNIVERSIDAD DEL MAGDALENA"
+  - "UNIVERSIDAD DE CARTAGENA"
+  - "UNIVERSIDAD DE LA GUAJIRA"
+  - "UNIVERSIDAD SURCOLOMBIANA"
+  - "UNIVERSIDAD DE NARIÑO"
+  - "UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA"
+  - "UNIVERSIDAD DE PAMPLONA"
+  - "UNIVERSIDAD DE LOS LLANOS"
+  - "UNIVERSIDAD DE LA AMAZONIA"
+  - "UNIVERSIDAD DEL QUINDIO"
+  - "UNIVERSIDAD DEL TOLIMA"
+  - "UNIVERSIDAD DISTRITAL FRANCISCO JOSE DE CALDAS"
+  - "UNIVERSIDAD PEDAGOGICA NACIONAL"
+  - "UNIVERSIDAD-COLEGIO MAYOR DE CUNDINAMARCA"
+  - "UNIVERSIDAD MILITAR-NUEVA GRANADA"
+  - "UNIVERSIDAD DE SUCRE"
+  - "UNIVERSIDAD DE CUNDINAMARCA-UDEC"
+  - "UNIVERSIDAD POPULAR DEL CESAR"
+  - "UNIVERSIDAD TECNOLOGICA DEL CHOCO-DIEGO LUIS CORDOBA"
+  - "UNIVERSIDAD DEL PACIFICO"
+  - "UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA UNAD"
+  - "UNIVERSIDAD FRANCISCO DE PAULA SANTANDER"
+  - "UNIVERSIDAD DEL CAUCA"
+  - "COLEGIO MAYOR DE ANTIOQUIA"
+  - "COLEGIO MAYOR DEL CAUCA"
+  - "INSTITUCION UNIVERSITARIA DIGITAL DE ANTIOQUIA -IU. DIGITAL"
+  - "INSTITUCION UNIVERSITARIA BELLAS ARTES Y CIENCIAS DE BOLIVAR"
+  - "INSTITUTO TECNOLOGICO METROPOLITANO"
+  - "INSTITUTO TECNOLOGICO PASCUAL BRAVO"
+  - "TECNOLOGICO DE ANTIOQUIA"
+  - "ESCUELA TECNOLOGICA INSTITUTO TECNICO CENTRAL"
+  - "UNIDAD CENTRAL DEL VALLE DEL CAUCA"
+
+# UNIVERSIDADES DEL SUE PERTENECIENTES A LA REGION CARIBE
+universidades_caribe:
+  - "UNIVERSIDAD DEL MAGDALENA"
+  - "UNIVERSIDAD DEL ATLANTICO"
+  - "UNIVERSIDAD DE CARTAGENA"
+  - "UNIVERSIDAD DE CORDOBA"
+  - "UNIVERSIDAD DE SUCRE"
+  - "UNIVERSIDAD DE LA GUAJIRA"
+  - "UNIVERSIDAD POPULAR DEL CESAR"
+  - "INSTITUCION UNIVERSITARIA BELLAS ARTES Y CIENCIAS DE BOLIVAR"
+
+# MAPEO DE PROGRAMAS DE UNIMAGDALENA A FACULTAD Y NBC REFERENCIA
+programas_unimagdalena:
+  - nombre: "ADMINISTRACION DE EMPRESAS"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 9
+    nbc_nombre: "ADMINISTRACIÓN"
+  - nombre: "ADMINISTRACION DE EMPRESAS TURISTICAS Y HOTELERAS"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 9
+    nbc_nombre: "ADMINISTRACIÓN"
+  - nombre: "ADMINISTRACIÒN DE LA SEGURIDAD Y SALUD   EN EL TRABAJO"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 9
+    nbc_nombre: "ADMINISTRACIÓN"
+  - nombre: "ADMINISTRACIÒN PÙBLICA"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 9
+    nbc_nombre: "ADMINISTRACIÓN"
+  - nombre: "ANTROPOLOGIA"
+    facultad: "Facultad de Humanidades"
+    nbc_id: 53
+    nbc_nombre: "ANTROPOLOGÍA, ARTES LIBERALES"
+  - nombre: "BIOLOGIA"
+    facultad: "Facultad de Ciencias Básicas"
+    nbc_id: 34
+    nbc_nombre: "BIOLOGÍA, MICROBIOLOGÍA Y AFINES"
+  - nombre: "CINE Y AUDIOVISUALES"
+    facultad: "Facultad de Humanidades"
+    nbc_id: 4
+    nbc_nombre: "ARTES PLÁSTICAS, VISUALES Y AFINES"
+  - nombre: "CONTADURIA PUBLICA"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 12
+    nbc_nombre: "CONTADURÍA PUBLICA"
+  - nombre: "DERECHO"
+    facultad: "Facultad de Humanidades"
+    nbc_id: 59
+    nbc_nombre: "DERECHO Y AFINES"
+  - nombre: "ECONOMIA"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 11
+    nbc_nombre: "ECONOMÍA"
+  - nombre: "ENFERMERIA"
+    facultad: "Facultad de Ciencias de la Salud"
+    nbc_id: 41
+    nbc_nombre: "ENFERMERÍA"
+  - nombre: "GESTIÒN CULTURAL Y DE INDUSTRIAS CREATIVAS"
+    facultad: "Facultad de Humanidades"
+    nbc_id: 4
+    nbc_nombre: "ARTES PLÁSTICAS, VISUALES Y AFINES"
+  - nombre: "HISTORIA Y PATRIMONIO"
+    facultad: "Facultad de Humanidades"
+    nbc_id: 62
+    nbc_nombre: "GEOGRAFÍA, HISTORIA"
+  - nombre: "INGENIERIA AGRONOMICA"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 24
+    nbc_nombre: "INGENIERÍA AGRONÓMICA, PECUARIA Y AFINES"
+  - nombre: "INGENIERIA AMBIENTAL Y SANITARIA"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 20
+    nbc_nombre: "INGENIERÍA AMBIENTAL, SANITARIA Y AFINES"
+  - nombre: "INGENIERIA CIVIL"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 25
+    nbc_nombre: "INGENIERÍA CIVIL Y AFINES"
+  - nombre: "INGENIERIA DE SISTEMAS"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 27
+    nbc_nombre: "INGENIERÍA DE SISTEMAS, TELEMÁTICA Y AFINES"
+  - nombre: "INGENIERIA ELECTRONICA"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 29
+    nbc_nombre: "INGENIERÍA ELECTRÓNICA, TELECOMUNICACIONES Y AFINES"
+  - nombre: "INGENIERIA INDUSTRIAL"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 30
+    nbc_nombre: "INGENIERÍA INDUSTRIAL Y AFINES"
+  - nombre: "INGENIERIA PESQUERA"
+    facultad: "Facultad de Ingeniería"
+    nbc_id: 33
+    nbc_nombre: "OTRAS INGENIERÍAS"
+  - nombre: "LICENCIATURA EN ARTES"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN CIENCIAS NATURALES Y EDUCACIÒN AMBIENTAL"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN EDUCACION BASICA CON ENFASIS EN INFORMATICA"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN EDUCACION INFANTIL"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN EDUCACIÒN CAMPESINA Y RURAL"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN EDUCACIÒN INFANTIL"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN ESPAÑOL Y LITERATURA"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN ETNOEDUCACIÒN"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN INFORMATICA"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN LENGUAS EXTRANJERAS CON ÈNFASIS EN INGLÈS"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN MATEMÀTICAS"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN PREESCOLAR"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN QUÌMICA"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN TECNOLOGÌA"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "MEDICINA"
+    facultad: "Facultad de Ciencias de la Salud"
+    nbc_id: 45
+    nbc_nombre: "MEDICINA"
+  - nombre: "NEGOCIOS INTERNACIONALES"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
+    nbc_id: 9
+    nbc_nombre: "ADMINISTRACIÓN"
+  - nombre: "ODONTOLOGIA"
+    facultad: "Facultad de Ciencias de la Salud"
+    nbc_id: 47
+    nbc_nombre: "ODONTOLOGÍA"
+  - nombre: "PROFESIONAL EN DEPORTE"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 58
+    nbc_nombre: "DEPORTES, EDUCACIÓN FÍSICA Y RECREACIÓN"
+  - nombre: "PSICOLOGIA"
+    facultad: "Facultad de Ciencias de la Salud"
+    nbc_id: 66
+    nbc_nombre: "PSICOLOGÍA"
+

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1420" viewBox="0 0 1800 1420" role="img" aria-label="Grafico de cuadrantes Saber 11 y Saber Pro 2024">
+<style>
+text{font-family:Arial, Helvetica, sans-serif;letter-spacing:0}
+.title{font-size:36px;font-weight:800;fill:#4a5870}
+.axis-label{font-size:27px;font-weight:800;fill:#4a5870}
+.tick{font-size:28px;fill:#666}
+.quad{font-size:27px;font-weight:800;fill:#073a67}
+.base{fill:#5d6e87}
+.alert{fill:#846b00}
+.legend{font-size:24px;font-weight:700;fill:#4a5870}
+.explain-title{font-size:26px;font-weight:800;fill:#111827}
+.explain-text{font-size:21px;font-weight:700;fill:#65748a}
+.explain-box{stroke:#e7edf5;stroke-width:2}
+.grid{stroke:#d9e3ef;stroke-width:2;stroke-dasharray:7 9}
+.axis{stroke:#666;stroke-width:2}
+.mean{stroke:#6f91ba;stroke-width:2.4;stroke-dasharray:11 11}
+</style>
+<rect x="0" y="0" width="1800" height="1420" fill="#ffffff"/>
+<text class="title" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" fill="#4a5870" x="58" y="86">Cuadrantes Saber 11 - Saber Pro 2024</text>
+<circle cx="70" cy="135" r="10" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="2"/>
+<text class="legend" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#4a5870" x="92" y="144">Otras universidades</text>
+<circle cx="390" cy="135" r="12" fill="#d9482f" fill-opacity="0.92" stroke="#7c1f12" stroke-width="2"/>
+<text class="legend" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#4a5870" x="416" y="144">UNIMAGDALENA</text>
+<circle cx="660" cy="135" r="9" fill="#2f7fd9" fill-opacity="0.9" stroke="#0f3f77" stroke-width="2"/>
+<text class="legend" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#4a5870" x="683" y="144">NBC UNIMAGDALENA</text>
+<rect x="300" y="230" width="541.7390162570885" height="358.7289684913071" fill="#eaf7ed"/>
+<rect x="841.7390162570885" y="230" width="778.2609837429115" height="358.7289684913071" fill="#f5f7fa"/>
+<rect x="300" y="588.7289684913071" width="541.7390162570885" height="331.2710315086929" fill="#fbfcfd"/>
+<rect x="841.7390162570885" y="588.7289684913071" width="778.2609837429115" height="331.2710315086929" fill="#fffaf0"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="300.00" y1="230" x2="300.00" y2="920"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="630.00" y1="230" x2="630.00" y2="920"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="960.00" y1="230" x2="960.00" y2="920"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="1290.00" y1="230" x2="1290.00" y2="920"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="1620.00" y1="230" x2="1620.00" y2="920"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="300" y1="920.00" x2="1620" y2="920.00"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="300" y1="747.50" x2="1620" y2="747.50"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="300" y1="575.00" x2="1620" y2="575.00"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="300" y1="402.50" x2="1620" y2="402.50"/>
+<line class="grid" stroke="#d9e3ef" stroke-width="2" stroke-dasharray="7,9" x1="300" y1="230.00" x2="1620" y2="230.00"/>
+<line class="mean" stroke="#6f91ba" stroke-width="2.4" stroke-dasharray="11,11" x1="841.74" y1="230" x2="841.74" y2="920"/>
+<line class="mean" stroke="#6f91ba" stroke-width="2.4" stroke-dasharray="11,11" x1="300" y1="588.73" x2="1620" y2="588.73"/>
+<line class="axis" stroke="#666" stroke-width="2" x1="300" y1="920" x2="1620" y2="920"/>
+<line class="axis" stroke="#666" stroke-width="2" x1="300" y1="230" x2="300" y2="920"/>
+<line class="axis" stroke="#666" stroke-width="2" x1="300.00" y1="920" x2="300.00" y2="932"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="300.00" y="978" text-anchor="middle">210.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="630.00" y1="920" x2="630.00" y2="932"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="630.00" y="978" text-anchor="middle">255.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="960.00" y1="920" x2="960.00" y2="932"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="960.00" y="978" text-anchor="middle">300.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="1290.00" y1="920" x2="1290.00" y2="932"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="1290.00" y="978" text-anchor="middle">345.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="1620.00" y1="920" x2="1620.00" y2="932"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="1620.00" y="978" text-anchor="middle">390.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="288" y1="920.00" x2="300" y2="920.00"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="266" y="930.00" text-anchor="end">100.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="288" y1="747.50" x2="300" y2="747.50"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="266" y="757.50" text-anchor="end">125.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="288" y1="575.00" x2="300" y2="575.00"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="266" y="585.00" text-anchor="end">150.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="288" y1="402.50" x2="300" y2="402.50"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="266" y="412.50" text-anchor="end">175.0</text>
+<line class="axis" stroke="#666" stroke-width="2" x1="288" y1="230.00" x2="300" y2="230.00"/>
+<text class="tick" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#666" x="266" y="240.00" text-anchor="end">200.0</text>
+<text class="quad" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#073a67" x="312" y="260">Alto aporte</text>
+<text class="quad" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#073a67" x="1608" y="260" text-anchor="end">Alto desempe&#241;o</text>
+<text class="quad base" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#5d6e87" x="312" y="908">Base baja</text>
+<text class="quad alert" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#846b00" x="1608" y="908" text-anchor="end">Alerta</text>
+<circle cx="826.53" cy="601.77" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DE SANTA ROSA DE CABAL-UNISARC-SANTA ROSA DE CABAL | Saber 11: 281.80 | Saber Pro: 146.12 | n=25</title></circle>
+<circle cx="1051.38" cy="453.98" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE ANTIOQUIA-CARMEN DE VIBORAL | Saber 11: 312.46 | Saber Pro: 167.54 | n=26</title></circle>
+<circle cx="548.79" cy="718.62" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA CATOLICA DEL SUR - UNICATOLICA DEL SUR-PASTO | Saber 11: 243.93 | Saber Pro: 129.19 | n=27</title></circle>
+<circle cx="855.43" cy="634.54" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CONSERVATORIO DEL TOLIMA-IBAGUE | Saber 11: 285.74 | Saber Pro: 141.37 | n=27</title></circle>
+<circle cx="655.67" cy="749.96" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA HORIZONTE-BOGOTÁ D.C. | Saber 11: 258.50 | Saber Pro: 124.64 | n=28</title></circle>
+<circle cx="819.36" cy="554.30" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PONTIFICIA BOLIVARIANA-PALMIRA | Saber 11: 280.82 | Saber Pro: 153.00 | n=28</title></circle>
+<circle cx="842.16" cy="694.20" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION ESCUELA TECNOLOGICA DE NEIVA - JESUS OVIEDO PEREZ-NEIVA | Saber 11: 283.93 | Saber Pro: 132.72 | n=29</title></circle>
+<circle cx="641.98" cy="758.54" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION INSTITUTO DE ADMINISTRACION Y FINANZAS - C.I.A.F.-PEREIRA | Saber 11: 256.63 | Saber Pro: 123.40 | n=30</title></circle>
+<circle cx="926.27" cy="549.93" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD COOPERATIVA DE COLOMBIA-BARRANCABERMEJA | Saber 11: 295.40 | Saber Pro: 153.63 | n=30</title></circle>
+<circle cx="843.38" cy="570.77" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DE CIENCIA Y DESARROLLO - UNICIENCIA-BOGOTÁ D.C. | Saber 11: 284.10 | Saber Pro: 150.61 | n=31</title></circle>
+<circle cx="722.58" cy="643.57" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSIDAD PILOTO DE COLOMBIA-GIRARDOT | Saber 11: 267.62 | Saber Pro: 140.06 | n=32</title></circle>
+<circle cx="753.75" cy="645.08" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION TECNOLOGICA INDUSTRIAL COLOMBIANA - TEINCO-BOGOTÁ D.C. | Saber 11: 271.88 | Saber Pro: 139.84 | n=32</title></circle>
+<circle cx="800.04" cy="577.80" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE ANTIOQUIA-ANDES | Saber 11: 278.19 | Saber Pro: 149.59 | n=32</title></circle>
+<circle cx="542.89" cy="707.15" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION ESCUELA TECNOLOGICA DEL ORIENTE-BUCARAMANGA | Saber 11: 243.12 | Saber Pro: 130.85 | n=33</title></circle>
+<circle cx="1002.67" cy="613.05" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA MILITAR DE AVIACIONMARCO FIDEL SUAREZ-CALI | Saber 11: 305.82 | Saber Pro: 144.48 | n=33</title></circle>
+<circle cx="757.81" cy="639.47" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA ESCOLME-MEDELLIN | Saber 11: 272.43 | Saber Pro: 140.66 | n=35</title></circle>
+<circle cx="898.28" cy="569.44" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA TECNOLOGICA INSTITUTO TECNICO CENTRAL -BOGOTÁ D.C. | Saber 11: 291.58 | Saber Pro: 150.81 | n=36</title></circle>
+<circle cx="752.74" cy="603.87" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD MANUELA BELTRAN-UMB--BUCARAMANGA | Saber 11: 271.74 | Saber Pro: 145.82 | n=38</title></circle>
+<circle cx="900.95" cy="538.50" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LIBRE-SOCORRO | Saber 11: 291.95 | Saber Pro: 155.29 | n=38</title></circle>
+<circle cx="863.20" cy="565.34" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION ESCUELA DE ARTES Y LETRAS-BOGOTÁ D.C. | Saber 11: 286.80 | Saber Pro: 151.40 | n=40</title></circle>
+<circle cx="556.67" cy="719.41" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION TECNOLOGICA ANTONIO DE AREVALO-CARTAGENA | Saber 11: 245.00 | Saber Pro: 129.07 | n=42</title></circle>
+<circle cx="630.35" cy="672.09" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA CENDA-BOGOTÁ D.C. | Saber 11: 255.05 | Saber Pro: 135.93 | n=42</title></circle>
+<circle cx="920.43" cy="536.97" r="5.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA BELLAS ARTES-MEDELLIN | Saber 11: 294.60 | Saber Pro: 155.51 | n=43</title></circle>
+<circle cx="674.00" cy="667.86" r="5.03" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DE CATALUÑA | Saber 11: 261.00 | Saber Pro: 136.54 | n=48</title></circle>
+<circle cx="767.35" cy="694.17" r="5.03" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCIÓN UNIVERSITARIA COMFAMILIAR RISARALDA | Saber 11: 273.73 | Saber Pro: 132.73 | n=48</title></circle>
+<circle cx="525.69" cy="723.84" r="5.04" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION DE ESTUDIOS SUPERIORES MONSEÑOR ABRAHAM ESCUDERO MONTOYA- FUNDES-ESPINAL | Saber 11: 240.78 | Saber Pro: 128.43 | n=49</title></circle>
+<circle cx="557.25" cy="729.84" r="5.05" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL PACIFICO-BUENAVENTURA | Saber 11: 245.08 | Saber Pro: 127.56 | n=50</title></circle>
+<circle cx="615.33" cy="701.27" r="5.13" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION TECNOLOGICA COLOMBO- GERMANA-BOGOTÁ D.C. | Saber 11: 253.00 | Saber Pro: 131.70 | n=60</title></circle>
+<circle cx="558.35" cy="738.22" r="5.14" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA CATOLICA DEL NORTE-SANTA ROSA DE OSOS | Saber 11: 245.23 | Saber Pro: 126.34 | n=61</title></circle>
+<circle cx="606.08" cy="688.57" r="5.14" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD INCCA DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 251.74 | Saber Pro: 133.54 | n=61</title></circle>
+<circle cx="767.29" cy="628.05" r="5.14" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA PARA EL DESARROLLO HUMANO - UNINPAHU-BOGOTÁ D.C. | Saber 11: 273.72 | Saber Pro: 142.31 | n=61</title></circle>
+<circle cx="531.59" cy="720.79" r="5.14" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSIDAD AUTONOMA DE COLOMBIA -FUAC--BOGOTÁ D.C. | Saber 11: 241.58 | Saber Pro: 128.87 | n=62</title></circle>
+<circle cx="770.63" cy="583.24" r="5.14" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA ADVENTISTA-MEDELLIN | Saber 11: 274.18 | Saber Pro: 148.81 | n=62</title></circle>
+<circle cx="879.57" cy="544.77" r="5.15" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA SALAZAR Y HERRERA-MEDELLIN | Saber 11: 289.03 | Saber Pro: 154.38 | n=63</title></circle>
+<circle cx="734.70" cy="655.57" r="5.17" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CUNDINAMARCA-UDEC-UBATE | Saber 11: 269.28 | Saber Pro: 138.32 | n=65</title></circle>
+<circle cx="1033.65" cy="507.30" r="5.20" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION COLEGIATURA COLOMBIANA-MEDELLIN | Saber 11: 310.04 | Saber Pro: 159.81 | n=69</title></circle>
+<circle cx="754.67" cy="614.75" r="5.21" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA  UNITEC-BOGOTÁ D.C. | Saber 11: 272.00 | Saber Pro: 144.24 | n=71</title></circle>
+<circle cx="766.07" cy="645.25" r="5.22" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA EAM QUINDIO-ARMENIA | Saber 11: 273.56 | Saber Pro: 139.82 | n=72</title></circle>
+<circle cx="876.28" cy="583.05" r="5.22" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA-CHIQUINQUIRA | Saber 11: 288.58 | Saber Pro: 148.83 | n=72</title></circle>
+<circle cx="684.81" cy="687.03" r="5.25" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DE ASTURIAS-BOGOTÁ D.C. | Saber 11: 262.47 | Saber Pro: 133.76 | n=76</title></circle>
+<circle cx="695.42" cy="626.39" r="5.25" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA DE COLOMBIA - UNIVERSITARIA DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 263.92 | Saber Pro: 142.55 | n=76</title></circle>
+<circle cx="756.02" cy="604.05" r="5.28" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA MONSERRATE - UNIMONSERRATE-BOGOTÁ D.C. | Saber 11: 272.19 | Saber Pro: 145.79 | n=81</title></circle>
+<circle cx="773.41" cy="662.74" r="5.28" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>DIRECCION NACIONAL DE ESCUELAS-BOGOTÁ D.C. | Saber 11: 274.56 | Saber Pro: 137.28 | n=81</title></circle>
+<circle cx="729.98" cy="661.42" r="5.29" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION DE ESTUDIOS SUPERIORES COMFANORTE -F.E.S.C.-CUCUTA | Saber 11: 268.63 | Saber Pro: 137.48 | n=82</title></circle>
+<circle cx="705.87" cy="653.61" r="5.30" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA CERVANTINA SAN AGUSTIN - UNICERVANTINA SAN AGUSTIN-BOGOTÁ D.C. | Saber 11: 265.35 | Saber Pro: 138.61 | n=84</title></circle>
+<circle cx="766.35" cy="591.10" r="5.38" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA DE SAN GIL - UNISANGIL -SAN GIL | Saber 11: 273.59 | Saber Pro: 147.67 | n=96</title></circle>
+<circle cx="864.67" cy="560.29" r="5.44" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA LASALLISTA-CALDAS | Saber 11: 287.00 | Saber Pro: 152.13 | n=106</title></circle>
+<circle cx="806.95" cy="621.51" r="5.45" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DEL META-VILLAVICENCIO | Saber 11: 279.13 | Saber Pro: 143.26 | n=108</title></circle>
+<circle cx="737.56" cy="675.27" r="5.46" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA INTERNACIONAL DE LA RIOJA - UNIR | Saber 11: 269.67 | Saber Pro: 135.47 | n=111</title></circle>
+<circle cx="737.25" cy="609.50" r="5.47" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA AUTONOMA DEL CAUCA-POPAYAN | Saber 11: 269.62 | Saber Pro: 145.00 | n=112</title></circle>
+<circle cx="984.68" cy="497.78" r="5.49" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LIBRE-CUCUTA | Saber 11: 303.37 | Saber Pro: 161.19 | n=115</title></circle>
+<circle cx="748.64" cy="580.61" r="5.50" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION ESCUELA COLOMBIANA DE REHABILITACION-BOGOTÁ D.C. | Saber 11: 271.18 | Saber Pro: 149.19 | n=118</title></circle>
+<circle cx="766.75" cy="647.65" r="5.51" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD INTERNACIONAL DEL TRÓPICO AMERICANO | Saber 11: 273.65 | Saber Pro: 139.47 | n=119</title></circle>
+<circle cx="840.45" cy="556.74" r="5.51" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA EMPRESARIAL ALEXANDER VON HUMBOLDT - C.U.E.-ARMENIA | Saber 11: 283.70 | Saber Pro: 152.65 | n=119</title></circle>
+<circle cx="672.30" cy="636.13" r="5.52" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA MINUTO DE DIOS -UNIMINUTO-BELLO | Saber 11: 260.77 | Saber Pro: 141.14 | n=121</title></circle>
+<circle cx="806.78" cy="594.13" r="5.53" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA EMPRESARIAL DE LA CAMARA DE COMERCIO DE Bogotá -BOGOTÁ D.C. | Saber 11: 279.11 | Saber Pro: 147.23 | n=123</title></circle>
+<circle cx="928.88" cy="563.44" r="5.53" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA JUAN N. CORPAS-BOGOTÁ D.C. | Saber 11: 295.76 | Saber Pro: 151.67 | n=123</title></circle>
+<circle cx="943.97" cy="533.60" r="5.54" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA TALLER CINCO CENTRO DE DISEÑO-BOGOTÁ D.C. | Saber 11: 297.81 | Saber Pro: 156.00 | n=124</title></circle>
+<circle cx="607.71" cy="696.83" r="5.54" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCIÓN UNIVERSITARIA MAYOR DE CARTAGENA | Saber 11: 251.96 | Saber Pro: 132.34 | n=125</title></circle>
+<circle cx="659.45" cy="678.17" r="5.54" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA DIGITAL DE ANTIOQUIA -IU. DIGITAL | Saber 11: 259.02 | Saber Pro: 135.05 | n=125</title></circle>
+<circle cx="669.75" cy="692.96" r="5.55" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA CATOLICA LUMEN GENTIUM-CALI | Saber 11: 260.42 | Saber Pro: 132.90 | n=126</title></circle>
+<circle cx="1070.72" cy="472.80" r="5.58" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE SAN BUENAVENTURA-BOGOTÁ D.C. | Saber 11: 315.10 | Saber Pro: 164.81 | n=133</title></circle>
+<circle cx="676.19" cy="718.46" r="5.59" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUTO DE EDUCACION TECNICA PROFESIONAL DE ROLDANILLO-ROLDANILLO | Saber 11: 261.30 | Saber Pro: 129.21 | n=134</title></circle>
+<circle cx="743.77" cy="647.25" r="5.62" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA ESUMER-MEDELLIN | Saber 11: 270.51 | Saber Pro: 139.53 | n=140</title></circle>
+<circle cx="789.46" cy="575.39" r="5.62" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA CAFAM-BOGOTÁ D.C. | Saber 11: 276.74 | Saber Pro: 149.94 | n=141</title></circle>
+<circle cx="931.42" cy="658.70" r="5.65" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA NAVAL DE CADETESALMIRANTE PADILLA-CARTAGENA | Saber 11: 296.10 | Saber Pro: 137.87 | n=146</title></circle>
+<circle cx="848.43" cy="572.22" r="5.66" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA COLEGIOS DE COLOMBIA -UNICOC-BOGOTÁ D.C. | Saber 11: 284.79 | Saber Pro: 150.40 | n=149</title></circle>
+<circle cx="1312.91" cy="347.25" r="5.68" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD EIA-MEDELLIN | Saber 11: 348.12 | Saber Pro: 183.01 | n=153</title></circle>
+<circle cx="830.70" cy="613.42" r="5.69" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD CATOLICA DE MANIZALES-MANIZALES | Saber 11: 282.37 | Saber Pro: 144.43 | n=155</title></circle>
+<circle cx="630.74" cy="682.32" r="5.71" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD POPULAR DEL CESAR-AGUACHICA | Saber 11: 255.10 | Saber Pro: 134.45 | n=159</title></circle>
+<circle cx="708.82" cy="651.75" r="5.73" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA BELLAS ARTES Y CIENCIAS DE BOLIVAR-CARTAGENA | Saber 11: 265.75 | Saber Pro: 138.88 | n=163</title></circle>
+<circle cx="857.47" cy="611.36" r="5.73" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA NAVARRA - UNINAVARRA-NEIVA | Saber 11: 286.02 | Saber Pro: 144.73 | n=163</title></circle>
+<circle cx="712.00" cy="702.42" r="5.74" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUTO TECNOLOGICO DEL PUTUMAYO-MOCOA | Saber 11: 266.18 | Saber Pro: 131.53 | n=165</title></circle>
+<circle cx="447.28" cy="752.18" r="5.76" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA CLARETIANA - UNICLARETIANA-QUIBDO | Saber 11: 230.08 | Saber Pro: 124.32 | n=168</title></circle>
+<circle cx="1017.73" cy="524.85" r="5.77" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD NACIONAL DE COLOMBIA-PALMIRA | Saber 11: 307.87 | Saber Pro: 157.27 | n=172</title></circle>
+<circle cx="775.02" cy="629.88" r="5.78" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>COLEGIO MAYOR DEL CAUCA-POPAYAN | Saber 11: 274.78 | Saber Pro: 142.05 | n=174</title></circle>
+<circle cx="818.82" cy="606.07" r="5.79" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE INVESTIGACION Y DESARROLLO - UDI - BUCARAMANGA | Saber 11: 280.75 | Saber Pro: 145.50 | n=175</title></circle>
+<circle cx="1027.24" cy="479.38" r="5.82" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD AUTONOMA DE MANIZALES-MANIZALES | Saber 11: 309.17 | Saber Pro: 163.86 | n=183</title></circle>
+<circle cx="791.10" cy="607.09" r="5.84" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CUNDINAMARCA-UDEC-GIRARDOT | Saber 11: 276.97 | Saber Pro: 145.35 | n=186</title></circle>
+<circle cx="891.06" cy="564.85" r="5.84" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD CATOLICA DE PEREIRA-PEREIRA | Saber 11: 290.60 | Saber Pro: 151.47 | n=187</title></circle>
+<circle cx="665.54" cy="708.44" r="5.85" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION POLITECNICO DE LA COSTA ATLANTICA-BARRANQUILLA | Saber 11: 259.85 | Saber Pro: 130.66 | n=189</title></circle>
+<circle cx="821.97" cy="593.79" r="5.86" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>COLEGIO MAYOR DE ANTIOQUIA-MEDELLIN | Saber 11: 281.18 | Saber Pro: 147.28 | n=191</title></circle>
+<circle cx="711.97" cy="603.79" r="5.86" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA REPUBLICANA-BOGOTÁ D.C. | Saber 11: 266.18 | Saber Pro: 145.83 | n=192</title></circle>
+<circle cx="681.60" cy="675.41" r="5.87" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION PARA LA EDUCACION SUPERIOR SAN MATEO FUNDACION SAN MATEO-BOGOTÁ D.C. | Saber 11: 262.04 | Saber Pro: 135.45 | n=194</title></circle>
+<circle cx="720.99" cy="631.41" r="5.87" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA COMFACAUCA - UNICOMFACAUCA-POPAYAN | Saber 11: 267.41 | Saber Pro: 141.82 | n=194</title></circle>
+<circle cx="914.56" cy="554.79" r="5.89" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA SANITAS-BOGOTÁ D.C. | Saber 11: 293.80 | Saber Pro: 152.93 | n=199</title></circle>
+<circle cx="863.29" cy="565.28" r="5.91" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA AGRARIA DE COLOMBIA -UNIAGRARIA-BOGOTÁ D.C. | Saber 11: 286.81 | Saber Pro: 151.41 | n=203</title></circle>
+<circle cx="941.00" cy="542.90" r="5.94" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSIDAD DE AMERICA-BOGOTÁ D.C. | Saber 11: 297.41 | Saber Pro: 154.65 | n=210</title></circle>
+<circle cx="805.38" cy="654.15" r="5.95" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SANTIAGO DE CALI-PALMIRA | Saber 11: 278.92 | Saber Pro: 138.53 | n=212</title></circle>
+<circle cx="775.27" cy="578.85" r="6.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA COLOMBO INTERNACIONAL - UNICOLOMBO-CARTAGENA | Saber 11: 274.81 | Saber Pro: 149.44 | n=226</title></circle>
+<circle cx="757.75" cy="653.35" r="6.01" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DEL HUILA-CORHUILA-NEIVA | Saber 11: 272.42 | Saber Pro: 138.64 | n=228</title></circle>
+<circle cx="900.23" cy="541.60" r="6.03" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LA GRAN COLOMBIA-ARMENIA | Saber 11: 291.85 | Saber Pro: 154.84 | n=233</title></circle>
+<circle cx="1163.84" cy="384.19" r="6.06" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>COLEGIO DE ESTUDIOS SUPERIORES DE ADMINISTRACION-CESA-BOGOTÁ D.C. | Saber 11: 327.80 | Saber Pro: 177.65 | n=240</title></circle>
+<circle cx="811.98" cy="568.04" r="6.07" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD CATOLICA DE ORIENTE-RIONEGRO | Saber 11: 279.82 | Saber Pro: 151.01 | n=244</title></circle>
+<circle cx="780.42" cy="638.29" r="6.14" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD COOPERATIVA DE COLOMBIA-BUCARAMANGA | Saber 11: 275.51 | Saber Pro: 140.83 | n=262</title></circle>
+<circle cx="588.37" cy="698.58" r="6.16" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA REFORMADA - CUR -BARRANQUILLA | Saber 11: 249.32 | Saber Pro: 132.09 | n=266</title></circle>
+<circle cx="821.74" cy="593.68" r="6.16" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION  UNIVERSITARIA PASCUAL BRAVO-MEDELLIN | Saber 11: 281.15 | Saber Pro: 147.29 | n=266</title></circle>
+<circle cx="712.69" cy="587.05" r="6.18" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SERGIO ARBOLEDA-SANTA MARTA | Saber 11: 266.28 | Saber Pro: 148.25 | n=272</title></circle>
+<circle cx="794.58" cy="627.29" r="6.21" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA COMPENSAR | Saber 11: 277.44 | Saber Pro: 142.42 | n=280</title></circle>
+<circle cx="990.63" cy="525.21" r="6.22" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA-DUITAMA | Saber 11: 304.18 | Saber Pro: 157.22 | n=283</title></circle>
+<circle cx="866.66" cy="572.28" r="6.23" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE SAN BUENAVENTURA-MEDELLIN | Saber 11: 287.27 | Saber Pro: 150.39 | n=287</title></circle>
+<circle cx="909.43" cy="543.07" r="6.23" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LIBRE-PEREIRA | Saber 11: 293.10 | Saber Pro: 154.63 | n=287</title></circle>
+<circle cx="714.91" cy="634.66" r="6.30" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA JUAN DE CASTELLANOS-TUNJA | Saber 11: 266.58 | Saber Pro: 141.35 | n=306</title></circle>
+<circle cx="580.55" cy="743.09" r="6.30" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUTO TOLIMENSE DE FORMACION TECNICA PROFESIONAL -ESPINAL | Saber 11: 248.26 | Saber Pro: 125.64 | n=307</title></circle>
+<circle cx="685.37" cy="689.62" r="6.32" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUTO UNIVERSITARIO DE LA PAZ-BARRANCABERMEJA | Saber 11: 262.55 | Saber Pro: 133.39 | n=311</title></circle>
+<circle cx="810.89" cy="617.23" r="6.33" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA NACIONAL DEL DEPORTE-CALI | Saber 11: 279.67 | Saber Pro: 143.88 | n=315</title></circle>
+<circle cx="679.64" cy="691.23" r="6.35" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA AUTONOMA DE NARIÑO -AUNAR-PASTO | Saber 11: 261.77 | Saber Pro: 133.16 | n=321</title></circle>
+<circle cx="850.34" cy="601.76" r="6.35" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCIÓN UNIVERSITARIA VISIÓN DE LAS AMÉRICAS-MEDELLIN | Saber 11: 285.05 | Saber Pro: 146.12 | n=321</title></circle>
+<circle cx="818.82" cy="603.80" r="6.35" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA-CEIPA-SABANETA | Saber 11: 280.75 | Saber Pro: 145.83 | n=322</title></circle>
+<circle cx="843.78" cy="559.61" r="6.35" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD AUTONOMA LATINOAMERICANA-UNAULA-MEDELLIN | Saber 11: 284.15 | Saber Pro: 152.23 | n=322</title></circle>
+<circle cx="746.06" cy="639.98" r="6.36" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA MILITAR DE CADETES GENERAL JOSE MARIA CORDOVA-BOGOTÁ D.C. | Saber 11: 270.83 | Saber Pro: 140.58 | n=323</title></circle>
+<circle cx="766.19" cy="656.73" r="6.42" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA ITSA-SOLEDAD | Saber 11: 273.57 | Saber Pro: 138.16 | n=341</title></circle>
+<circle cx="1105.87" cy="486.01" r="6.47" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA-SOGAMOSO | Saber 11: 319.89 | Saber Pro: 162.90 | n=359</title></circle>
+<circle cx="849.58" cy="570.29" r="6.50" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE BOYACA - UNIBOYACA-TUNJA | Saber 11: 284.94 | Saber Pro: 150.68 | n=366</title></circle>
+<circle cx="963.90" cy="566.76" r="6.55" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE MANIZALES-MANIZALES | Saber 11: 300.53 | Saber Pro: 151.19 | n=385</title></circle>
+<circle cx="882.62" cy="582.08" r="6.57" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE SAN BUENAVENTURA-CALI | Saber 11: 289.45 | Saber Pro: 148.97 | n=391</title></circle>
+<circle cx="531.19" cy="735.00" r="6.59" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA LATINOAMERICANA- CUL-BARRANQUILLA | Saber 11: 241.53 | Saber Pro: 126.81 | n=397</title></circle>
+<circle cx="681.71" cy="650.78" r="6.63" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA MARIA CANO-MEDELLIN | Saber 11: 262.05 | Saber Pro: 139.02 | n=411</title></circle>
+<circle cx="901.09" cy="557.25" r="6.64" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE IBAGUE-IBAGUE | Saber 11: 291.97 | Saber Pro: 152.57 | n=414</title></circle>
+<circle cx="905.14" cy="575.02" r="6.64" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD COOPERATIVA DE COLOMBIA-MEDELLIN | Saber 11: 292.52 | Saber Pro: 150.00 | n=414</title></circle>
+<circle cx="817.11" cy="611.47" r="6.65" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL SINÚ &#x27;Elías Bechara Zainúm&#x27; - UNISINÚ-CARTAGENA | Saber 11: 280.52 | Saber Pro: 144.71 | n=417</title></circle>
+<circle cx="916.79" cy="532.01" r="6.68" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PONTIFICIA BOLIVARIANA-MONTERIA | Saber 11: 294.11 | Saber Pro: 156.23 | n=426</title></circle>
+<circle cx="899.01" cy="561.02" r="6.70" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSIDAD PILOTO DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 291.68 | Saber Pro: 152.03 | n=433</title></circle>
+<circle cx="997.07" cy="494.88" r="6.70" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA DE CIENCIAS DE LA SALUD-BOGOTÁ D.C. | Saber 11: 305.06 | Saber Pro: 161.61 | n=435</title></circle>
+<circle cx="857.24" cy="561.58" r="6.75" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD MANUELA BELTRAN-UMB--BOGOTÁ D.C. | Saber 11: 285.99 | Saber Pro: 151.94 | n=452</title></circle>
+<circle cx="1148.99" cy="427.18" r="6.77" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA COLOMBIANA DE INGENIERIAJULIO GARAVITO-BOGOTÁ D.C. | Saber 11: 325.77 | Saber Pro: 171.42 | n=460</title></circle>
+<circle cx="803.84" cy="625.07" r="6.78" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD FRANCISCO DE PAULA SANTANDER-OCAÑA | Saber 11: 278.70 | Saber Pro: 142.74 | n=461</title></circle>
+<circle cx="846.29" cy="570.99" r="6.79" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA DE ENVIGADO-ENVIGADO | Saber 11: 284.49 | Saber Pro: 150.58 | n=465</title></circle>
+<circle cx="1172.59" cy="440.48" r="6.79" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD NACIONAL DE COLOMBIA-MANIZALES | Saber 11: 328.99 | Saber Pro: 169.50 | n=466</title></circle>
+<circle cx="689.94" cy="646.13" r="6.81" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE SAN BUENAVENTURA-CARTAGENA | Saber 11: 263.17 | Saber Pro: 139.69 | n=472</title></circle>
+<circle cx="914.63" cy="508.88" r="6.82" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA KONRAD LORENZ-BOGOTÁ D.C. | Saber 11: 293.81 | Saber Pro: 159.58 | n=477</title></circle>
+<circle cx="912.83" cy="568.16" r="6.84" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CIENCIAS APLICADAS Y AMBIENTALES UDCA.-BOGOTÁ D.C. | Saber 11: 293.57 | Saber Pro: 150.99 | n=484</title></circle>
+<circle cx="888.51" cy="562.60" r="6.86" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SANTO TOMAS-TUNJA | Saber 11: 290.25 | Saber Pro: 151.80 | n=493</title></circle>
+<circle cx="684.76" cy="676.80" r="6.90" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA RAFAEL NUÑEZ-CARTAGENA | Saber 11: 262.47 | Saber Pro: 135.25 | n=507</title></circle>
+<circle cx="873.50" cy="556.87" r="6.90" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUTO TECNOLOGICO METROPOLITANO-MEDELLIN | Saber 11: 288.20 | Saber Pro: 152.63 | n=508</title></circle>
+<circle cx="666.97" cy="678.11" r="6.92" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA AMERICANA-BARRANQUILLA | Saber 11: 260.04 | Saber Pro: 135.06 | n=513</title></circle>
+<circle cx="925.29" cy="548.47" r="6.94" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIDAD CENTRAL DEL VALLE DEL CAUCA-TULUA | Saber 11: 295.27 | Saber Pro: 153.84 | n=520</title></circle>
+<circle cx="764.04" cy="607.29" r="6.94" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA LOS LIBERTADORES-BOGOTÁ D.C. | Saber 11: 273.28 | Saber Pro: 145.32 | n=521</title></circle>
+<circle cx="724.37" cy="619.24" r="6.94" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA DEL AREA ANDINA-PEREIRA | Saber 11: 267.87 | Saber Pro: 143.59 | n=523</title></circle>
+<circle cx="578.25" cy="693.64" r="6.95" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA DE POPAYAN-POPAYAN | Saber 11: 247.94 | Saber Pro: 132.81 | n=526</title></circle>
+<circle cx="591.33" cy="689.26" r="6.96" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA ANTONIO JOSE DE SUCRE - CORPOSUCRE-SINCELEJO | Saber 11: 249.73 | Saber Pro: 133.44 | n=528</title></circle>
+<circle cx="949.71" cy="544.08" r="7.02" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE LOS LLANOS-VILLAVICENCIO | Saber 11: 298.60 | Saber Pro: 154.48 | n=551</title></circle>
+<circle cx="758.76" cy="631.79" r="7.03" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD AUTONOMA DEL CARIBE-BARRANQUILLA | Saber 11: 272.56 | Saber Pro: 141.77 | n=557</title></circle>
+<circle cx="1115.07" cy="468.20" r="7.04" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD CES-MEDELLIN | Saber 11: 321.15 | Saber Pro: 165.48 | n=561</title></circle>
+<circle cx="804.98" cy="622.33" r="7.06" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD METROPOLITANA-BARRANQUILLA | Saber 11: 278.86 | Saber Pro: 143.14 | n=569</title></circle>
+<circle cx="887.50" cy="586.46" r="7.06" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD COOPERATIVA DE COLOMBIA-SANTA MARTA | Saber 11: 290.11 | Saber Pro: 148.34 | n=569</title></circle>
+<circle cx="919.03" cy="568.63" r="7.07" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LIBRE-CALI | Saber 11: 294.41 | Saber Pro: 150.92 | n=571</title></circle>
+<circle cx="745.41" cy="634.67" r="7.09" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>ESCUELA SUPERIOR DE ADMINISTRACION PUBLICA-ESAP-BOGOTÁ D.C. | Saber 11: 270.74 | Saber Pro: 141.35 | n=580</title></circle>
+<circle cx="985.31" cy="495.35" r="7.12" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD EAN-BOGOTÁ D.C. | Saber 11: 303.45 | Saber Pro: 161.54 | n=591</title></circle>
+<circle cx="1280.13" cy="359.55" r="7.12" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD ICESI-CALI | Saber 11: 343.65 | Saber Pro: 181.22 | n=593</title></circle>
+<circle cx="860.59" cy="597.77" r="7.18" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA SAN MARTIN-BOGOTÁ D.C. | Saber 11: 286.44 | Saber Pro: 146.70 | n=617</title></circle>
+<circle cx="703.08" cy="677.22" r="7.19" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA CENTRO DE ESTUDIOS SUPERIORES MARIA GORETTI-PASTO | Saber 11: 264.97 | Saber Pro: 135.19 | n=620</title></circle>
+<circle cx="1051.70" cy="479.44" r="7.20" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PONTIFICIA BOLIVARIANA-BUCARAMANGA | Saber 11: 312.50 | Saber Pro: 163.85 | n=623</title></circle>
+<circle cx="1023.95" cy="491.98" r="7.20" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD TECNOLOGICA DE BOLIVAR-CARTAGENA | Saber 11: 308.72 | Saber Pro: 162.03 | n=626</title></circle>
+<circle cx="1049.53" cy="521.16" r="7.20" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD AUTONOMA DE BUCARAMANGA-UNAB-BUCARAMANGA | Saber 11: 312.21 | Saber Pro: 157.80 | n=627</title></circle>
+<circle cx="918.85" cy="548.43" r="7.23" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD CENTRAL-BOGOTÁ D.C. | Saber 11: 294.39 | Saber Pro: 153.85 | n=636</title></circle>
+<circle cx="948.47" cy="510.87" r="7.23" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE MEDELLIN-MEDELLIN | Saber 11: 298.43 | Saber Pro: 159.29 | n=639</title></circle>
+<circle cx="1042.16" cy="487.73" r="7.24" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSIDAD DE BOGOTAJORGE TADEO LOZANO-BOGOTÁ D.C. | Saber 11: 311.20 | Saber Pro: 162.65 | n=643</title></circle>
+<circle cx="968.31" cy="553.09" r="7.27" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SANTO TOMAS-BUCARAMANGA | Saber 11: 301.13 | Saber Pro: 153.18 | n=654</title></circle>
+<circle cx="812.92" cy="638.26" r="7.28" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIDADES TECNOLOGICAS DE SANTANDER-BUCARAMANGA | Saber 11: 279.94 | Saber Pro: 140.83 | n=660</title></circle>
+<circle cx="802.47" cy="590.02" r="7.34" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSITARIA AGUSTINIANA- UNIAGUSTINIANA-BOGOTÁ D.C. | Saber 11: 278.52 | Saber Pro: 147.82 | n=684</title></circle>
+<circle cx="771.10" cy="623.92" r="7.36" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE LA AMAZONIA-FLORENCIA | Saber 11: 274.24 | Saber Pro: 142.91 | n=695</title></circle>
+<circle cx="942.49" cy="526.85" r="7.37" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD-COLEGIO MAYOR DE CUNDINAMARCA-BOGOTÁ D.C. | Saber 11: 297.61 | Saber Pro: 156.98 | n=696</title></circle>
+<circle cx="678.14" cy="710.95" r="7.38" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION DE EDUCACION SUPERIOR SAN JOSE -FESSANJOSE-BOGOTÁ D.C. | Saber 11: 261.56 | Saber Pro: 130.30 | n=702</title></circle>
+<circle cx="795.76" cy="579.37" r="7.39" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LA GRAN COLOMBIA-BOGOTÁ D.C. | Saber 11: 277.60 | Saber Pro: 149.37 | n=705</title></circle>
+<circle cx="637.38" cy="683.02" r="7.40" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA TECNOLOGICO COMFENALCO - CARTAGENA      -CARTAGENA | Saber 11: 256.01 | Saber Pro: 134.35 | n=712</title></circle>
+<circle cx="1022.50" cy="511.20" r="7.40" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CALDAS-MANIZALES | Saber 11: 308.52 | Saber Pro: 159.25 | n=713</title></circle>
+<circle cx="778.87" cy="616.48" r="7.45" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD MARIANA-PASTO | Saber 11: 275.30 | Saber Pro: 143.99 | n=732</title></circle>
+<circle cx="1140.45" cy="448.94" r="7.46" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>PONTIFICIA UNIVERSIDAD JAVERIANA-CALI | Saber 11: 324.61 | Saber Pro: 168.27 | n=739</title></circle>
+<circle cx="993.14" cy="545.38" r="7.49" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE SUCRE-SINCELEJO | Saber 11: 304.52 | Saber Pro: 154.29 | n=753</title></circle>
+<circle cx="932.27" cy="556.44" r="7.51" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>POLITECNICO COLOMBIANOJAIME ISAZA CADAVID-MEDELLIN | Saber 11: 296.22 | Saber Pro: 152.69 | n=762</title></circle>
+<circle cx="1299.63" cy="360.23" r="7.53" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD NACIONAL DE COLOMBIA-MEDELLIN | Saber 11: 346.31 | Saber Pro: 181.13 | n=769</title></circle>
+<circle cx="894.24" cy="540.54" r="7.56" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LIBRE-BOGOTÁ D.C. | Saber 11: 291.03 | Saber Pro: 154.99 | n=782</title></circle>
+<circle cx="1007.85" cy="510.41" r="7.56" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD AUTONOMA DE OCCIDENTE-CALI | Saber 11: 306.52 | Saber Pro: 159.36 | n=785</title></circle>
+<circle cx="997.66" cy="506.17" r="7.64" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SERGIO ARBOLEDA-BOGOTÁ D.C. | Saber 11: 305.14 | Saber Pro: 159.98 | n=821</title></circle>
+<circle cx="931.13" cy="529.20" r="7.70" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE LA SALLE-BOGOTÁ D.C. | Saber 11: 296.06 | Saber Pro: 156.64 | n=853</title></circle>
+<circle cx="685.64" cy="672.93" r="7.77" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA REMINGTON-MEDELLIN | Saber 11: 262.59 | Saber Pro: 135.81 | n=885</title></circle>
+<circle cx="874.54" cy="543.83" r="7.78" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD CATOLICA DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 288.35 | Saber Pro: 154.52 | n=888</title></circle>
+<circle cx="909.85" cy="569.07" r="7.78" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD LIBRE-BARRANQUILLA | Saber 11: 293.16 | Saber Pro: 150.86 | n=891</title></circle>
+<circle cx="544.57" cy="712.28" r="7.87" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>INSTITUCION UNIVERSITARIA ANTONIO JOSE CAMACHO - UNIAJC-CALI | Saber 11: 243.35 | Saber Pro: 130.10 | n=936</title></circle>
+<circle cx="367.89" cy="778.04" r="7.88" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD TECNOLOGICA DEL CHOCODIEGO LUIS CORDOBA-QUIBDO | Saber 11: 219.26 | Saber Pro: 120.57 | n=940</title></circle>
+<circle cx="622.29" cy="677.91" r="7.88" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA DEL CARIBE - CECAR-SINCELEJO | Saber 11: 253.95 | Saber Pro: 135.09 | n=940</title></circle>
+<circle cx="833.91" cy="587.92" r="7.89" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CUNDINAMARCA-UDEC-FUSAGASUGA | Saber 11: 282.81 | Saber Pro: 148.13 | n=945</title></circle>
+<circle cx="901.95" cy="522.69" r="7.92" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PEDAGOGICA NACIONAL-BOGOTÁ D.C. | Saber 11: 292.08 | Saber Pro: 157.58 | n=962</title></circle>
+<circle cx="1105.88" cy="427.73" r="7.95" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD EXTERNADO DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 319.89 | Saber Pro: 171.34 | n=974</title></circle>
+<circle cx="1100.17" cy="457.15" r="7.97" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL CAUCA-POPAYAN | Saber 11: 319.11 | Saber Pro: 167.08 | n=986</title></circle>
+<circle cx="935.75" cy="554.79" r="8.01" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL QUINDIO-ARMENIA | Saber 11: 296.69 | Saber Pro: 152.93 | n=1006</title></circle>
+<circle cx="973.82" cy="560.29" r="8.01" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE NARIÑO-PASTO | Saber 11: 301.88 | Saber Pro: 152.13 | n=1006</title></circle>
+<circle cx="760.30" cy="636.76" r="8.01" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE SANTANDER - UDES-BUCARAMANGA | Saber 11: 272.77 | Saber Pro: 141.05 | n=1007</title></circle>
+<circle cx="720.46" cy="626.48" r="8.11" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>TECNOLOGICO DE ANTIOQUIA-MEDELLIN | Saber 11: 267.34 | Saber Pro: 142.54 | n=1061</title></circle>
+<circle cx="787.45" cy="603.45" r="8.13" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA LUIS AMIGO FUNLAM-MEDELLIN | Saber 11: 276.47 | Saber Pro: 145.88 | n=1072</title></circle>
+<circle cx="739.77" cy="638.65" r="8.28" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL SINÚ &#x27;Elías Bechara Zainúm&#x27; - UNISINÚ-MONTERIA | Saber 11: 269.97 | Saber Pro: 140.78 | n=1157</title></circle>
+<circle cx="962.99" cy="527.02" r="8.30" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD TECNOLOGICA DE PEREIRA - ITP-PEREIRA | Saber 11: 300.41 | Saber Pro: 156.95 | n=1170</title></circle>
+<circle cx="816.62" cy="598.53" r="8.31" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD POPULAR DEL CESAR-VALLEDUPAR | Saber 11: 280.45 | Saber Pro: 146.59 | n=1172</title></circle>
+<circle cx="1169.43" cy="414.01" r="8.35" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD EAFIT--MEDELLIN | Saber 11: 328.56 | Saber Pro: 173.33 | n=1197</title></circle>
+<circle cx="840.15" cy="572.70" r="8.37" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD ECCI-BOGOTÁ D.C. | Saber 11: 283.66 | Saber Pro: 150.33 | n=1205</title></circle>
+<circle cx="675.58" cy="666.94" r="8.43" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA IBEROAMERICANA-BOGOTÁ D.C. | Saber 11: 261.22 | Saber Pro: 136.68 | n=1241</title></circle>
+<circle cx="1087.64" cy="431.45" r="8.44" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PONTIFICIA BOLIVARIANA-MEDELLIN | Saber 11: 317.41 | Saber Pro: 170.80 | n=1246</title></circle>
+<circle cx="1247.00" cy="347.48" r="8.45" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>COLEGIO MAYOR DE NUESTRA SEÑORA DEL ROSARIO-BOGOTÁ D.C. | Saber 11: 339.14 | Saber Pro: 182.97 | n=1252</title></circle>
+<circle cx="635.31" cy="674.18" r="8.46" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE LA GUAJIRA-RIOHACHA | Saber 11: 255.72 | Saber Pro: 135.63 | n=1260</title></circle>
+<circle cx="974.69" cy="559.43" r="8.55" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SURCOLOMBIANA-NEIVA | Saber 11: 302.00 | Saber Pro: 152.26 | n=1312</title></circle>
+<circle cx="1014.21" cy="501.28" r="8.55" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD EL BOSQUE-BOGOTÁ D.C. | Saber 11: 307.39 | Saber Pro: 160.68 | n=1317</title></circle>
+<circle cx="1179.98" cy="362.29" r="8.79" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE LA SABANA-CHIA | Saber 11: 330.00 | Saber Pro: 180.83 | n=1461</title></circle>
+<circle cx="779.73" cy="638.84" r="8.79" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD ANTONIO NARIÑO-BOGOTÁ D.C. | Saber 11: 275.42 | Saber Pro: 140.75 | n=1466</title></circle>
+<circle cx="928.91" cy="544.23" r="8.82" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SANTO TOMAS-BOGOTÁ D.C. | Saber 11: 295.76 | Saber Pro: 154.46 | n=1481</title></circle>
+<circle cx="910.59" cy="585.06" r="8.95" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD FRANCISCO DE PAULA SANTANDER-CUCUTA | Saber 11: 293.26 | Saber Pro: 148.54 | n=1564</title></circle>
+<circle cx="814.40" cy="613.78" r="8.98" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL TOLIMA-IBAGUE | Saber 11: 280.15 | Saber Pro: 144.38 | n=1590</title></circle>
+<circle cx="806.94" cy="580.66" r="9.05" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSIDAD DE LA COSTA, CUC-BARRANQUILLA | Saber 11: 279.13 | Saber Pro: 149.18 | n=1636</title></circle>
+<circle cx="1055.74" cy="485.45" r="9.16" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA-TUNJA | Saber 11: 313.06 | Saber Pro: 162.98 | n=1708</title></circle>
+<circle cx="712.22" cy="667.81" r="9.27" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIFICADA NACIONAL DE EDUCACION SUPERIOR-CUN-BOGOTÁ D.C. | Saber 11: 266.21 | Saber Pro: 136.55 | n=1785</title></circle>
+<circle cx="761.27" cy="632.90" r="9.41" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SANTIAGO DE CALI-CALI | Saber 11: 272.90 | Saber Pro: 141.61 | n=1886</title></circle>
+<circle cx="1241.48" cy="407.08" r="9.42" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL NORTE-BARRANQUILLA | Saber 11: 338.38 | Saber Pro: 174.34 | n=1891</title></circle>
+<circle cx="1226.35" cy="428.47" r="9.44" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD INDUSTRIAL DE SANTANDER-BUCARAMANGA | Saber 11: 336.32 | Saber Pro: 171.24 | n=1904</title></circle>
+<circle cx="743.82" cy="640.42" r="9.48" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD COOPERATIVA DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 270.52 | Saber Pro: 140.52 | n=1933</title></circle>
+<circle cx="1147.99" cy="425.42" r="9.48" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE ANTIOQUIA-MEDELLIN | Saber 11: 325.63 | Saber Pro: 171.68 | n=1934</title></circle>
+<circle cx="838.56" cy="614.53" r="9.51" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE PAMPLONA-PAMPLONA | Saber 11: 283.44 | Saber Pro: 144.27 | n=1961</title></circle>
+<circle cx="1013.28" cy="488.25" r="9.53" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD MILITARNUEVA GRANADA-BOGOTÁ D.C. | Saber 11: 307.27 | Saber Pro: 162.57 | n=1975</title></circle>
+<circle cx="888.55" cy="562.34" r="9.63" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CARTAGENA-CARTAGENA | Saber 11: 290.26 | Saber Pro: 151.83 | n=2046</title></circle>
+<circle cx="1124.53" cy="447.65" r="9.70" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DISTRITALFRANCISCO JOSE DE CALDAS-BOGOTÁ D.C. | Saber 11: 322.44 | Saber Pro: 168.46 | n=2099</title></circle>
+<circle cx="712.76" cy="643.04" r="9.71" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD SIMON BOLIVAR-BARRANQUILLA | Saber 11: 266.29 | Saber Pro: 140.14 | n=2109</title></circle>
+<circle cx="879.34" cy="598.77" r="9.76" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE CORDOBA-MONTERIA | Saber 11: 289.00 | Saber Pro: 146.56 | n=2149</title></circle>
+<circle cx="1009.15" cy="527.45" r="9.85" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL ATLANTICO-BARRANQUILLA | Saber 11: 306.70 | Saber Pro: 156.89 | n=2219</title></circle>
+<circle cx="1378.82" cy="339.40" r="9.86" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DE LOS ANDES-BOGOTÁ D.C. | Saber 11: 357.11 | Saber Pro: 184.14 | n=2224</title></circle>
+<circle cx="770.96" cy="636.71" r="10.00" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>POLITECNICO GRANCOLOMBIANO-BOGOTÁ D.C. | Saber 11: 274.22 | Saber Pro: 141.06 | n=2339</title></circle>
+<circle cx="1060.84" cy="513.29" r="10.16" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD DEL VALLE-CALI | Saber 11: 313.75 | Saber Pro: 158.94 | n=2467</title></circle>
+<circle cx="1209.73" cy="406.36" r="10.39" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>PONTIFICIA UNIVERSIDAD JAVERIANA-BOGOTÁ D.C. | Saber 11: 334.05 | Saber Pro: 174.44 | n=2658</title></circle>
+<circle cx="1354.67" cy="319.88" r="10.42" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD NACIONAL DE COLOMBIA-BOGOTÁ D.C. | Saber 11: 353.82 | Saber Pro: 186.97 | n=2690</title></circle>
+<circle cx="665.99" cy="671.52" r="10.44" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA UNAD-BOGOTÁ D.C. | Saber 11: 259.91 | Saber Pro: 136.01 | n=2705</title></circle>
+<circle cx="791.41" cy="633.73" r="11.01" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>None | Saber 11: 277.01 | Saber Pro: 141.49 | n=3216</title></circle>
+<circle cx="702.60" cy="648.59" r="11.04" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>FUNDACION UNIVERSITARIA DEL AREA ANDINA-BOGOTÁ D.C. | Saber 11: 264.90 | Saber Pro: 139.33 | n=3246</title></circle>
+<circle cx="657.29" cy="677.11" r="13.24" fill="#66bf78" fill-opacity="0.62" stroke="#ffffff" stroke-width="1"><title>CORPORACION UNIVERSITARIA MINUTO DE DIOS -UNIMINUTO-BOGOTÁ D.C. | Saber 11: 258.72 | Saber Pro: 135.20 | n=5679</title></circle>
+<circle cx="872.00" cy="542.64" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - ANTROPOLOGIA, ARTES LIBERALES | Saber 11: 288.00 | Saber Pro: 154.69 | n=29</title></circle>
+<circle cx="1050.75" cy="515.92" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - ARTES PLASTICAS, VISUALES Y AFINES | Saber 11: 312.38 | Saber Pro: 158.56 | n=32</title></circle>
+<circle cx="956.99" cy="502.46" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - BIOLOGIA, MICROBIOLOGIA Y AFINES | Saber 11: 299.59 | Saber Pro: 160.51 | n=39</title></circle>
+<circle cx="997.65" cy="476.14" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - PSICOLOGIA | Saber 11: 305.13 | Saber Pro: 164.33 | n=52</title></circle>
+<circle cx="1020.34" cy="446.93" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - INGENIERIA ELECTRONICA, TELECOMUNICACIONES Y AFINES | Saber 11: 308.23 | Saber Pro: 168.56 | n=57</title></circle>
+<circle cx="1200.29" cy="472.65" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - MEDICINA | Saber 11: 332.77 | Saber Pro: 164.83 | n=60</title></circle>
+<circle cx="1003.22" cy="507.05" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - ENFERMERIA | Saber 11: 305.89 | Saber Pro: 159.85 | n=66</title></circle>
+<circle cx="862.19" cy="565.56" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - ECONOMIA | Saber 11: 286.66 | Saber Pro: 151.37 | n=68</title></circle>
+<circle cx="1049.14" cy="503.86" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - DERECHO Y AFINES | Saber 11: 312.15 | Saber Pro: 160.31 | n=71</title></circle>
+<circle cx="1071.16" cy="434.28" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - INGENIERIA DE SISTEMAS, TELEMATICA Y AFINES | Saber 11: 315.16 | Saber Pro: 170.39 | n=76</title></circle>
+<circle cx="1128.84" cy="432.34" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - INGENIERIA CIVIL Y AFINES | Saber 11: 323.02 | Saber Pro: 170.67 | n=83</title></circle>
+<circle cx="720.90" cy="610.46" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - INGENIERIA AGRONOMICA, PECUARIA Y AFINES | Saber 11: 267.40 | Saber Pro: 144.86 | n=101</title></circle>
+<circle cx="1019.98" cy="482.98" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - INGENIERIA INDUSTRIAL Y AFINES | Saber 11: 308.18 | Saber Pro: 163.34 | n=128</title></circle>
+<circle cx="921.25" cy="540.86" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - CONTADURIA PUBLICA | Saber 11: 294.72 | Saber Pro: 154.95 | n=134</title></circle>
+<circle cx="946.21" cy="517.59" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - INGENIERIA AMBIENTAL, SANITARIA Y AFINES | Saber 11: 298.12 | Saber Pro: 158.32 | n=134</title></circle>
+<circle cx="459.54" cy="769.80" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - DEPORTES, EDUCACION FISICA Y RECREACION | Saber 11: 231.75 | Saber Pro: 121.77 | n=151</title></circle>
+<circle cx="635.55" cy="660.12" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - EDUCACION | Saber 11: 255.76 | Saber Pro: 137.66 | n=152</title></circle>
+<circle cx="874.79" cy="540.95" r="7.00" fill="#2f7fd9" fill-opacity="0.88" stroke="#0f3f77" stroke-width="1.9"><title>UNIMAGDALENA - ADMINISTRACION | Saber 11: 288.38 | Saber Pro: 154.93 | n=258</title></circle>
+<circle cx="885.88" cy="549.07" r="12.13" fill="#d9482f" fill-opacity="0.92" stroke="#7c1f12" stroke-width="2.4"><title>UNIVERSIDAD DEL MAGDALENA - UNIMAGDALENA-SANTA MARTA | Saber 11: 289.89 | Saber Pro: 153.76 | n=1691</title></circle>
+<circle cx="841.74" cy="588.73" r="10" fill="#063a66" stroke="#ffffff" stroke-width="2">
+<title>Promedio de universidades: Saber 11 283.87, Saber Pro 148.01</title>
+</circle>
+<text class="axis-label" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#4a5870" x="102" y="575.00" text-anchor="middle" transform="rotate(-90 102 575.00)">Promedio Saber Pro (Salida)</text>
+<text class="axis-label" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#4a5870" x="960.00" y="1016" text-anchor="middle">Promedio Saber 11 (Entrada)</text>
+<rect class="explain-box" stroke="#e7edf5" stroke-width="2" x="300" y="1052" width="630.00" height="132" rx="22" fill="#eaf7ed"/>
+<circle cx="334" cy="1090" r="12" fill="#00a11a"/>
+<text class="explain-title" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#111827" x="366" y="1100">Alto aporte</text>
+<text class="explain-text" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#65748a" x="334" y="1134">Entrada menor al promedio y salida</text>
+<text class="explain-text" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#65748a" x="334" y="1160">mayor al promedio.</text>
+<rect class="explain-box" stroke="#e7edf5" stroke-width="2" x="990.00" y="1052" width="630.00" height="132" rx="22" fill="#f5f7fa"/>
+<circle cx="1024.00" cy="1090" r="12" fill="#073a67"/>
+<text class="explain-title" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#111827" x="1056.00" y="1100">Alto desempe&#241;o</text>
+<text class="explain-text" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#65748a" x="1024.00" y="1142">Entrada y salida por encima del promedio.</text>
+<rect class="explain-box" stroke="#e7edf5" stroke-width="2" x="300" y="1206" width="630.00" height="132" rx="22" fill="#fbfcfd"/>
+<circle cx="334" cy="1244" r="12" fill="#5d6e87"/>
+<text class="explain-title" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#111827" x="366" y="1254">Base baja</text>
+<text class="explain-text" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#65748a" x="334" y="1296">Entrada y salida por debajo del promedio.</text>
+<rect class="explain-box" stroke="#e7edf5" stroke-width="2" x="990.00" y="1206" width="630.00" height="132" rx="22" fill="#fffaf0"/>
+<circle cx="1024.00" cy="1244" r="12" fill="#846b00"/>
+<text class="explain-title" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#111827" x="1056.00" y="1254">Alerta</text>
+<text class="explain-text" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#65748a" x="1024.00" y="1296">Entrada alta con salida menor al promedio.</text>
+</svg>

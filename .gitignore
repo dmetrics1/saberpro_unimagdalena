@@ -1,0 +1,71 @@
+# ============================================================
+# Entorno virtual de Python
+# ============================================================
+venv/
+.venv/
+env/
+ENV/
+
+# ============================================================
+# Caché y artefactos de Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ============================================================
+# Notebooks / Jupyter
+# ============================================================
+.ipynb_checkpoints/
+
+# ============================================================
+# Editores e IDEs
+# ============================================================
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*.code-workspace
+
+# ============================================================
+# Sistema operativo
+# ============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ============================================================
+# Logs y temporales
+# ============================================================
+*.log
+*.tmp
+*.bak
+*~
+
+# ============================================================
+# OneDrive — metadatos locales
+# ============================================================
+.~lock.*
+~$*
+
+# ============================================================
+# Notas:
+# ============================================================
+# Los archivos de datos crudos (parquet y Excel) y los JSON
+# procesados SÍ se trackean en este repositorio (privado).
+# Si en el futuro el peso de data/ se vuelve un problema,
+# considerar mover los Excel y el parquet a Git LFS.

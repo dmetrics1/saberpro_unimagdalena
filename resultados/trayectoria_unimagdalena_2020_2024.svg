@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000" role="img" aria-label="Trayectoria de UNIMAGDALENA Saber 11 y Saber Pro 2020-2024">
+<style>
+text{font-family:Arial, Helvetica, sans-serif;letter-spacing:0}
+.title{font-size:36px;font-weight:800;fill:#1b4d3e}
+.subtitle{font-size:20px;fill:#65748a;font-weight:500}
+.axis-label{font-size:27px;font-weight:800;fill:#4a5870}
+.tick{font-size:28px;fill:#666}
+.quad{font-size:27px;font-weight:800;fill:#073a67}
+.base{fill:#5d6e87}
+.alert{fill:#846b00}
+.legend{font-size:24px;font-weight:700;fill:#4a5870}
+.grid{stroke:#d9e3ef;stroke-width:2;stroke-dasharray:7 9}
+.axis{stroke:#666;stroke-width:2}
+.mean{stroke:#6f91ba;stroke-width:2.5;stroke-dasharray:11 11}
+.mean-label{font-size:20px;font-weight:800;fill:#4a5870}
+.label-year{font-family:Arial, Helvetica, sans-serif;paint-order:stroke fill}
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="23" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c1f12"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1800" height="1000" fill="#ffffff"/>
+<rect x="300" y="120" width="775.7209967120948" height="504.93517543535495" fill="#eaf7ed"/>
+<rect x="1075.7209967120948" y="120" width="544.2790032879052" height="504.93517543535495" fill="#eff6ff"/>
+<rect x="300" y="624.935175435355" width="775.7209967120948" height="195.06482456464505" fill="#fbfcfd"/>
+<rect x="1075.7209967120948" y="624.935175435355" width="544.2790032879052" height="195.06482456464505" fill="#fffaf0"/>
+<line class="grid" x1="300.00" y1="120" x2="300.00" y2="820"/>
+<line class="grid" x1="564.00" y1="120" x2="564.00" y2="820"/>
+<line class="grid" x1="828.00" y1="120" x2="828.00" y2="820"/>
+<line class="grid" x1="1092.00" y1="120" x2="1092.00" y2="820"/>
+<line class="grid" x1="1356.00" y1="120" x2="1356.00" y2="820"/>
+<line class="grid" x1="1620.00" y1="120" x2="1620.00" y2="820"/>
+<line class="grid" x1="300" y1="820.00" x2="1620" y2="820.00"/>
+<line class="grid" x1="300" y1="674.17" x2="1620" y2="674.17"/>
+<line class="grid" x1="300" y1="528.33" x2="1620" y2="528.33"/>
+<line class="grid" x1="300" y1="382.50" x2="1620" y2="382.50"/>
+<line class="grid" x1="300" y1="236.67" x2="1620" y2="236.67"/>
+<line class="grid" x1="300" y1="120.00" x2="1620" y2="120.00"/>
+<line class="mean" x1="1075.72" y1="120" x2="1075.72" y2="820"/>
+<line class="mean" x1="300" y1="624.94" x2="1620" y2="624.94"/>
+<text class="mean-label" x="1075.72" y="105" text-anchor="middle">284.7</text>
+<text class="mean-label" x="1638" y="632.94" text-anchor="start">148.3</text>
+<line class="axis" x1="300" y1="820" x2="1620" y2="820"/>
+<line class="axis" x1="300" y1="120" x2="300" y2="820"/>
+<line class="axis" x1="300.00" y1="820" x2="300.00" y2="832"/>
+<text class="tick" x="300.00" y="878" text-anchor="middle">270</text>
+<line class="axis" x1="564.00" y1="820" x2="564.00" y2="832"/>
+<text class="tick" x="564.00" y="878" text-anchor="middle">275</text>
+<line class="axis" x1="828.00" y1="820" x2="828.00" y2="832"/>
+<text class="tick" x="828.00" y="878" text-anchor="middle">280</text>
+<line class="axis" x1="1092.00" y1="820" x2="1092.00" y2="832"/>
+<text class="tick" x="1092.00" y="878" text-anchor="middle">285</text>
+<line class="axis" x1="1356.00" y1="820" x2="1356.00" y2="832"/>
+<text class="tick" x="1356.00" y="878" text-anchor="middle">290</text>
+<line class="axis" x1="1620.00" y1="820" x2="1620.00" y2="832"/>
+<text class="tick" x="1620.00" y="878" text-anchor="middle">295</text>
+<line class="axis" x1="288" y1="820.00" x2="300" y2="820.00"/>
+<text class="tick" x="266" y="830.00" text-anchor="end">145.0</text>
+<line class="axis" x1="288" y1="674.17" x2="300" y2="674.17"/>
+<text class="tick" x="266" y="684.17" text-anchor="end">147.5</text>
+<line class="axis" x1="288" y1="528.33" x2="300" y2="528.33"/>
+<text class="tick" x="266" y="538.33" text-anchor="end">150.0</text>
+<line class="axis" x1="288" y1="382.50" x2="300" y2="382.50"/>
+<text class="tick" x="266" y="392.50" text-anchor="end">152.5</text>
+<line class="axis" x1="288" y1="236.67" x2="300" y2="236.67"/>
+<text class="tick" x="266" y="246.67" text-anchor="end">155.0</text>
+<line class="axis" x1="288" y1="120.00" x2="300" y2="120.00"/>
+<text class="tick" x="266" y="130.00" text-anchor="end">157.0</text>
+<text class="quad" x="320" y="158">Alto aporte</text>
+<text class="quad" x="1600" y="158" text-anchor="end">Alto desempeño</text>
+<text class="quad base" x="320" y="800">Base baja</text>
+<text class="quad alert" x="1600" y="800" text-anchor="end">Alerta</text>
+<line x1="577.75" y1="322.44" x2="767.41" y2="538.32" stroke="#d9482f" stroke-width="4.5" stroke-dasharray="10 6" marker-end="url(#arrow)"/>
+<line x1="767.41" y1="538.32" x2="928.98" y2="401.86" stroke="#d9482f" stroke-width="4.5" stroke-dasharray="10 6" marker-end="url(#arrow)"/>
+<line x1="928.98" y1="401.86" x2="1317.15" y2="400.68" stroke="#d9482f" stroke-width="4.5" stroke-dasharray="10 6" marker-end="url(#arrow)"/>
+<line x1="1317.15" y1="400.68" x2="1350.32" y2="309.11" stroke="#d9482f" stroke-width="4.5" stroke-dasharray="10 6" marker-end="url(#arrow)"/>
+<circle cx="577.75" cy="322.44" r="18" fill="#d9482f" fill-opacity="0.95" stroke="#7c1f12" stroke-width="3.5"><title>UNIMAGDALENA 2020 | Saber 11: 275.26 | Saber Pro: 153.53 | n=895</title></circle>
+<g class="label-group">
+  <text class="label-year" x="552.75" y="287.44" text-anchor="end">
+    <tspan font-weight="900" font-size="28" fill="#1b4d3e" stroke="#ffffff" stroke-width="5" paint-order="stroke fill">2020</tspan>
+    <tspan x="552.75" dy="24" font-weight="800" font-size="16" fill="#4b5563" stroke="#ffffff" stroke-width="4.5" paint-order="stroke fill">(275.3, 153.5)</tspan>
+  </text>
+</g>
+<circle cx="767.41" cy="538.32" r="18" fill="#d9482f" fill-opacity="0.95" stroke="#7c1f12" stroke-width="3.5"><title>UNIMAGDALENA 2021 | Saber 11: 278.85 | Saber Pro: 149.83 | n=1227</title></circle>
+<g class="label-group">
+  <text class="label-year" x="767.41" y="598.32" text-anchor="middle">
+    <tspan font-weight="900" font-size="28" fill="#1b4d3e" stroke="#ffffff" stroke-width="5" paint-order="stroke fill">2021</tspan>
+    <tspan x="767.41" dy="24" font-weight="800" font-size="16" fill="#4b5563" stroke="#ffffff" stroke-width="4.5" paint-order="stroke fill">(278.9, 149.8)</tspan>
+  </text>
+</g>
+<circle cx="928.98" cy="401.86" r="18" fill="#d9482f" fill-opacity="0.95" stroke="#7c1f12" stroke-width="3.5"><title>UNIMAGDALENA 2022 | Saber 11: 281.91 | Saber Pro: 152.17 | n=1041</title></circle>
+<g class="label-group">
+  <text class="label-year" x="923.98" y="363.86" text-anchor="middle">
+    <tspan font-weight="900" font-size="28" fill="#1b4d3e" stroke="#ffffff" stroke-width="5" paint-order="stroke fill">2022</tspan>
+    <tspan x="923.98" dy="24" font-weight="800" font-size="16" fill="#4b5563" stroke="#ffffff" stroke-width="4.5" paint-order="stroke fill">(281.9, 152.2)</tspan>
+  </text>
+</g>
+<circle cx="1317.15" cy="400.68" r="18" fill="#d9482f" fill-opacity="0.95" stroke="#7c1f12" stroke-width="3.5"><title>UNIMAGDALENA 2023 | Saber 11: 289.26 | Saber Pro: 152.19 | n=1556</title></circle>
+<g class="label-group">
+  <text class="label-year" x="1317.15" y="460.68" text-anchor="middle">
+    <tspan font-weight="900" font-size="28" fill="#1b4d3e" stroke="#ffffff" stroke-width="5" paint-order="stroke fill">2023</tspan>
+    <tspan x="1317.15" dy="24" font-weight="800" font-size="16" fill="#4b5563" stroke="#ffffff" stroke-width="4.5" paint-order="stroke fill">(289.3, 152.2)</tspan>
+  </text>
+</g>
+<circle cx="1350.32" cy="309.11" r="18" fill="#d9482f" fill-opacity="0.95" stroke="#7c1f12" stroke-width="3.5"><title>UNIMAGDALENA 2024 | Saber 11: 289.89 | Saber Pro: 153.76 | n=1691</title></circle>
+<g class="label-group">
+  <text class="label-year" x="1375.32" y="274.11" text-anchor="start">
+    <tspan font-weight="900" font-size="28" fill="#1b4d3e" stroke="#ffffff" stroke-width="5" paint-order="stroke fill">2024</tspan>
+    <tspan x="1375.32" dy="24" font-weight="800" font-size="16" fill="#4b5563" stroke="#ffffff" stroke-width="4.5" paint-order="stroke fill">(289.9, 153.8)</tspan>
+  </text>
+</g>
+<circle cx="1075.72" cy="624.94" r="10" fill="#063a66" stroke="#ffffff" stroke-width="2"><title>Intersección de Medias del Periodo (Saber 11: 284.69 | Saber Pro: 148.34)</title></circle>
+<text class="axis-label" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#4a5870" x="102" y="470.00" text-anchor="middle" transform="rotate(-90 102 470.00)">Promedio Saber Pro (Salida)</text>
+<text class="axis-label" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#4a5870" x="960.00" y="916" text-anchor="middle">Promedio Saber 11 (Entrada)</text>
+</svg>

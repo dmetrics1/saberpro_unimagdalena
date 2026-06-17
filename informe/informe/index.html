@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe Saber Pro · Universidad del Magdalena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar" id="sidebar" aria-label="Menu de secciones">
+    <div class="sidebar__brand">
+      <div class="sidebar__logo" id="brandLogo">
+        <img src="https://cdn.unimagdalena.edu.co/images/escudo/bg_light/192.png"
+             alt="Escudo Universidad del Magdalena"
+             onerror="this.parentNode.textContent='UM'">
+      </div>
+      <div class="sidebar__title">UNIMAGDALENA<span>Informe Saber Pro</span></div>
+    </div>
+    <nav class="nav" id="nav">
+      <a class="nav__item is-active" href="#panorama"><span class="nav__num">01</span> Panorama</a>
+      <a class="nav__item" href="#posicionamiento"><span class="nav__num">02</span> Posicionamiento</a>
+      <a class="nav__item" href="#valor-agregado"><span class="nav__num">03</span> Valor agregado</a>
+      <a class="nav__item" href="#facultades"><span class="nav__num">04</span> Facultades</a>
+      <a class="nav__item" href="#programas"><span class="nav__num">05</span> Programas</a>
+      <a class="nav__item" href="#competencias"><span class="nav__num">06</span> Competencias</a>
+      <a class="nav__item" href="#sintesis"><span class="nav__num">07</span> Síntesis</a>
+    </nav>
+    <div class="sidebar__foot">
+      Año vigente
+      <strong id="footYear">—</strong>
+      <span id="footGen"></span>
+    </div>
+  </aside>
+
+  <!-- ===================== CONTENIDO ===================== -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero__inner">
+        <span class="hero__year-badge">2025</span>
+        <h1>
+          <span>Informe Saber Pro</span>
+          <strong>UNIMAGDALENA</strong>
+        </h1>
+        <p class="hero__sub" id="heroSub"></p>
+        <div class="hero__actions" aria-label="Accesos principales">
+          <a class="hero__button hero__button--primary" href="#panorama">Ver panorama</a>
+          <a class="hero__button" href="#programas">Explorar programas</a>
+        </div>
+      </div>
+      <!-- Métricas conservadas como sumidero invisible para que el JS no falle -->
+      <span id="heroScore" hidden></span>
+      <span id="heroRank" hidden></span>
+      <span id="heroPrograms" hidden></span>
+    </header>
+
+    <!-- KPIs (G1) -->
+    <section class="kpi-grid" id="kpiGrid" aria-label="Indicadores clave"></section>
+
+    <!-- SECCIONES -->
+    <section class="section" id="panorama">
+      <div class="section__eyebrow">01 · Panorama institucional</div>
+      <h2 class="section__title">Desempeño frente al país</h2>
+      <p class="section__lead" id="leadPanorama"></p>
+      <div class="charts-grid">
+        <div class="card">
+          <h3 class="card__title">Perfil de Competencias Genéricas</h3>
+          <p class="card__subtitle">UNIMAGDALENA (azul) vs. Promedio Nacional (naranja).</p>
+          <div class="chart-container" id="chartRadar"></div>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Evolución Histórica Global</h3>
+          <p class="card__subtitle">Trayectoria de puntaje global UNIMAGDALENA vs. Nacional (2020–2025).</p>
+          <div class="chart-container" id="chartEvol"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="posicionamiento">
+      <div class="section__eyebrow">02 · Posicionamiento externo</div>
+      <h2 class="section__title">Frente a las universidades del SUE y el Caribe</h2>
+      <p class="section__lead" id="leadPos"></p>
+      <div class="charts-grid charts-grid--stacked">
+        <div class="card">
+          <h3 class="card__title">Ranking SUE - Universidades Públicas</h3>
+          <p class="card__subtitle">Resaltado: Azul (UNIMAGDALENA), Celeste (Región Caribe), Gris (Otras).</p>
+          <div class="chart-container chart-container--large" id="chartSue"></div>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Comparativo por Departamentos</h3>
+          <p class="card__subtitle">Magdalena frente a otras entidades territoriales del país.</p>
+          <div class="chart-container" id="chartDept"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="valor-agregado">
+      <div class="section__eyebrow">03 · Valor agregado</div>
+      <h2 class="section__title">Cuánto aporta la formación (2020–2024)</h2>
+      <p class="section__lead" id="leadVA"></p>
+      <div class="charts-grid">
+        <div class="card">
+          <div class="card__header-flex">
+            <h3 class="card__title">Cuadrantes de Valor Agregado</h3>
+            <div class="select-wrapper">
+              <select id="selAnioCuadrante" class="control-select"></select>
+            </div>
+          </div>
+          <p class="card__subtitle">Saber 11 (Entrada) vs. Saber Pro (Salida) por IES y NBCs de UNIMAGDALENA. Nota: Datos hasta 2024.</p>
+          <div class="chart-container" id="chartCuadrantes"></div>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Trayectoria de Valor Agregado</h3>
+          <p class="card__subtitle">Evolución institucional en el plano de cuadrantes (2020–2024).</p>
+          <div class="chart-container" id="chartTrayectoria"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="facultades">
+      <div class="section__eyebrow">04 · Facultades</div>
+      <h2 class="section__title">Desempeño por facultad</h2>
+      <p class="section__lead" id="leadFac"></p>
+      <div class="charts-grid">
+        <div class="card card--full">
+          <h3 class="card__title">Puntaje Global Promedio por Facultad</h3>
+          <p class="card__subtitle">Promedio ponderado por la cantidad de evaluados.</p>
+          <div class="chart-container" id="chartFacultades"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programas">
+      <div class="section__eyebrow">05 · Programas</div>
+      <h2 class="section__title">Cada programa frente a su grupo de referencia</h2>
+      <p class="section__lead" id="leadProg"></p>
+      
+      <div class="explorer-container">
+        <div class="explorer-controls">
+          <div class="control-group">
+            <label for="selFacultad">Filtrar por Facultad:</label>
+            <select id="selFacultad" class="control-select">
+              <option value="TODAS">Todas las facultades</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="selPrograma">Seleccionar Programa Académico:</label>
+            <select id="selPrograma" class="control-select"></select>
+          </div>
+        </div>
+        
+        <div id="progWarnN" class="warn-badge" style="display: none;">
+          <span class="warn-badge__icon">⚠️</span>
+          <span class="warn-badge__text"><strong>Evaluados bajos (n &lt; 5):</strong> Este programa cuenta con muy pocos evaluados en el año vigente. Interpretar los resultados con precaución.</span>
+        </div>
+        
+        <div class="explorer-grid">
+          <div class="card">
+            <h3 class="card__title">Competencias Genéricas vs. NBC Nacional</h3>
+            <p class="card__subtitle">Programa (azul) vs. Promedio Nacional de su NBC (naranja).</p>
+            <div class="chart-container" id="progRadar"></div>
+          </div>
+          
+          <div class="card" id="progSpecCard">
+            <h3 class="card__title">Competencias Específicas vs. NBC Nacional</h3>
+            <p class="card__subtitle">Desempeño en módulos disciplinares comparados con su grupo de referencia.</p>
+            <div class="chart-container" id="progSpecBar"></div>
+          </div>
+          
+          <div class="card">
+            <h3 class="card__title">Evolución Histórica Global</h3>
+            <p class="card__subtitle">Evolución del puntaje global del programa vs. NBC Nacional (2020–2025).</p>
+            <div class="chart-container" id="progHist"></div>
+          </div>
+          
+          <div class="card">
+            <h3 class="card__title">Distribución por Niveles de Desempeño</h3>
+            <p class="card__subtitle">Distribución porcentual por nivel (1 al 5) en genéricas vs. NBC Nacional.</p>
+            <div class="chart-container" id="progNiveles"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="competencias">
+      <div class="section__eyebrow">06 · Competencias</div>
+      <h2 class="section__title">Fortalezas transversales y niveles de logro</h2>
+      <p class="section__lead" id="leadComp"></p>
+      
+      <div class="charts-grid charts-grid--stacked">
+        <div class="card">
+          <div class="card__header-flex">
+            <h3 class="card__title">Top 10 Programas Líderes</h3>
+            <div class="tabs" id="topTabs"></div>
+          </div>
+          <p class="card__subtitle">Programas con mejores promedios en la competencia seleccionada.</p>
+          <div class="chart-container" id="chartTop10"></div>
+        </div>
+        
+        <div class="card">
+          <h3 class="card__title">Niveles de Desempeño Institucional</h3>
+          <p class="card__subtitle">Distribución porcentual por nivel (1 al 5) en la universidad vs. el país.</p>
+          <div class="chart-container" id="chartNiveles"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sintesis">
+      <div class="section__eyebrow">07 · Síntesis</div>
+      <h2 class="section__title">Lectura estratégica y recomendaciones</h2>
+      <p class="section__lead" id="leadSint"></p>
+      
+      <div class="charts-grid">
+        <div class="card card--full">
+          <h3 class="card__title">Matriz de Calor: Competencias por Facultad</h3>
+          <p class="card__subtitle">Desempeño relativo en las 5 competencias genéricas.</p>
+          <div class="chart-container" id="chartHeatmap"></div>
+        </div>
+      </div>
+
+      <div class="dofa-container">
+        <div class="dofa-grid">
+          <div class="dofa-card dofa-card--fortaleza">
+            <div class="dofa-card__header">Fortalezas</div>
+            <ul class="dofa-card__list" id="dofaFortalezas"></ul>
+          </div>
+          <div class="dofa-card dofa-card--debilidad">
+            <div class="dofa-card__header">Debilidades</div>
+            <ul class="dofa-card__list" id="dofaDebilidades"></ul>
+          </div>
+          <div class="dofa-card dofa-card--oportunidad">
+            <div class="dofa-card__header">Oportunidades</div>
+            <ul class="dofa-card__list" id="dofaOportunidades"></ul>
+          </div>
+          <div class="dofa-card dofa-card--amenaza">
+            <div class="dofa-card__header">Amenazas</div>
+            <ul class="dofa-card__list" id="dofaAmenazas"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
