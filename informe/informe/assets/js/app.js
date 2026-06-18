@@ -39,10 +39,12 @@ async function init() {
   initScrollSpy();
 
   // Renderizadores de Gráficos (Etapa 5)
+  initRadarYearPicker(d);
   renderRadar(d);
   renderEvolLine(d);
   renderSueRanking(d);
-  renderDeptRanking(d);
+  initUnivDeptYearPicker(d);
+  renderUnivDept(d);
   renderCuadrantes(d);
   renderTrayectoria(d);
   renderFacultades(d);
@@ -197,13 +199,52 @@ function set(id, txt) { const el = document.getElementById(id); if (el) el.textC
 /* ---------- G2: Radar de competencias ---------- */
 const PANORAMA_UM = '#0F4FA8';     // azul institucional para UM en Panorama
 const PANORAMA_NAT = '#2BA85E';    // verde para Nacional
-function renderRadar(d) {
+
+// Inicializa el selector de año del radar y conecta el cambio con un re-render
+function initRadarYearPicker(d) {
+  const sel = document.getElementById('selAnioRadar');
+  if (!sel) return;
+  const hist = (d.institucional.historico || []).filter(h => Array.isArray(h.competencias) && h.competencias.length > 0);
+  if (hist.length === 0) return;
+
+  sel.innerHTML = hist
+    .map(h => h.anio)
+    .sort((a, b) => b - a)
+    .map(y => `<option value="${y}">${y}</option>`)
+    .join('');
+
+  const defaultYear = String(d.meta?.anio_vigente ?? hist[hist.length - 1].anio);
+  sel.value = defaultYear;
+
+  sel.addEventListener('change', () => renderRadar(d, parseInt(sel.value, 10)));
+}
+
+function renderRadar(d, yearOverride) {
   const container = document.getElementById('chartRadar');
   if (!container) return;
 
-  const comps = d.institucional.competencias;
   const g = d.institucional.global;
+  const hist = d.institucional.historico || [];
+  const currentYear = d.meta?.anio_vigente ?? (hist.length ? hist[hist.length - 1].anio : null);
+  const targetYear = yearOverride ?? currentYear;
+  const yearEntry = hist.find(h => h.anio === targetYear);
+
+  // Si el año seleccionado tiene competencias en el histórico, las usamos.
+  // Si no, fallback al bloque institucional.competencias (año vigente).
+  const comps = (yearEntry && Array.isArray(yearEntry.competencias) && yearEntry.competencias.length > 0)
+    ? yearEntry.competencias
+    : d.institucional.competencias;
   if (!comps || comps.length === 0 || !g) return;
+
+  // Para el eje "Puntaje Global" usamos el valor del año seleccionado
+  const yearGlobal = yearEntry ? {
+    puntaje_unimag: yearEntry.puntaje_unimag,
+    puntaje_nacional: yearEntry.puntaje_nacional
+  } : { puntaje_unimag: g.puntaje_unimag, puntaje_nacional: g.puntaje_nacional };
+
+  // Actualizar etiqueta del título
+  const lbl = document.getElementById('radarYearLbl');
+  if (lbl) lbl.textContent = targetYear;
 
   // 6 ejes = 5 competencias + Puntaje Global
   const shortLabel = (name) => ({
@@ -224,16 +265,16 @@ function renderRadar(d) {
     {
       full: 'Puntaje Global',
       label: 'Puntaje Global',
-      um: g.puntaje_unimag,
-      nat: g.puntaje_nacional
+      um: yearGlobal.puntaje_unimag,
+      nat: yearGlobal.puntaje_nacional
     }
   ];
 
-  const w = 900;
-  const h = 500;
+  const w = 640;
+  const h = 440;
   const cx = w / 2;
-  const cy = h / 2 - 10;
-  const rMax = 170;
+  const cy = h / 2 - 14;
+  const rMax = 125;
   const n = axes.length;
 
   const svg = createSVGEl('svg', { viewBox: `0 0 ${w} ${h}`, class: 'svg-chart' });
@@ -283,14 +324,14 @@ function renderRadar(d) {
     const anchor = Math.abs(Math.cos(angle)) < 0.15 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
 
     const lines = axes[a].label.split('\n');
-    const lineHeight = 16;
-    const startY = ly - ((lines.length - 1) * lineHeight) / 2 + 5;
+    const lineHeight = 14;
+    const startY = ly - ((lines.length - 1) * lineHeight) / 2 + 4;
     lines.forEach((line, idx) => {
       const t = createSVGEl('text', {
         x: lx,
         y: startY + idx * lineHeight,
         'text-anchor': anchor,
-        style: 'font-family: var(--font-display); font-weight: 700; font-size: 14px; fill: var(--brand-primary-dark);'
+        style: 'font-family: var(--font-display); font-weight: 700; font-size: 12px; fill: var(--brand-primary-dark);'
       });
       t.textContent = line;
       svg.appendChild(t);
@@ -345,29 +386,42 @@ function renderRadar(d) {
     const [umX, umY] = ptsUM[a];
     const [natX, natY] = ptsNat[a];
 
-    // Círculos en los vértices reales (sí siguen el polígono)
-    svg.appendChild(createSVGEl('circle', {
-      cx: umX, cy: umY, r: 4.8,
-      fill: '#fff', stroke: PANORAMA_UM, 'stroke-width': '2.6'
-    }));
-    svg.appendChild(createSVGEl('circle', {
-      cx: natX, cy: natY, r: 4.2,
-      fill: '#fff', stroke: PANORAMA_NAT, 'stroke-width': '2.2'
-    }));
+    // Marcadores sólidos en los vértices reales del polígono
+    const dotNat = createSVGEl('circle', {
+      cx: natX, cy: natY, r: 5,
+      fill: PANORAMA_NAT,
+      stroke: '#fff', 'stroke-width': '1.4',
+      class: 'chart-dot'
+    });
+    dotNat.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>Nacional</strong>${axes[a].full}: ${axes[a].nat} pts`));
+    dotNat.addEventListener('mousemove', moveTooltip);
+    dotNat.addEventListener('mouseleave', hideTooltip);
+    svg.appendChild(dotNat);
+
+    const dotUM = createSVGEl('circle', {
+      cx: umX, cy: umY, r: 5.5,
+      fill: PANORAMA_UM,
+      stroke: '#fff', 'stroke-width': '1.6',
+      class: 'chart-dot'
+    });
+    dotUM.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>Unimagdalena</strong>${axes[a].full}: ${axes[a].um} pts`));
+    dotUM.addEventListener('mousemove', moveTooltip);
+    dotUM.addEventListener('mouseleave', hideTooltip);
+    svg.appendChild(dotUM);
 
     // Posición base de las etiquetas: a una distancia fija del centro
-    const valueLabelDist = rMax + 20;
+    const valueLabelDist = rMax + 16;
     const baseX = cx + valueLabelDist * cosA;
     const baseY = cy + valueLabelDist * sinA;
-    const tangentSep = 26;
+    const tangentSep = 22;
 
-    // UM a un lado, Nacional al otro — separados ~52 px perpendicularmente
+    // UM a un lado, Nacional al otro — separados ~44 px perpendicularmente
     const umLx = baseX + tangentSep * perpX;
     const umLy = baseY + tangentSep * perpY;
     const umLabel = createSVGEl('text', {
       x: umLx, y: umLy + 5,
       'text-anchor': 'middle',
-      style: `font-family: var(--font-display); font-weight: 800; font-size: 16px; fill: ${PANORAMA_UM};`
+      style: `font-family: var(--font-display); font-weight: 800; font-size: 14px; fill: ${PANORAMA_UM};`
     });
     umLabel.textContent = axes[a].um;
     svg.appendChild(umLabel);
@@ -377,17 +431,17 @@ function renderRadar(d) {
     const natLabel = createSVGEl('text', {
       x: natLx, y: natLy + 5,
       'text-anchor': 'middle',
-      style: `font-family: var(--font-display); font-weight: 800; font-size: 16px; fill: ${PANORAMA_NAT};`
+      style: `font-family: var(--font-display); font-weight: 800; font-size: 14px; fill: ${PANORAMA_NAT};`
     });
     natLabel.textContent = axes[a].nat;
     svg.appendChild(natLabel);
   }
 
-  // Leyenda inferior unificada (grande)
+  // Leyenda inferior unificada (con buena separación entre series)
   svg.appendChild(createLegend([
     { color: PANORAMA_UM, text: 'Unimagdalena' },
     { color: PANORAMA_NAT, text: 'Nacional' }
-  ], cx - 150, h - 18, { fontSize: 16, rectW: 24, rectH: 12, gap: 200, textGap: 34, fontWeight: 700 }));
+  ], cx - 160, h - 16, { fontSize: 13, rectW: 20, rectH: 10, gap: 230, textGap: 30, fontWeight: 700 }));
 
   container.innerHTML = '';
   container.appendChild(svg);
@@ -428,9 +482,9 @@ function renderEvolLine(d) {
   const hist = d.institucional.historico;
   if (!hist || hist.length === 0) return;
 
-  const w = 900;
-  const h = 460;
-  const margin = { top: 28, right: 36, bottom: 78, left: 60 };
+  const w = 720;
+  const h = 400;
+  const margin = { top: 24, right: 32, bottom: 64, left: 52 };
 
   const svg = createSVGEl('svg', { viewBox: `0 0 ${w} ${h}`, class: 'svg-chart' });
 
@@ -463,9 +517,9 @@ function renderEvolLine(d) {
       opacity: '0.7'
     }));
     const lbl = createSVGEl('text', {
-      x: margin.left - 12, y: y + 5,
+      x: margin.left - 10, y: y + 4,
       'text-anchor': 'end',
-      style: 'font-family: var(--font-display); font-size: 13px; font-weight: 500; fill: var(--text-soft);'
+      style: 'font-family: var(--font-display); font-size: 11.5px; font-weight: 500; fill: var(--text-soft);'
     });
     lbl.textContent = v;
     svg.appendChild(lbl);
@@ -483,9 +537,9 @@ function renderEvolLine(d) {
   years.forEach((yr, idx) => {
     const x = getX(idx);
     const lbl = createSVGEl('text', {
-      x: x, y: h - margin.bottom + 26,
+      x: x, y: h - margin.bottom + 22,
       'text-anchor': 'middle',
-      style: 'font-family: var(--font-display); font-size: 14px; font-weight: 600; fill: var(--brand-primary-dark);'
+      style: 'font-family: var(--font-display); font-size: 12.5px; font-weight: 600; fill: var(--brand-primary-dark);'
     });
     lbl.textContent = yr;
     svg.appendChild(lbl);
@@ -542,8 +596,8 @@ function renderEvolLine(d) {
     const umAbove = pt.puntaje_unimag >= pt.puntaje_nacional;
 
     const cNat = createSVGEl('circle', {
-      cx: x, cy: yNat, r: 4.8,
-      fill: '#fff', stroke: PANORAMA_NAT, 'stroke-width': '2.4',
+      cx: x, cy: yNat, r: 5,
+      fill: PANORAMA_NAT, stroke: '#fff', 'stroke-width': '1.4',
       class: 'chart-dot'
     });
     cNat.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>Nacional (${pt.anio})</strong>${pt.puntaje_nacional} pts`));
@@ -552,8 +606,8 @@ function renderEvolLine(d) {
     svg.appendChild(cNat);
 
     const cUM = createSVGEl('circle', {
-      cx: x, cy: yUM, r: 5.2,
-      fill: '#fff', stroke: PANORAMA_UM, 'stroke-width': '2.8',
+      cx: x, cy: yUM, r: 5.5,
+      fill: PANORAMA_UM, stroke: '#fff', 'stroke-width': '1.6',
       class: 'chart-dot'
     });
     cUM.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>Unimagdalena (${pt.anio})</strong>${pt.puntaje_unimag} pts${pt.n_unimag ? `<br>Evaluados: ${NUM.format(pt.n_unimag)}` : ''}`));
@@ -563,28 +617,28 @@ function renderEvolLine(d) {
 
     // Etiqueta UM
     const lblUM = createSVGEl('text', {
-      x: x, y: yUM + (umAbove ? -14 : 22),
+      x: x, y: yUM + (umAbove ? -11 : 19),
       'text-anchor': 'middle',
-      style: `font-family: var(--font-display); font-weight: 800; font-size: 16px; fill: ${PANORAMA_UM};`
+      style: `font-family: var(--font-display); font-weight: 800; font-size: 13.5px; fill: ${PANORAMA_UM};`
     });
     lblUM.textContent = pt.puntaje_unimag;
     svg.appendChild(lblUM);
 
     // Etiqueta Nacional
     const lblNat = createSVGEl('text', {
-      x: x, y: yNat + (umAbove ? 22 : -14),
+      x: x, y: yNat + (umAbove ? 19 : -11),
       'text-anchor': 'middle',
-      style: `font-family: var(--font-display); font-weight: 800; font-size: 16px; fill: ${PANORAMA_NAT};`
+      style: `font-family: var(--font-display); font-weight: 800; font-size: 13.5px; fill: ${PANORAMA_NAT};`
     });
     lblNat.textContent = pt.puntaje_nacional;
     svg.appendChild(lblNat);
   });
 
-  // Leyenda inferior unificada (grande)
+  // Leyenda inferior unificada (con buena separación entre series)
   svg.appendChild(createLegend([
     { color: PANORAMA_UM, text: 'Unimagdalena' },
     { color: PANORAMA_NAT, text: 'Nacional' }
-  ], (w / 2) - 150, h - 18, { fontSize: 16, rectW: 24, rectH: 12, gap: 200, textGap: 34, fontWeight: 700 }));
+  ], (w / 2) - 160, h - 14, { fontSize: 13, rectW: 20, rectH: 10, gap: 230, textGap: 30, fontWeight: 700 }));
 
   container.innerHTML = '';
   container.appendChild(svg);
@@ -691,7 +745,200 @@ function renderSueRanking(d) {
   container.appendChild(svg);
 }
 
-/* ---------- G5: Comparativo departamental ---------- */
+/* ---------- G5 NUEVO: Comparativo con universidades del Departamento ---------- */
+// Paleta consistente con Panorama: UM en azul institucional, comparativos en verde y naranja
+const UNIV_DEPT_COLORS = [
+  '#0F4FA8',   // UNIMAGDALENA — azul institucional (igual que en Panorama)
+  '#2BA85E',   // U. Sergio Arboleda — verde
+  '#FF9400'    // U. Cooperativa de Colombia — naranja
+];
+
+function initUnivDeptYearPicker(d) {
+  const sel = document.getElementById('selAnioUnivDept');
+  if (!sel) return;
+  const data = d.universidades_dept_historico || {};
+  const years = Object.keys(data).filter(y => Array.isArray(data[y]) && data[y].length > 0);
+  if (years.length === 0) return;
+
+  sel.innerHTML = years
+    .map(y => parseInt(y, 10))
+    .sort((a, b) => b - a)
+    .map(y => `<option value="${y}">${y}</option>`)
+    .join('');
+
+  const defaultYear = String(d.meta?.anio_vigente ?? years[years.length - 1]);
+  sel.value = defaultYear;
+
+  sel.addEventListener('change', () => renderUnivDept(d, parseInt(sel.value, 10)));
+}
+
+function renderUnivDept(d, yearOverride) {
+  const container = document.getElementById('chartUnivDept');
+  if (!container) return;
+
+  const data = d.universidades_dept_historico || {};
+  const currentYear = d.meta?.anio_vigente ?? null;
+  const targetYear = yearOverride ?? currentYear;
+  const univs = data[String(targetYear)] || [];
+  if (univs.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  // Actualizar etiqueta del título
+  const lbl = document.getElementById('univDeptYearLbl');
+  if (lbl) lbl.textContent = targetYear;
+
+  // Etiquetas amigables de las competencias (mismo mapping del radar)
+  const shortComp = (name) => ({
+    'RAZONAMIENTO CUANTITATIVO': 'Raz. Cuantitativo',
+    'COMPETENCIAS CIUDADANAS': 'Comp. Ciudadanas',
+    'COMUNICACIÓN ESCRITA': 'Com. Escrita',
+    'LECTURA CRÍTICA': 'Lectura Crítica',
+    'INGLÉS': 'Inglés'
+  })[name] || name;
+
+  // Construir lista de categorías (5 competencias + Puntaje Global)
+  const compNames = (univs[0].competencias || []).map(c => c.competencia);
+  const groups = [
+    ...compNames.map(n => ({ key: n, label: shortComp(n) })),
+    { key: 'GLOBAL', label: 'Puntaje Global' }
+  ];
+
+  // Obtener valor de una universidad para una categoría
+  const getVal = (univ, groupKey) => {
+    if (groupKey === 'GLOBAL') return univ.puntaje_global;
+    const c = (univ.competencias || []).find(x => x.competencia === groupKey);
+    return c ? c.puntaje : null;
+  };
+
+  // Cálculo de rangos
+  const allVals = univs.flatMap(u => groups.map(g => getVal(u, g.key))).filter(v => v != null);
+  const dataMin = Math.min(...allVals);
+  const dataMax = Math.max(...allVals);
+  let minVal = Math.floor((dataMin - 10) / 10) * 10;
+  let maxVal = Math.ceil((dataMax + 10) / 10) * 10;
+  if (minVal < 0) minVal = 0;
+  if (maxVal - minVal < 30) maxVal = minVal + 30;
+
+  const w = 900;
+  const h = 460;
+  const margin = { top: 36, right: 28, bottom: 110, left: 56 };
+  const innerW = w - margin.left - margin.right;
+  const innerH = h - margin.top - margin.bottom;
+
+  const svg = createSVGEl('svg', { viewBox: `0 0 ${w} ${h}`, class: 'svg-chart' });
+
+  // Rejilla horizontal con valores múltiplos de 10
+  const tickStep = 10;
+  const yToPx = v => margin.top + innerH - ((v - minVal) / (maxVal - minVal)) * innerH;
+  for (let v = minVal; v <= maxVal; v += tickStep) {
+    const y = yToPx(v);
+    svg.appendChild(createSVGEl('line', {
+      x1: margin.left, y1: y,
+      x2: w - margin.right, y2: y,
+      stroke: 'var(--border)',
+      'stroke-width': '0.6',
+      'stroke-dasharray': '2,4',
+      opacity: '0.7'
+    }));
+    const lbl = createSVGEl('text', {
+      x: margin.left - 10, y: y + 4,
+      'text-anchor': 'end',
+      style: 'font-family: var(--font-display); font-size: 11px; font-weight: 500; fill: var(--text-soft);'
+    });
+    lbl.textContent = v;
+    svg.appendChild(lbl);
+  }
+
+  // Línea base
+  svg.appendChild(createSVGEl('line', {
+    x1: margin.left, y1: margin.top + innerH,
+    x2: w - margin.right, y2: margin.top + innerH,
+    stroke: 'var(--border)', 'stroke-width': '1'
+  }));
+
+  // Geometría de barras agrupadas
+  const groupCount = groups.length;
+  const groupSlot = innerW / groupCount;
+  const barsPerGroup = univs.length;
+  const groupPadding = 0.22;
+  const barGap = 4;
+  const usableWidth = groupSlot * (1 - groupPadding);
+  const barW = (usableWidth - (barsPerGroup - 1) * barGap) / barsPerGroup;
+
+  groups.forEach((g, gi) => {
+    const groupCenterX = margin.left + groupSlot * (gi + 0.5);
+    const groupStartX = groupCenterX - usableWidth / 2;
+
+    univs.forEach((univ, ui) => {
+      const val = getVal(univ, g.key);
+      if (val == null) return;
+      const x = groupStartX + ui * (barW + barGap);
+      const y = yToPx(val);
+      const barH = (margin.top + innerH) - y;
+      const color = UNIV_DEPT_COLORS[ui % UNIV_DEPT_COLORS.length];
+
+      const bar = createSVGEl('rect', {
+        x, y, width: barW, height: barH,
+        fill: color, rx: 3,
+        class: 'chart-bar'
+      });
+      bar.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>${univ.nombre} (${targetYear})</strong>${g.label}: ${val} pts${univ.n ? `<br>Evaluados: ${NUM.format(univ.n)}` : ''}`));
+      bar.addEventListener('mousemove', moveTooltip);
+      bar.addEventListener('mouseleave', hideTooltip);
+      svg.appendChild(bar);
+
+      // Etiqueta del valor encima de la barra
+      const valLbl = createSVGEl('text', {
+        x: x + barW / 2, y: y - 4,
+        'text-anchor': 'middle',
+        style: `font-family: var(--font-display); font-weight: 700; font-size: 11.5px; fill: ${color};`
+      });
+      valLbl.textContent = val;
+      svg.appendChild(valLbl);
+    });
+
+    // Etiqueta de la categoría (eje X)
+    const groupLabel = g.label;
+    const labelLines = groupLabel.split(' ');
+    // Si tiene 2 palabras y es largo, partir en 2 líneas
+    let lines = [groupLabel];
+    if (groupLabel.length > 14 && labelLines.length >= 2) {
+      const mid = Math.ceil(labelLines.length / 2);
+      lines = [labelLines.slice(0, mid).join(' '), labelLines.slice(mid).join(' ')];
+    }
+    lines.forEach((line, idx) => {
+      const t = createSVGEl('text', {
+        x: groupCenterX, y: margin.top + innerH + 20 + idx * 14,
+        'text-anchor': 'middle',
+        style: 'font-family: var(--font-display); font-size: 11.5px; font-weight: 600; fill: var(--brand-primary-dark);'
+      });
+      t.textContent = line;
+      svg.appendChild(t);
+    });
+  });
+
+  // Leyenda al pie con las 3 universidades (nombres acortados para que quepan)
+  const shortenName = (n) => n
+    .replace(/ - Santa Marta\b/i, '')
+    .replace(/^Universidad /i, 'U. ')
+    .trim();
+  const legendItems = univs.map((u, i) => ({
+    color: UNIV_DEPT_COLORS[i % UNIV_DEPT_COLORS.length],
+    text: shortenName(u.nombre)
+  }));
+  const gap = 230;
+  const legendStartX = (w - (legendItems.length - 1) * gap) / 2 - 50;
+  svg.appendChild(createLegend(legendItems, legendStartX, h - 8, {
+    fontSize: 12, rectW: 18, rectH: 10, gap, textGap: 24, fontWeight: 700
+  }));
+
+  container.innerHTML = '';
+  container.appendChild(svg);
+}
+
+/* ---------- G5 LEGACY (no se renderiza): Comparativo por Departamentos ---------- */
 function renderDeptRanking(d) {
   const container = document.getElementById('chartDept');
   if (!container) return;

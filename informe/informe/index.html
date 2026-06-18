@@ -67,15 +67,18 @@
     <!-- SECCIONES -->
     <section class="section" id="panorama">
       <div class="section__eyebrow">01 · Panorama institucional</div>
-      <h2 class="section__title">Desempeño frente al país</h2>
-      <p class="section__lead" id="leadPanorama"></p>
       <div class="charts-grid charts-grid--stacked">
         <div class="card">
-          <h3 class="card__title">Comparativo con el promedio nacional 2025</h3>
+          <div class="card__header-flex">
+            <h3 class="card__title">Comparativo con el promedio nacional <span id="radarYearLbl">2025</span></h3>
+            <div class="select-wrapper">
+              <select id="selAnioRadar" class="control-select"></select>
+            </div>
+          </div>
           <div class="chart-container" id="chartRadar"></div>
         </div>
         <div class="card">
-          <h3 class="card__title">Histórico puntaje global 2025</h3>
+          <h3 class="card__title">Histórico puntaje global 2020 – 2025</h3>
           <div class="chart-container" id="chartEvol"></div>
         </div>
       </div>
@@ -83,18 +86,19 @@
 
     <section class="section" id="posicionamiento">
       <div class="section__eyebrow">02 · Posicionamiento externo</div>
-      <h2 class="section__title">Frente a las universidades del SUE y el Caribe</h2>
-      <p class="section__lead" id="leadPos"></p>
       <div class="charts-grid charts-grid--stacked">
         <div class="card">
-          <h3 class="card__title">Ranking SUE - Universidades Públicas</h3>
-          <p class="card__subtitle">Resaltado: Azul (UNIMAGDALENA), Celeste (Región Caribe), Gris (Otras).</p>
-          <div class="chart-container chart-container--large" id="chartSue"></div>
+          <div class="card__header-flex">
+            <h3 class="card__title">Comparativo con universidades del departamento <span id="univDeptYearLbl">2025</span></h3>
+            <div class="select-wrapper">
+              <select id="selAnioUnivDept" class="control-select"></select>
+            </div>
+          </div>
+          <div class="chart-container chart-container--large" id="chartUnivDept"></div>
         </div>
         <div class="card">
-          <h3 class="card__title">Comparativo por Departamentos</h3>
-          <p class="card__subtitle">Magdalena frente a otras entidades territoriales del país.</p>
-          <div class="chart-container" id="chartDept"></div>
+          <h3 class="card__title">Ranking SUE - Universidades Públicas</h3>
+          <div class="chart-container chart-container--large" id="chartSue"></div>
         </div>
       </div>
     </section>
