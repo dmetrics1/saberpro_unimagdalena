@@ -26,6 +26,7 @@ El archivo [data/config/parametros.yml](../data/config/parametros.yml) controla:
 - Rutas de datos crudos y procesados.
 - Competencias genéricas oficiales.
 - Universidades SUE y Caribe.
+- `universidades_dept_magdalena`: lista de universidades del Departamento del Magdalena para el comparativo (cada entrada con `nombre_display`, `busqueda` exacta como aparece en el Excel del Icfes, y `agregacion` = `INSTITUCION` o `SEDE`).
 - Mapeo de programas de UNIMAGDALENA a facultad y NBC.
 
 El archivo [data/config/normalizacion_ies.csv](../data/config/normalizacion_ies.csv) alinea nombres de instituciones entre la Fuente A (base de cruce) y la Fuente B (Excel agregados). Por ejemplo, normaliza `UNIVERSIDAD DE NARIÑO` a `UNIVERSIDAD DE NARINO` para que el cruce con la Fuente B sea exitoso.
@@ -141,8 +142,9 @@ Copy-Item data\processed\datos_informe.json informe\informe\data\datos_informe.j
 Comprobar que `datos_informe.json` contiene:
 
 - `meta.anio_vigente = 2025` o el año vigente configurado.
-- 6 puntos en `institucional.historico` para 2020-2025.
+- 6 puntos en `institucional.historico` para 2020-2025; cada entrada con su `competencias[]` de 5 elementos (la usa el radar filtrable por año).
 - 37 universidades en `sue_ranking` (puede variar si el Icfes incorpora o retira IES; ver nota de brecha SUE en el [plan maestro §9](./plan_maestro.md)).
 - 6 facultades.
 - 39 programas.
 - Cuadrantes para 2018-2024.
+- `universidades_dept_historico` con 6 años (2020-2025) y 3 universidades por año (UNIMAGDALENA + Sergio Arboleda Santa Marta + Cooperativa Santa Marta).

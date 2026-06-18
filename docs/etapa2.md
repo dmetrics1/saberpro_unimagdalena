@@ -59,12 +59,12 @@ directo** a su facultad o programa vía la navegación lateral.
 - **Fuente:** agregados (`PAIS` + `PUNTAJE_PRUEBA` por competencia; `PUNTAJE_GLOBAL` para global).
 - **Perfil:** rector.
 
-### Sección 3 — Posicionamiento externo (SUE + Caribe)
-- **Objetivo:** ubicar a la universidad frente a sus pares públicos y la región Caribe.
-- **Historia:** "Entre las universidades del SUE ocupamos la posición X; en el Caribe lideramos/seguimos a…"
-- **Preguntas:** ¿Dónde estamos en el ranking de universidades del SUE? ¿Cómo nos comparamos con las del Caribe? ¿Hemos subido o bajado posiciones?
-- **Indicadores:** ranking SUE (barras, con UM y Caribe resaltadas); comparativo departamental; posición histórica.
-- **Fuente:** agregados (`INSTITUCIÓN` + `PUNTAJE_GLOBAL`, filtrado por listas SUE/Caribe del YML).
+### Sección 3 — Posicionamiento externo (SUE + Universidades del Departamento)
+- **Objetivo:** ubicar a la universidad frente a sus pares públicos del SUE y frente a las universidades privadas del propio territorio (Departamento del Magdalena).
+- **Historia:** "Entre las universidades del SUE ocupamos la posición X; en el Magdalena lideramos frente a la oferta privada en estas competencias…"
+- **Preguntas:** ¿Dónde estamos en el ranking de universidades del SUE? ¿Cómo nos comparamos con las universidades privadas que operan en Santa Marta (Sergio Arboleda, Cooperativa de Colombia)? ¿En qué competencias somos mejores y en cuáles nos ganan?
+- **Indicadores:** comparativo con universidades del Departamento (barras agrupadas, filtrable por año, 5 competencias + global); ranking SUE (barras horizontales, con UM y Caribe resaltadas).
+- **Fuente:** agregados (`INSTITUCIÓN` para UNIMAGDALENA y la lista SUE; `SEDE` para las universidades privadas de Santa Marta, filtrando por la lista `universidades_dept_magdalena` del YML).
 - **Perfil:** rector / consejo superior.
 
 ### Sección 4 — Valor agregado (cuadrantes)

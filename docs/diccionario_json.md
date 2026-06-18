@@ -16,6 +16,7 @@ El archivo `data/processed/datos_informe.json` es la fuente de verdad que consum
   "institucional": {},
   "sue_ranking": [],
   "departamento": [],
+  "universidades_dept_historico": {},
   "cuadrantes_por_anio": {},
   "trayectoria_unimag": {},
   "facultades": [],
@@ -62,7 +63,7 @@ Bloque para panorama general, hero y KPIs.
 
 ### `institucional.historico[]`
 
-Serie 2020-2025 para la línea histórica.
+Serie 2020-2025 para la línea histórica y para el radar filtrable por año.
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -70,6 +71,7 @@ Serie 2020-2025 para la línea histórica.
 | `puntaje_unimag` | número | Puntaje global institucional. |
 | `puntaje_nacional` | número | Promedio nacional. |
 | `n_unimag` | número | Evaluados institucionales. |
+| `competencias[]` | arreglo | Las 5 competencias genéricas para ese año, con la misma estructura que `institucional.competencias[]`. Se usa para el radar filtrable por año en Panorama. |
 
 ## `sue_ranking[]`
 
@@ -97,6 +99,39 @@ Comparativo territorial del año vigente.
 | `n` | número | Evaluados. |
 | `es_magdalena` | booleano | Marca el departamento del Magdalena. |
 | `es_caribe` | booleano | Marca departamentos de la región Caribe. |
+
+## `universidades_dept_historico`
+
+Objeto indexado por año (string) con las universidades del Departamento del Magdalena que se comparan en el card "Comparativo con universidades del departamento" de la sección Posicionamiento. Cubre 2020-2025.
+
+La lista de universidades incluidas se configura en `data/config/parametros.yml` bajo `universidades_dept_magdalena`. Cada entrada de la configuración apunta a una sede o institución específica del Icfes (UNIMAGDALENA a nivel `INSTITUCION`, las demás a nivel `SEDE`).
+
+```json
+{
+  "2025": [
+    { "nombre": "UNIMAGDALENA", "puntaje_global": 150, "n": 2982, "competencias": [...] },
+    { "nombre": "U. Sergio Arboleda - Santa Marta", "puntaje_global": 149, "n": 357, "competencias": [...] },
+    { "nombre": "U. Cooperativa de Colombia - Santa Marta", "puntaje_global": 143, "n": 884, "competencias": [...] }
+  ],
+  "2024": [...]
+}
+```
+
+### `universidades_dept_historico[<año>][]`
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `nombre` | texto | Nombre legible de la universidad (definido en `parametros.yml`). |
+| `puntaje_global` | número | Puntaje global de la institución/sede ese año. |
+| `n` | número | Evaluados según `CANTIDADEVALUADOS`. |
+| `competencias[]` | arreglo | Puntaje por competencia genérica. Ver subschema. |
+
+### `universidades_dept_historico[<año>][].competencias[]`
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `competencia` | texto | Competencia genérica (misma escritura que en `institucional.competencias[]`). |
+| `puntaje` | número | Puntaje de la institución/sede en esa competencia. Puede ser `null` si la sede no reportó la prueba. |
 
 ## `cuadrantes_por_anio`
 
@@ -261,11 +296,11 @@ Distribución institucional por niveles de logro.
 
 | Visualización | Campos principales |
 |---|---|
-| KPIs ejecutivos | `institucional.global`, `institucional.historico`, `sue_ranking`, `programas` |
-| Radar institucional | `institucional.competencias` |
+| KPIs ejecutivos | `institucional.global`, `institucional.historico`, `programas` |
+| Radar institucional (filtrable por año) | `institucional.historico[].competencias`, `institucional.historico[].puntaje_unimag/nacional` |
 | Línea histórica | `institucional.historico` |
+| Comparativo con universidades del departamento (filtrable por año) | `universidades_dept_historico` |
 | Ranking SUE | `sue_ranking` |
-| Comparativo departamental | `departamento` |
 | Cuadrantes | `cuadrantes_por_anio` |
 | Trayectoria | `trayectoria_unimag` |
 | Facultades | `facultades` |

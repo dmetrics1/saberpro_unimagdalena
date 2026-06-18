@@ -2,7 +2,7 @@
 
 ## Universidad del Magdalena - Oficina Asesora de Planeación
 
-**Versión:** 2.2
+**Versión:** 2.3
 **Fecha de actualización:** Junio 2026
 **Stack:** Python para procesamiento; HTML, CSS y JavaScript puro para el informe.
 **Arquitectura:** `datos crudos -> scripts Python -> JSON maestro -> informe HTML`.
@@ -57,7 +57,7 @@ informe/informe/index.html
 | 2 | Arquitectura narrativa | Mapa de secciones y perfiles de lector | Completada |
 | 3 | Catálogo de visualizaciones | 12 visualizaciones priorizadas | Completada |
 | 4 | Diseño y maquetación | Informe HTML, tokens CSS, navegación y KPIs | Completada — rediseño v2.2 (sidebar flotante permanente, hero con identidad ejecutiva y 3 KPIs incrustados) |
-| 5 | Visualizaciones | Gráficos interactivos en JavaScript puro | Completada |
+| 5 | Visualizaciones | Gráficos interactivos en JavaScript puro | Completada — v2.3 agrega selector de año en G2 (radar) y G5 (comparativo con universidades del departamento, sustituye al G5 anterior por departamento) |
 | 6 | Narrativa y síntesis | Leads dinámicos y DOFA derivada de datos | Completada (ver §7 para revisión editorial pendiente) |
 | 7 | Actualización y entrega | Guía operativa, documentación técnica y `ejecutar_proyecto.bat` | Completada |
 
@@ -65,7 +65,7 @@ informe/informe/index.html
 
 | Componente | Ubicación | Estado | Comentario |
 |---|---|---|---|
-| Parámetros del pipeline | `data/config/parametros.yml` | Activo | Controla año vigente, umbrales, fuentes y mapeo programa-facultad. |
+| Parámetros del pipeline | `data/config/parametros.yml` | Activo | Controla año vigente, umbrales, fuentes, mapeo programa-facultad y la lista de universidades del Departamento del Magdalena (`universidades_dept_magdalena`) para el comparativo de Posicionamiento. |
 | Normalización de IES | `data/config/normalizacion_ies.csv` | Activo | Alinea nombres de instituciones entre fuentes. |
 | Pipeline de cuadrantes | `scripts/01_construir_cuadrantes.py` | Activo | Genera valor agregado desde la Fuente A. |
 | Pipeline de agregados | `scripts/02_construir_agregados.py` | Activo | Genera indicadores agregados desde la Fuente B. |

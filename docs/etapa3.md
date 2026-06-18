@@ -38,10 +38,10 @@ programa). Aquí se sustituyen por **un único componente filtrable** (G9).
 | ID | Sección | Gráfico | Tipo | Prioridad |
 |----|---------|---------|------|-----------|
 | G1 | 1 | Tarjetas KPI ejecutivas | KPI cards | Esencial |
-| G2 | 2 | Radar competencias UM vs. nacional | Radar | Esencial |
-| G3 | 2 | Evolución histórica global UM vs. nacional | Línea | Esencial |
+| G2 | 2 | Radar competencias UM vs. nacional (6 ejes, filtrable por año) | Radar | Esencial |
+| G3 | 2 | Evolución histórica global UM vs. nacional | Línea suave | Esencial |
 | G4 | 3 | Ranking SUE | Barras horizontales | Esencial |
-| G5 | 3 | Comparativo departamental | Barras | Recomendado |
+| G5 | 3 | Comparativo con universidades del Departamento (filtrable por año) | Barras agrupadas | Esencial |
 | G6 | 4 | Cuadrantes de valor agregado (filtrable por año) | Dispersión | Esencial |
 | G7 | 4 | Trayectoria histórica de UNIMAGDALENA | Recorrido temporal | Esencial |
 | G8 | 5 | Desempeño por facultad | Barras / heatmap | Recomendado |
@@ -73,21 +73,21 @@ programa). Aquí se sustituyen por **un único componente filtrable** (G9).
 
 ## SECCIÓN 2 — Panorama institucional
 
-### G2 · Radar de competencias UM vs. nacional — **Esencial**
-- **Tipo:** radar de 5 ejes.
-- **Datos:** `institucional.competencias` (5 ítems con puntaje_unimag y puntaje_nacional).
-- **Mensaje:** "En qué competencias superamos al país y en cuáles no."
-- **Decisión:** identifica fortalezas/brechas transversales para orientar política académica.
-- **Por qué radar:** muestra las 5 competencias y la forma global del perfil en una sola figura, comparando dos series sin saturar. Alternativa (barras agrupadas) pierde la lectura de "perfil".
-- **Diseño:** polígono azul (UM) sobre polígono naranja (nacional); etiquetas con el valor en cada vértice.
+### G2 · Radar de competencias UM vs. nacional (filtrable por año) — **Esencial**
+- **Tipo:** radar de **6 ejes** (5 competencias genéricas + Puntaje Global) con **selector de año** (2020-2025).
+- **Datos:** `institucional.historico[<año>].competencias` para las 5 competencias y `institucional.historico[<año>].puntaje_unimag/nacional` para el eje Puntaje Global.
+- **Mensaje:** "Cómo se compara UNIMAGDALENA con el promedio nacional en cada competencia, en el año seleccionado."
+- **Decisión:** identifica fortalezas/brechas transversales y permite revisar la evolución de esas brechas cambiando el año.
+- **Por qué radar:** muestra las 6 dimensiones y la forma global del perfil en una sola figura, comparando dos series sin saturar.
+- **Diseño:** polígono azul (UM) sobre polígono verde (nacional) con relleno tenue; etiquetas numéricas a cada lado del eje (UM hacia un lado, Nacional hacia el otro) para que nunca se peguen aunque los valores coincidan. Marcadores sólidos de color, tooltip con la competencia y el valor al hacer hover.
 
 ### G3 · Evolución histórica global UM vs. nacional — **Esencial**
-- **Tipo:** línea temporal 2020-2025.
+- **Tipo:** línea temporal 2020-2025 con curvas suaves (Catmull-Rom).
 - **Datos:** `institucional.historico` (6 puntos: anio, puntaje_unimag, puntaje_nacional).
 - **Mensaje:** "Cómo ha evolucionado nuestra brecha con el país: de estar por debajo (142 vs 149 en 2020) a superarlo (150 vs 148 en 2025)."
 - **Decisión:** evidencia la tendencia institucional para rendición de cuentas.
 - **Por qué línea:** es el formato natural para evolución temporal; el cruce de las dos líneas cuenta la historia visualmente.
-- **Diseño:** línea azul (UM) y naranja (nacional); resaltar el punto donde UM supera al nacional.
+- **Diseño:** línea azul (UM) y verde (nacional) con marcadores sólidos; etiquetas numéricas encima/debajo de cada punto con lógica anti-choque (UM arriba si supera al nacional, abajo si no); eje Y auto-escalado a múltiplos de 5 según el rango de los datos; tooltip con el año y el valor al hacer hover.
 
 ---
 
@@ -101,12 +101,14 @@ programa). Aquí se sustituyen por **un único componente filtrable** (G9).
 - **Por qué barras horizontales:** permiten 37 etiquetas legibles y ranking claro; un scatter no comunica orden.
 - **Diseño:** barra de UM en azul destacado, Caribe en color secundario, resto en gris; etiqueta de posición.
 
-### G5 · Comparativo departamental — **Recomendado**
-- **Tipo:** barras (26 departamentos).
-- **Datos:** `departamento` (departamento, puntaje, es_magdalena, es_caribe).
-- **Mensaje:** "Magdalena frente a otros departamentos y la región Caribe."
-- **Decisión:** contexto territorial del desempeño.
-- **Por qué recomendado y no esencial:** complementa el ranking SUE pero el rector prioriza el SUE; útil para contexto regional.
+### G5 · Comparativo con universidades del Departamento (filtrable por año) — **Esencial**
+- **Tipo:** barras agrupadas (6 grupos de barras: 5 competencias genéricas + Puntaje Global), con **selector de año** (2020-2025).
+- **Datos:** `universidades_dept_historico[<año>]`. Universidades incluidas: UNIMAGDALENA (a nivel `INSTITUCION`), U. Sergio Arboleda – Santa Marta y U. Cooperativa de Colombia – Santa Marta (ambas a nivel `SEDE`). La lista es configurable en `parametros.yml` bajo `universidades_dept_magdalena`.
+- **Mensaje:** "Cómo se compara UNIMAGDALENA con las universidades privadas del mismo territorio en cada competencia y en el global."
+- **Decisión:** posicionamiento regional frente a la competencia directa por matrícula. Permite ver evolución cambiando el año.
+- **Por qué barras agrupadas y no scatter o radar:** las barras agrupadas son el formato estándar para comparar pocas categorías × pocas series, fácil de leer para alta dirección. Cada competencia se lee independientemente sin la complejidad geométrica del radar.
+- **Diseño:** UNIMAGDALENA en azul institucional, Sergio Arboleda en verde, Cooperativa en naranja (paleta alineada con el resto del informe). Valor sobre cada barra con el color de la serie. Tooltip al hover con universidad + competencia + valor + evaluados. Leyenda inferior con los 3 nombres acortados; el tooltip muestra el nombre completo.
+- **Nota:** la lista de 3 universidades es la cobertura efectiva del Icfes en Magdalena (verificado 2020-2025); UNICARIBE no reporta en las bases del Icfes para Magdalena.
 
 ---
 
