@@ -28,6 +28,7 @@ El archivo [data/config/parametros.yml](../data/config/parametros.yml) controla:
 - Universidades SUE y Caribe.
 - `universidades_dept_magdalena`: lista de universidades del Departamento del Magdalena para el comparativo (cada entrada con `nombre_display`, `busqueda` exacta como aparece en el Excel del Icfes, y `agregacion` = `INSTITUCION` o `SEDE`).
 - `sue_abreviaturas`: mapeo de nombre normalizado de IES SUE → abreviatura corta usada en el eje X del ranking SUE (ej. "UNIVERSIDAD NACIONAL DE COLOMBIA" → "UNAL").
+- `programas_acreditados` *(v2.11)*: lista de programas de UNIMAGDALENA con acreditación de alta calidad. Los nombres deben coincidir con el campo `PROGRAMA_ACADEMICO` del Icfes tras la normalización (mayúsculas y sin tildes). Cada programa de esta lista recibe el badge azul de "Programa acreditado" en la cajita flotante de iconos del explorador.
 - Mapeo de programas de UNIMAGDALENA a facultad y NBC.
 
 El archivo [data/config/normalizacion_ies.csv](../data/config/normalizacion_ies.csv) alinea nombres de instituciones entre la Fuente A (base de cruce) y la Fuente B (Excel agregados). Por ejemplo, normaliza `UNIVERSIDAD DE NARIÑO` a `UNIVERSIDAD DE NARINO` para que el cruce con la Fuente B sea exitoso.

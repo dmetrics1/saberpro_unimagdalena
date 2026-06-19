@@ -225,6 +225,37 @@
       <div class="section__eyebrow">05 · Programas</div>
 
       <div class="explorer-container">
+        <!-- Convenciones visuales del explorador de programas (encima de los filtros) -->
+        <div class="convenciones">
+          <div class="convenciones__title">Convenciones</div>
+          <div class="convenciones__items">
+            <div class="convencion">
+              <span class="convencion__icon convencion__icon--acred" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span class="convencion__text">Programa acreditado</span>
+            </div>
+            <div class="convencion">
+              <span class="convencion__icon convencion__icon--up" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4 4 14h5v6h6v-6h5z"/></svg>
+              </span>
+              <span class="convencion__text">Programa por encima de la media</span>
+            </div>
+            <div class="convencion">
+              <span class="convencion__icon convencion__icon--down" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20 4 10h5V4h6v6h5z"/></svg>
+              </span>
+              <span class="convencion__text">Programa por debajo de la media</span>
+            </div>
+            <div class="convencion">
+              <span class="convencion__icon convencion__icon--star" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.5 17,14.5 18.5,22 12,18 5.5,22 7,14.5 2,9.5 9,9"/></svg>
+              </span>
+              <span class="convencion__text">Por encima de la media en todas las competencias</span>
+            </div>
+          </div>
+        </div>
+
         <div class="explorer-controls">
           <div class="control-group">
             <label for="selFacultad">Filtrar por facultad:</label>
@@ -247,13 +278,16 @@
           <span class="warn-badge__text"><strong>Evaluados bajos (n &lt; 5):</strong> este programa cuenta con muy pocos evaluados en el año vigente. Interpretar los resultados con precaución.</span>
         </div>
 
+
         <div class="charts-grid charts-grid--stacked">
           <!-- Tarjeta combinada: genéricas + específicas vs. NBC -->
           <div class="card prog-genspec-card">
             <div class="prog-genspec-grid">
               <!-- Columna izquierda: Genéricas (radar) -->
-              <div class="prog-genspec-side">
+              <div class="prog-genspec-side prog-genspec-side--with-status">
                 <h3 class="card__title prog-genspec-side__title">Competencias genéricas vs. NBC <span id="progRadarYearLbl">2025</span></h3>
+                <!-- Cajita flotante con los iconos del estado del programa (anclada al chart del radar) -->
+                <div id="progStatus" class="prog-status-box" hidden></div>
                 <div class="chart-container" id="progRadar"></div>
               </div>
               <!-- Columna derecha: Específicas (barras) -->

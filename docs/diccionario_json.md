@@ -274,6 +274,7 @@ Datos del explorador de programas.
 | `facultad` | texto | Facultad asignada en `parametros.yml`. |
 | `nbc_id` | número \| null | Identificador interno del NBC (Núcleo Básico de Conocimiento) al que pertenece el programa. |
 | `nbc_nombre` | texto \| null | Nombre del NBC (p. ej. "ADMINISTRACIÓN", "BIOLOGÍA, MICROBIOLOGÍA Y AFINES"). |
+| `acreditado` | booleano | **(v2.11)** Verdadero si el programa pertenece a la lista `programas_acreditados` de `parametros.yml`. Alimenta el badge azul de acreditación en la cajita de iconos del explorador. |
 | `n_2025` | número | Evaluados del año vigente. |
 | `global_2025` | número | Puntaje global del programa. |
 | `global_nbc_nacional_2025` | número | Referencia nacional del NBC. |

@@ -118,6 +118,23 @@ universidades_dept_magdalena:
     busqueda: "UNIVERSIDAD COOPERATIVA DE COLOMBIA-SANTA MARTA"
     agregacion: "SEDE"
 
+# PROGRAMAS DE UNIMAGDALENA CON ACREDITACION DE ALTA CALIDAD
+# Los nombres deben coincidir (tras normalizacion sin tildes y en mayusculas) con
+# el campo PROGRAMA_ACADEMICO de las bases del Icfes. El front muestra el icono
+# de "Programa acreditado" en la cajita de estado para cada programa de esta lista.
+programas_acreditados:
+  - "BIOLOGIA"
+  - "ADMINISTRACION DE EMPRESAS"
+  - "CONTADURIA PUBLICA"
+  - "ECONOMIA"
+  - "NEGOCIOS INTERNACIONALES"
+  - "ENFERMERIA"
+  - "MEDICINA"
+  - "PSICOLOGIA"
+  - "ANTROPOLOGIA"
+  - "CINE Y AUDIOVISUALES"
+  - "INGENIERIA AGRONOMICA"
+
 # UNIVERSIDADES DEL SUE PERTENECIENTES A LA REGION CARIBE
 universidades_caribe:
   - "UNIVERSIDAD DEL MAGDALENA"

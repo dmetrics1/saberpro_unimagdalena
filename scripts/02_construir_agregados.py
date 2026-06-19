@@ -821,6 +821,11 @@ def main() -> None:
         sorted_comp_list = sorted(prog_comp_list, key=lambda x: x["puntaje"], reverse=True)[:10]
         top10_competencias_salida[comp] = sorted_comp_list
         
+    # Set de programas acreditados (clean_text para que coincida con la clave de programas_2025)
+    programas_acreditados_set = {
+        sp.clean_text(nombre) for nombre in (params.get("programas_acreditados") or [])
+    }
+
     # Convertir a lista limpia para salida JSON
     programas_salida_2025 = []
     for p in programas_2025.values():
@@ -880,6 +885,7 @@ def main() -> None:
             "facultad": p["facultad"],
             "nbc_id": p.get("nbc_id"),
             "nbc_nombre": p.get("nbc_nombre"),
+            "acreditado": p["programa"] in programas_acreditados_set,
             "n_2025": p["n"],
             "global_2025": p["global"],
             "global_nbc_nacional_2025": p.get("global_nbc_nacional"),

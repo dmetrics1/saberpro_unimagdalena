@@ -19,7 +19,8 @@ let tooltipEl = null;
 async function init() {
   let d;
   try {
-    const res = await fetch('data/datos_informe.json');
+    // cache-bust con timestamp para que cada visita lea la última versión del JSON
+    const res = await fetch(`data/datos_informe.json?v=${Date.now()}`, { cache: 'no-store' });
     d = await res.json();
   } catch (e) {
     document.getElementById('kpiGrid').innerHTML =
@@ -1907,6 +1908,9 @@ function updateProgramExplorerData(d) {
     warn.style.display = p.n_bajo ? 'flex' : 'none';
   }
 
+  // Indicador de estado del programa según las convenciones
+  updateProgramStatus(p);
+
   // Selector único de año (unión de años con data en radar o específicas)
   initProgYearPicker(d, p);
 
@@ -1915,6 +1919,55 @@ function updateProgramExplorerData(d) {
   renderExplorerSpecifics(p, activeProgYear);
   renderExplorerHistory(p);
   renderExplorerLevels(p);
+}
+
+/* Calcula los indicadores del programa según las convenciones.
+   Un programa puede tener varios estados simultáneos: acreditado + arriba/abajo + estrella. */
+function updateProgramStatus(p) {
+  const row = document.getElementById('progStatus');
+  if (!row) return;
+
+  const prog = p.global_2025;
+  const ref = p.global_nbc_nacional_2025;
+  const comps = p.competencias_2025 || [];
+
+  const SVG_ACRED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>';
+  const SVG_UP    = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4 4 14h5v6h6v-6h5z"/></svg>';
+  const SVG_DOWN  = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20 4 10h5V4h6v6h5z"/></svg>';
+  const SVG_STAR  = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9.5 17,14.5 18.5,22 12,18 5.5,22 7,14.5 2,9.5 9,9"/></svg>';
+
+  const badges = [];
+
+  // 1. Acreditación (campo opcional del JSON; se llenará desde parametros.yml)
+  if (p.acreditado) {
+    badges.push({ state: 'acred', icon: SVG_ACRED, text: 'Programa acreditado' });
+  }
+
+  // 2. Posición frente al NBC nacional + estrella si supera en TODAS las competencias
+  const allAbove = comps.length > 0 && comps.every(c =>
+    c.puntaje_programa != null && c.puntaje_nbc_nacional != null && c.puntaje_programa > c.puntaje_nbc_nacional
+  );
+  const globalAbove = prog != null && ref != null && prog > ref;
+  const globalBelow = prog != null && ref != null && prog < ref;
+
+  if (allAbove && globalAbove) {
+    badges.push({ state: 'star', icon: SVG_STAR, text: 'Por encima del promedio en TODAS las competencias' });
+  } else if (globalAbove) {
+    badges.push({ state: 'up', icon: SVG_UP, text: `Por encima del promedio del NBC (+${(prog - ref).toFixed(1)} pts)` });
+  } else if (globalBelow) {
+    badges.push({ state: 'down', icon: SVG_DOWN, text: `Por debajo del promedio del NBC (${(prog - ref).toFixed(1)} pts)` });
+  }
+
+  if (badges.length === 0) {
+    row.hidden = true;
+    row.innerHTML = '';
+    return;
+  }
+
+  row.hidden = false;
+  row.innerHTML = badges.map(b =>
+    `<span class="prog-status-icon" data-state="${b.state}" data-label="${b.text}" title="${b.text}">${b.icon}</span>`
+  ).join('');
 }
 
 function initProgYearPicker(d, p) {
@@ -2203,20 +2256,33 @@ function renderExplorerSpecifics(p, yearOverride) {
   const container = document.getElementById('progSpecBar');
   if (!container || !card) return;
 
+  // El card siempre es visible; si no hay datos mostramos un placeholder, no lo ocultamos
+  card.style.display = '';
+
   // Determinar año a usar y datos correspondientes
   const targetYear = yearOverride ?? (parseInt(document.getElementById('selAnioProgSpec')?.value, 10) || 2025);
   const histYear = (p.especificas_historico || {})[String(targetYear)];
-  const specs = (Array.isArray(histYear) && histYear.length > 0) ? histYear : (p.especificas_2025 || []);
+  // Solo caemos a 2025 si NINGÚN año ha sido pedido explícitamente
+  const hasHistData = Array.isArray(histYear) && histYear.length > 0;
+  const specs = hasHistData ? histYear : (yearOverride == null ? (p.especificas_2025 || []) : []);
 
-  if (!specs || specs.length === 0) {
-    card.style.display = 'none';
-    return;
-  }
-  card.style.display = '';
-
-  // Actualizar etiqueta del año en el título
+  // Actualizar etiqueta del año en el título (siempre, aunque no haya datos)
   const yrLbl = document.getElementById('progSpecYearLbl');
   if (yrLbl) yrLbl.textContent = targetYear;
+
+  // Sin específicas para este año/programa: mostrar mensaje en lugar de gráfica
+  if (!specs || specs.length === 0) {
+    container.innerHTML = `
+      <div class="chart-empty">
+        <div class="chart-empty__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+        </div>
+        <div class="chart-empty__title">No presentó Competencias Específicas</div>
+        <div class="chart-empty__sub">El programa no rindió pruebas específicas en ${targetYear}.</div>
+      </div>
+    `;
+    return;
+  }
 
   const COLOR_PROG = PANORAMA_UM;   // azul institucional
   const COLOR_NBC = PANORAMA_NAT;   // verde

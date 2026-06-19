@@ -1122,6 +1122,153 @@ body.sidebar-collapsed .sidebar-toggle {
 }
 
 /* ============================================================
+   Convenciones del explorador de Programas + estado del programa
+   ============================================================ */
+.convenciones {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(15,79,168,.04) 0%, rgba(15,79,168,.08) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 6px 0 14px;
+  flex-wrap: wrap;
+}
+.convenciones__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #0F4FA8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 16px;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.convenciones__items {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.convencion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.convencion__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.convencion__icon svg { width: 18px; height: 18px; }
+.convencion__icon--acred { background: rgba(15,79,168,.12); color: #0F4FA8; }
+.convencion__icon--up    { background: rgba(43,168,94,.15); color: #2BA85E; }
+.convencion__icon--down  { background: rgba(229,57,53,.12); color: #E53935; }
+.convencion__icon--star  { background: rgba(255,193,7,.18); color: #F9A825; }
+
+/* Placeholder cuando una gráfica no tiene datos (p. ej. especificas en cierto año) */
+.chart-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.chart-empty__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(15,79,168,.08);
+  color: #0F4FA8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.chart-empty__icon svg { width: 28px; height: 28px; }
+.chart-empty__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text);
+}
+.chart-empty__sub {
+  font-size: 0.86rem;
+  color: var(--muted);
+  max-width: 320px;
+  line-height: 1.45;
+}
+
+/* Cajita flotante con los iconos de estado del programa — anclada dentro de la
+   columna del radar, cerca del label "Lectura Crítica" (parte superior del SVG).
+   Sin texto; el texto aparece como tooltip al hover. */
+.prog-genspec-side--with-status { position: relative; }
+.prog-status-box {
+  position: absolute;
+  top: 44px;            /* debajo del título de la columna, dentro del área del radar */
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  z-index: 5;
+}
+.prog-status-box[hidden] { display: none; }
+
+.prog-status-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: relative;
+  cursor: help;
+}
+.prog-status-icon svg { width: 18px; height: 18px; }
+.prog-status-icon[data-state="acred"] { background: rgba(15,79,168,.12); color: #0F4FA8; }
+.prog-status-icon[data-state="up"]    { background: rgba(43,168,94,.15); color: #2BA85E; }
+.prog-status-icon[data-state="down"]  { background: rgba(229,57,53,.12); color: #E53935; }
+.prog-status-icon[data-state="star"]  { background: rgba(255,193,7,.18); color: #F9A825; }
+
+/* Tooltip al pasar el cursor sobre cada icono */
+.prog-status-icon::after {
+  content: attr(data-label);
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #0F4FA8;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .14s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.18);
+  z-index: 10;
+}
+.prog-status-icon:hover::after { opacity: 1; }
+
+/* ============================================================
    Estilos de Gráficos SVG
    ============================================================ */
 .svg-chart {
