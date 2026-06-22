@@ -3018,7 +3018,20 @@ function renderHeatmap(d, yearOverride) {
   const comps = d.institucional.competencias.map(c => c.competencia);
 
   // Etiquetas cortas reutilizando el mapping de los tabs de Facultades
-  const labelOf = (name) => COMP_SHORT_LABEL[name] || titleCase(name);
+  // En mobile usamos labels todavia mas cortos con line-break controlado para
+  // que wrappen limpio en 2 lineas (sin partir palabras mid-sylaba).
+  const isMobileHM = window.matchMedia('(max-width: 720px)').matches;
+  const COMP_MOBILE_LABEL = {
+    'LECTURA CRÍTICA': 'Lect.\nCrít.',
+    'RAZONAMIENTO CUANTITATIVO': 'Raz.\nCuant.',
+    'COMPETENCIAS CIUDADANAS': 'Ciudad.',
+    'COMUNICACIÓN ESCRITA': 'Com.\nEscr.',
+    'INGLÉS': 'Inglés'
+  };
+  const labelOf = (name) => {
+    if (isMobileHM && COMP_MOBILE_LABEL[name]) return COMP_MOBILE_LABEL[name];
+    return COMP_SHORT_LABEL[name] || titleCase(name);
+  };
 
   // Crear la tabla
   const table = document.createElement('table');

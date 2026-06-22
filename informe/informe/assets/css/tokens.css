@@ -2116,10 +2116,8 @@ body.sidebar-collapsed .sidebar__foot-short {
     max-width: 100%;
   }
 
-  /* Heights compactos uniformes: TODOS los charts en mobile usan la misma altura
-     que el default .chart-container (280px). Esto evita inconsistencias visuales
-     entre secciones. */
-  #facultades #chartHeatmap,
+  /* Heights compactos uniformes: charts SVG usan la misma altura que el default
+     .chart-container (280px). El heatmap es una tabla y necesita altura adaptable. */
   #facultades #chartFacultades,
   #competencias #chartTop10,
   #competencias #chartNiveles {
@@ -2131,6 +2129,18 @@ body.sidebar-collapsed .sidebar__foot-short {
     min-width: 0;
   }
   #facultades #chartFacultades > svg { width: 100%; height: 100%; }
+
+  /* Heatmap: tabla con altura adaptable al contenido. NO overflow hidden — si no,
+     se recortan los headers superiores y se ven 'CRITICACUANTITATIVO' en lugar de
+     'Lectura Critica / Razonamiento / Ciudadanas / Escrita / Ingles'. */
+  #facultades #chartHeatmap {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
 
   /* FIX CRITICO: el SVG con viewBox tiene un intrinsic min-content (su aspect ratio)
      que fuerza al grid item (card) a ser mas ancho que el viewport. Con min-width: 0
@@ -2162,7 +2172,20 @@ body.sidebar-collapsed .sidebar__foot-short {
   }
   #facultades #chartHeatmap .heatmap__cell { font-size: 0.82rem; padding: 7px 3px; }
   #facultades #chartHeatmap .heatmap__corner { font-size: 0.62rem; padding: 4px; }
-  #facultades #chartHeatmap .heatmap thead th { font-size: 0.6rem; padding: 4px 2px; line-height: 1.15; }
+  /* Headers de columna: el JS inserta '\n' entre palabras para forzar saltos limpios
+     (Lectura\nCrítica, Razon.\nCuant., Com.\nEscrita). white-space: pre-line respeta
+     esos saltos sin partir palabras mid-syllaba. */
+  #facultades #chartHeatmap .heatmap thead th {
+    font-size: 0.6rem;
+    padding: 6px 2px;
+    line-height: 1.2;
+    white-space: pre-line;
+    text-align: center;
+    vertical-align: bottom;
+    color: var(--brand-primary-dark, #0F4FA8);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
   /* Primera columna (nombre de facultad): mas ancha, texto balanceado en menos lineas */
   #facultades #chartHeatmap .heatmap tbody td:first-child {
     font-size: 0.72rem;
