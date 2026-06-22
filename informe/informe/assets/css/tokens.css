@@ -58,44 +58,132 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--sp-5); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  .section { opacity: 1 !important; transform: none !important; }
+  /* Reveal: mostrar todo de inmediato sin transformaciones */
+  .section,
+  .section .card,
+  .section .kpi-card,
+  .section .cuadrante-card,
+  .section .convenciones,
+  .section .explorer-controls,
+  .section .metodologia-block,
+  .section .metodologia-source,
+  .section .metodologia-flow__step,
+  .section .metodologia-rule,
+  .kpi-grid > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 /* ============================================================
-   Aparición progresiva de secciones al hacer scroll
+   Aparición progresiva de secciones y cards al hacer scroll
+   --------------------------------------------------------------
+   Sistema unificado de reveal:
+   1. La sección entera hace fade-up (opacity 0->1, translateY 28px->0)
+   2. Cada card/bloque interno hace su propio fade-up con stagger por
+      posición (nth-child). El resultado es una cascada elegante en
+      lugar de un solo "salto" del bloque completo.
+   3. translate3d para GPU acceleration en mobile.
+   4. Easing cubic-bezier(.22,.61,.36,1) — ease-out smooth (similar a
+      iOS/Material). Una sola curva en todo el sistema.
    ============================================================ */
+
+/* Nivel 1: la seccion completa fade-up */
 .section {
   opacity: 0;
-  transform: translateY(36px);
+  transform: translate3d(0, 28px, 0);
   transition:
-    opacity .7s cubic-bezier(.16,1,.3,1),
-    transform .7s cubic-bezier(.16,1,.3,1);
-  will-change: opacity, transform;
+    opacity .65s cubic-bezier(.22,.61,.36,1),
+    transform .65s cubic-bezier(.22,.61,.36,1);
 }
 .section.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
-/* Sutil stagger por bloques dentro de cada sección */
+
+/* Nivel 2: cards y bloques internos parten ocultos y suben con stagger.
+   Aplicamos opacity/transform en el ESTADO INICIAL y los revelamos cuando
+   la seccion padre tiene .is-revealed. */
+.section .card,
+.section .kpi-card,
+.section .cuadrante-card,
+.section .convenciones,
+.section .explorer-controls,
+.section .metodologia-block,
+.section .metodologia-source,
+.section .metodologia-flow__step,
+.section .metodologia-rule {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity .55s cubic-bezier(.22,.61,.36,1),
+    transform .55s cubic-bezier(.22,.61,.36,1);
+}
 .section.is-revealed .card,
 .section.is-revealed .kpi-card,
 .section.is-revealed .cuadrante-card,
 .section.is-revealed .convenciones,
 .section.is-revealed .explorer-controls,
-.section.is-revealed .metodologia-block {
-  animation: blockRise .55s cubic-bezier(.16,1,.3,1) both;
+.section.is-revealed .metodologia-block,
+.section.is-revealed .metodologia-source,
+.section.is-revealed .metodologia-flow__step,
+.section.is-revealed .metodologia-rule {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
-.section.is-revealed > * { --reveal-i: 0; animation-delay: calc(var(--reveal-i) * 70ms); }
-.section.is-revealed > *:nth-child(2) { --reveal-i: 1; }
-.section.is-revealed > *:nth-child(3) { --reveal-i: 2; }
-.section.is-revealed > *:nth-child(4) { --reveal-i: 3; }
-.section.is-revealed > *:nth-child(5) { --reveal-i: 4; }
-@keyframes blockRise {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+/* Stagger por posicion dentro de su grid padre.
+   La cascada se siente natural: 0ms, 90ms, 180ms, 270ms... */
+.section.is-revealed .charts-grid > *:nth-child(1),
+.section.is-revealed .cuadrante-grid > *:nth-child(1),
+.section.is-revealed .metodologia-grid > *:nth-child(1),
+.section.is-revealed > .card:nth-of-type(1) { transition-delay: 80ms; }
+
+.section.is-revealed .charts-grid > *:nth-child(2),
+.section.is-revealed .cuadrante-grid > *:nth-child(2),
+.section.is-revealed .metodologia-grid > *:nth-child(2),
+.section.is-revealed > .card:nth-of-type(2) { transition-delay: 170ms; }
+
+.section.is-revealed .charts-grid > *:nth-child(3),
+.section.is-revealed .cuadrante-grid > *:nth-child(3),
+.section.is-revealed .metodologia-grid > *:nth-child(3),
+.section.is-revealed > .card:nth-of-type(3) { transition-delay: 260ms; }
+
+.section.is-revealed .charts-grid > *:nth-child(4),
+.section.is-revealed .cuadrante-grid > *:nth-child(4),
+.section.is-revealed .metodologia-grid > *:nth-child(4),
+.section.is-revealed > .card:nth-of-type(4) { transition-delay: 350ms; }
+
+/* Stagger del flujo metodologia (steps) — mas chico porque son lineas */
+.section.is-revealed .metodologia-flow__step:nth-child(1) { transition-delay: 70ms; }
+.section.is-revealed .metodologia-flow__step:nth-child(2) { transition-delay: 140ms; }
+.section.is-revealed .metodologia-flow__step:nth-child(3) { transition-delay: 210ms; }
+.section.is-revealed .metodologia-flow__step:nth-child(4) { transition-delay: 280ms; }
+.section.is-revealed .metodologia-flow__step:nth-child(5) { transition-delay: 350ms; }
+
+/* La primera seccion (panorama hero) se revela inmediatamente al cargar */
+.section:first-of-type { opacity: 1; transform: translate3d(0, 0, 0); }
+.section:first-of-type .card,
+.section:first-of-type .panorama-card {
+  /* Hero panorama: cards se animan de una al cargar (sin esperar scroll) */
+  animation: heroFadeUp .7s cubic-bezier(.22,.61,.36,1) .15s both;
 }
-/* La primera sección visible (panorama) no debe esperar al scroll para mostrarse */
-.section:first-of-type { opacity: 1; transform: none; }
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* KPIs (kpi-grid) fade-in con stagger al cargar la pagina */
+.kpi-grid > * {
+  animation: heroFadeUp .55s cubic-bezier(.22,.61,.36,1) both;
+}
+.kpi-grid > *:nth-child(1) { animation-delay: 80ms; }
+.kpi-grid > *:nth-child(2) { animation-delay: 160ms; }
+.kpi-grid > *:nth-child(3) { animation-delay: 240ms; }
+.kpi-grid > *:nth-child(4) { animation-delay: 320ms; }
+.kpi-grid > *:nth-child(5) { animation-delay: 400ms; }
+.kpi-grid > *:nth-child(6) { animation-delay: 480ms; }
 
 body {
   margin: 0;
