@@ -690,21 +690,23 @@ body.sidebar-collapsed .sidebar__foot-short {
     pointer-events: auto;
   }
 
-  /* Sidebar como drawer que entra desde la izquierda — sin scroll, todo cabe */
+  /* Sidebar como drawer que entra desde la izquierda — altura del contenido,
+     sin huecos vacios. Aparece pegado al top del viewport. */
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
+    bottom: auto;            /* altura definida por el contenido, no full-viewport */
+    max-height: 100vh;       /* nunca pasa de la altura visible */
     width: 286px;
     max-width: 86vw;
     margin: 0;
-    padding: 24px 20px 20px;
+    padding: 24px 20px 22px;
     border-radius: 0 26px 26px 0;
     transform: translateX(-100%);
     transition: transform .28s cubic-bezier(.16,1,.3,1);
     z-index: 80;
-    overflow: hidden;        /* el drawer no se scrollea — contenido ajustado para caber */
+    overflow-y: auto;        /* fallback: si por algún motivo no cabe, permite scroll interno */
     display: flex;
     flex-direction: column;
   }
@@ -741,13 +743,14 @@ body.sidebar-collapsed .sidebar__foot-short {
   }
 
   /* Nav: vertical, items grandes con icono + texto, item activo destacado.
-     flex: 1 0 auto para que ocupe el espacio entre brand y foot sin scroll */
+     flex: 0 0 auto para que el nav use solo el espacio que necesita (sin estirarse)
+     — el footer aparece pegado debajo, sin huecos vacíos. */
   .nav {
     flex-direction: column;
     gap: 4px;
     overflow: visible;
     padding: 0 2px;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
   }
   .nav__item {
     display: flex;
@@ -777,13 +780,14 @@ body.sidebar-collapsed .sidebar__foot-short {
   .nav__item.is-active .nav__icon { color: #fff; }
   .nav__num { display: none; }
 
-  /* Footer del drawer: visible en mobile con "Oficina Asesora de Planeación" + fecha */
+  /* Footer del drawer: visible en mobile con "Oficina Asesora de Planeación" + fecha.
+     Margin-top sutil, sin margin-top: auto para que quede pegado bajo el nav. */
   .sidebar__foot {
     display: flex;
     flex-direction: column;
     gap: 4px;
     flex-shrink: 0;
-    margin-top: 12px;
+    margin-top: 14px;
     padding: 14px 6px 4px;
     border-top: 1px solid rgba(255,255,255,.08);
     font-size: 0.72rem;
