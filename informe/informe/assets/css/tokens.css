@@ -2144,23 +2144,35 @@ body.sidebar-collapsed .sidebar__foot-short {
   .chart-container { min-width: 0; max-width: 100%; }
   .chart-container > svg { max-width: 100%; }
 
-  /* Heatmap mobile: celdas mas compactas para que las 6 columnas (Facultad + 5 competencias) quepan */
+  /* Heatmap mobile: celdas compactas con primera columna mas ancha para que los
+     nombres de facultad ('Ciencias Empresariales y Económicas') quepan en 2-3 líneas
+     en lugar de 4-5. Usamos colgroup-like column-widths via :nth-child. */
   #facultades #chartHeatmap .heatmap { width: 100%; table-layout: fixed; }
+  /* Primera columna (Facultad): 32% del ancho — ~106px en mobile 360 */
+  #facultades #chartHeatmap .heatmap th:first-child,
+  #facultades #chartHeatmap .heatmap td:first-child { width: 32%; }
+  /* Las 5 columnas de competencias: 13.6% cada una (~45px) */
+  #facultades #chartHeatmap .heatmap th:not(:first-child),
+  #facultades #chartHeatmap .heatmap td:not(:first-child) { width: 13.6%; }
+
   #facultades #chartHeatmap .heatmap th,
   #facultades #chartHeatmap .heatmap td {
-    padding: 6px 4px;
-    font-size: 0.72rem;
+    padding: 5px 3px;
+    font-size: 0.68rem;
   }
-  #facultades #chartHeatmap .heatmap__cell { font-size: 0.85rem; padding: 8px 4px; }
-  #facultades #chartHeatmap .heatmap__corner { font-size: 0.65rem; padding: 4px; }
-  #facultades #chartHeatmap .heatmap thead th { font-size: 0.62rem; padding: 4px 2px; line-height: 1.15; }
-  /* Primera columna (nombre de facultad) compacta con texto wrappeado */
+  #facultades #chartHeatmap .heatmap__cell { font-size: 0.82rem; padding: 7px 3px; }
+  #facultades #chartHeatmap .heatmap__corner { font-size: 0.62rem; padding: 4px; }
+  #facultades #chartHeatmap .heatmap thead th { font-size: 0.6rem; padding: 4px 2px; line-height: 1.15; }
+  /* Primera columna (nombre de facultad): mas ancha, texto balanceado en menos lineas */
   #facultades #chartHeatmap .heatmap tbody td:first-child {
     font-size: 0.72rem;
     padding: 8px 6px;
     text-align: left;
-    line-height: 1.2;
+    line-height: 1.25;
     font-weight: 700;
+    text-wrap: balance;    /* distribuye el texto en lineas mas parejas */
+    hyphens: auto;
+    word-spacing: -0.5px;
   }
 
   /* Cards combinados: el chart-container interno respeta la altura mobile */

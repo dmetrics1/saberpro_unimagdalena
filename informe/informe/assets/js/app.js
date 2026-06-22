@@ -3066,10 +3066,21 @@ function renderHeatmap(d, yearOverride) {
     return { bg, textColor, pct };
   };
 
+  // En mobile abreviamos "Ciencias" -> "C." para que los nombres de facultad caben
+  // en menos lineas en el heatmap. En desktop usamos el nombre completo.
+  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+  const fmtFac = (nombre) => {
+    let s = nombre.replace('Facultad de ', '');
+    if (isMobile) {
+      s = s.replace(/^Ciencias\b/, 'C.');
+    }
+    return s;
+  };
+
   facs.forEach(f => {
     const tr = document.createElement('tr');
     const tdFac = document.createElement('td');
-    tdFac.textContent = f.facultad.replace('Facultad de ', '');
+    tdFac.textContent = fmtFac(f.facultad);
     tr.appendChild(tdFac);
 
     comps.forEach(compName => {
