@@ -655,45 +655,168 @@ body.sidebar-collapsed .sidebar__foot-short {
     position: relative;
     top: 0; left: 0; bottom: auto;
     width: auto;
-    margin: 16px 16px 12px;
-    padding: 16px 18px;
-    border-radius: 22px;
+    margin: 12px 12px 10px;
+    padding: 14px 16px;
+    border-radius: 20px;
+    transition: none;     /* sin animacion del toggle en mobile */
   }
-  .sidebar__brand { margin-bottom: 14px; }
+  .sidebar__brand { margin-bottom: 12px; gap: 10px; }
+  .sidebar__title { font-size: .88rem; }
+  .sidebar__title span { font-size: .68rem; }
+  /* En mobile el toggle no aplica (el sidebar siempre es barra horizontal) */
+  .sidebar-toggle { display: none; }
+
+  /* Nav horizontal con scroll y gradient hint en el borde derecho */
   .nav {
     flex-direction: row;
     overflow-x: auto;
-    gap: 4px;
-    padding-bottom: 4px;
+    gap: 6px;
+    padding-bottom: 2px;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
   }
   .nav::-webkit-scrollbar { display: none; }
   .nav__item {
     flex: 0 0 auto;
-    padding: 8px 12px;
+    padding: 9px 14px;
     font-size: .82rem;
+    scroll-snap-align: start;
+    gap: 8px;
   }
+  .nav__item .nav__icon { width: 18px; height: 18px; }
+  .nav__item .nav__icon svg { width: 16px; height: 16px; }
   .nav__num { display: none; }
   .sidebar__foot { display: none; }
 
   .content {
     margin-left: 0;
-    padding: 8px 16px 56px;
+    padding: 6px 14px 48px;
+    transition: none;     /* mobile no hace toggle animado */
   }
   .hero {
-    padding: 32px 22px 36px;
-    border-radius: 22px;
+    padding: 28px 20px 32px;
+    border-radius: 20px;
   }
   .hero h1 strong {
-    font-size: clamp(36px, 10vw, 52px);
+    font-size: clamp(32px, 9.5vw, 46px);
+    word-break: break-word;     /* protege "UNIMAGDALENA" si la fuente es ancha */
   }
   .hero h1 span {
-    font-size: clamp(22px, 6vw, 30px);
+    font-size: clamp(20px, 5.5vw, 28px);
   }
   .hero__sub {
-    font-size: 16px;
+    font-size: 15px;
   }
-  .kpi__value { font-size: 1.9rem; }
+  .hero__actions {
+    gap: 10px;
+  }
+  .hero__button { padding: 11px 18px; font-size: .92rem; }
+
+  /* KPIs apilados con tamaños mas tunados */
+  .kpi-grid { gap: 12px; margin: 18px 0 26px; }
+  .kpi { padding: 18px 18px 16px; border-radius: 18px; }
+  .kpi__value { font-size: 1.7rem; }
+  .kpi__icon { width: 32px; height: 32px; }
+  .kpi__icon svg { width: 18px; height: 18px; }
+
+  /* Secciones - eyebrow mas compacto */
+  .section { padding: 28px 0 32px; }
+  .section__eyebrow { font-size: 0.7rem; margin-bottom: 14px; }
+
+  /* Cards: padding compacto y radios consistentes (override section-specific) */
+  .card,
+  #panorama .card,
+  #posicionamiento .card,
+  #valor-agregado .card,
+  #facultades .card,
+  #programas .card,
+  #competencias .card,
+  #metodologia .card {
+    padding: 16px 14px 14px;
+    border-radius: 16px;
+  }
+  .card__title { font-size: 0.95rem; line-height: 1.3; }
+  .card__title-soft { font-size: 0.85em; }
+  .card__header-flex { gap: 8px; flex-wrap: wrap; }
+  /* charts-grid en mobile: ocupa el 100% sin max-width */
+  #panorama .charts-grid,
+  #posicionamiento .charts-grid,
+  #valor-agregado .charts-grid,
+  #facultades .charts-grid,
+  #programas .charts-grid,
+  #competencias .charts-grid {
+    max-width: 100%;
+  }
+
+  /* Charts: altura mas baja en mobile (los SVG mantienen su aspect ratio) */
+  .chart-container { height: 280px; min-height: 260px; }
+  .panorama-side .chart-container,
+  .prog-genspec-side .chart-container,
+  .prog-history-side .chart-container { height: 320px; min-height: 300px; }
+  #facultades #chartHeatmap, #competencias #chartTop10, #competencias #chartNiveles { height: 360px; min-height: 320px; }
+  #facultades #chartFacultades { height: 340px; min-height: 320px; }
+
+  /* Selectores compactos */
+  .control-select { font-size: 0.85rem; padding: 7px 10px; }
+  .control-select--compact { min-width: 130px; max-width: 100%; font-size: 0.78rem; padding: 6px 8px; }
+  .card__controls--inline { gap: 6px; flex-wrap: wrap !important; }
+
+  /* Cuadrantes: 2 selectores deben caber en mobile - permitir wrap */
+  #valor-agregado .card__controls--inline { flex-wrap: wrap !important; width: 100%; }
+  #valor-agregado .card__controls--inline .select-wrapper { flex: 1 1 140px; }
+
+  /* Explorer de programas: filtros apilados */
+  .explorer-controls { gap: 12px; flex-direction: column; }
+  .control-group, .control-group--year { width: 100%; min-width: 0; }
+  .convenciones { padding: 12px 14px; gap: 12px; }
+  .convenciones__title {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 8px;
+    width: 100%;
+  }
+  .convencion { font-size: 0.78rem; }
+
+  /* Cajita de estado del programa en el card combinado */
+  .prog-status-box { top: 6px; right: 6px; padding: 4px 6px; gap: 4px; }
+  .prog-status-icon { width: 22px; height: 22px; }
+  .prog-status-icon svg { width: 14px; height: 14px; }
+
+  /* Metodologia - bloques mas legibles */
+  .metodologia-block { padding: 18px 16px 16px; }
+  .metodologia-block__head .card__title { font-size: 1rem; }
+  .metodologia-sources { grid-template-columns: 1fr; gap: 12px; }
+  .metodologia-rules { grid-template-columns: 1fr; gap: 12px; }
+  .metodologia-glossary { grid-template-columns: 1fr; gap: 10px; }
+  .metodologia-flow__step { padding: 10px 12px; gap: 10px; }
+  .metodologia-flow__num { flex: 0 0 26px; height: 26px; font-size: 0.85rem; }
+
+  /* Tabs de competencia (Top 10) horizontal con scroll */
+  .tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { flex: 0 0 auto; }
+}
+
+/* Pantallas muy estrechas (<420px) - ajustes finales */
+@media (max-width: 420px) {
+  .hero h1 strong { font-size: clamp(28px, 9vw, 38px); }
+  .kpi__value { font-size: 1.5rem; }
+  .chart-container { height: 240px; min-height: 220px; }
+  .panorama-side .chart-container,
+  .prog-genspec-side .chart-container,
+  .prog-history-side .chart-container { height: 280px; min-height: 260px; }
+  .convenciones__items { gap: 10px; }
+  .convencion__icon { width: 24px; height: 24px; }
+  .convencion__icon svg { width: 14px; height: 14px; }
 }
 
 /* ============================================================
@@ -1828,4 +1951,93 @@ body.sidebar-collapsed .sidebar__foot-short {
   .hero__button {
     width: 100%;
   }
+}
+
+/* ============================================================
+   MOBILE OVERRIDES — al final del archivo para ganar por cascade
+   sobre las reglas section-specific (#facultades .card, etc).
+   Sin !important; solo aprovecha el orden de cascade.
+   ============================================================ */
+@media (max-width: 720px) {
+  /* Cards: padding compacto unificado para TODAS las secciones */
+  #panorama .card,
+  #posicionamiento .card,
+  #valor-agregado .card,
+  #facultades .card,
+  #programas .card,
+  #competencias .card,
+  #metodologia .card,
+  #panorama .panorama-card,
+  #programas .prog-genspec-card,
+  #programas .prog-history-card {
+    padding: 16px 14px 14px;
+    border-radius: 16px;
+  }
+
+  /* charts-grid 100% width */
+  #panorama .charts-grid,
+  #posicionamiento .charts-grid,
+  #valor-agregado .charts-grid,
+  #facultades .charts-grid,
+  #programas .charts-grid,
+  #competencias .charts-grid {
+    max-width: 100%;
+  }
+
+  /* Heights compactos en gráficos */
+  #facultades #chartHeatmap { height: 360px; min-height: 320px; }
+  #competencias #chartTop10,
+  #competencias #chartNiveles { height: 360px; min-height: 320px; }
+  #facultades #chartFacultades { height: 340px; min-height: 320px; }
+
+  /* Cards combinados: el chart-container interno respeta la altura mobile */
+  .panorama-side .chart-container,
+  .prog-genspec-side .chart-container,
+  .prog-history-side .chart-container {
+    flex: 0 0 auto;
+    height: 320px;
+    min-height: 300px;
+  }
+
+  /* Filtros del explorer apilados */
+  #programas .explorer-controls { flex-direction: column; gap: 12px; }
+  #programas .control-group,
+  #programas .control-group--year { width: 100%; min-width: 0; max-width: 100%; flex: 1 1 auto; }
+
+  /* Tabs (facultades y top10): scroll horizontal */
+  .tabs--facultad,
+  #topTabs,
+  #facultadCompTabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .tabs--facultad::-webkit-scrollbar,
+  #topTabs::-webkit-scrollbar,
+  #facultadCompTabs::-webkit-scrollbar { display: none; }
+  .tabs--facultad .tab-btn,
+  #topTabs .tab-btn,
+  #facultadCompTabs .tab-btn { flex: 0 0 auto; }
+
+  /* Cuadrantes: 2 selectores en wrap */
+  #valor-agregado .card__controls--inline {
+    flex-wrap: wrap !important;
+    width: 100%;
+    gap: 8px;
+  }
+  #valor-agregado .card__controls--inline .select-wrapper { flex: 1 1 130px; min-width: 120px; }
+  #valor-agregado .card__controls--inline .control-select { width: 100%; }
+}
+
+@media (max-width: 420px) {
+  /* Pantallas muy estrechas — ajustes finales */
+  #facultades #chartHeatmap,
+  #competencias #chartTop10,
+  #competencias #chartNiveles { height: 320px; }
+  .panorama-side .chart-container,
+  .prog-genspec-side .chart-container,
+  .prog-history-side .chart-container { height: 280px; min-height: 260px; }
+  .convencion { font-size: 0.74rem; }
+  .convencion__icon { width: 22px; height: 22px; }
+  .convencion__icon svg { width: 13px; height: 13px; }
 }
