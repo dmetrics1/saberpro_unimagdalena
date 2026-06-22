@@ -122,8 +122,8 @@ a { color: var(--brand-accent); }
    ============================================================ */
 .layout { min-height: 100vh; }
 
-/* Elementos legacy: ya no se usan, se ocultan por seguridad si quedaran en el DOM */
-.menu-toggle, .sidebar-backdrop { display: none !important; }
+/* Hamburger y backdrop: solo visibles en mobile (ver @media (max-width: 720px) abajo) */
+.menu-toggle, .sidebar-backdrop { display: none; }
 
 .sidebar {
   position: fixed;
@@ -649,52 +649,136 @@ body.sidebar-collapsed .sidebar__foot-short {
   }
 }
 
-/* Mobile: sidebar pasa arriba como barra horizontal compacta y siempre visible */
+/* Mobile: sidebar pasa a drawer que se abre con un boton hamburguesa */
 @media (max-width: 720px) {
-  .sidebar {
-    position: relative;
-    top: 0; left: 0; bottom: auto;
-    width: auto;
-    margin: 12px 12px 10px;
-    padding: 14px 16px;
-    border-radius: 20px;
-    transition: none;     /* sin animacion del toggle en mobile */
+  /* Boton hamburguesa flotante en la esquina superior izquierda */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 60;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: linear-gradient(135deg, rgba(0,36,63,.96) 0%, rgba(0,41,75,.96) 100%);
+    color: #cfe0f1;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,.20);
+    transition: transform .15s ease, background .15s ease;
   }
-  .sidebar__brand { margin-bottom: 12px; gap: 10px; }
-  .sidebar__title { font-size: .88rem; }
-  .sidebar__title span { font-size: .68rem; }
-  /* En mobile el toggle no aplica (el sidebar siempre es barra horizontal) */
+  .menu-toggle svg { width: 22px; height: 22px; }
+  .menu-toggle:active { transform: scale(0.95); }
+
+  /* Backdrop que oscurece el contenido al abrir el drawer */
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 24, 44, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 70;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  body.nav-open .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Sidebar como drawer que entra desde la izquierda */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 286px;
+    max-width: 86vw;
+    margin: 0;
+    padding: 28px 22px 22px;
+    border-radius: 0 26px 26px 0;
+    transform: translateX(-100%);
+    transition: transform .28s cubic-bezier(.16,1,.3,1);
+    z-index: 80;
+    overflow-y: auto;
+  }
+  body.nav-open .sidebar {
+    transform: translateX(0);
+    box-shadow: 18px 0 38px rgba(0,0,0,.32);
+  }
+  .sidebar__brand { flex-direction: column; gap: 8px; margin-bottom: 18px; text-align: center; }
+  .sidebar__logo { width: 56px; height: 56px; }
+  .sidebar__title { font-size: 1.05rem; }
+  .sidebar__title span {
+    font-size: .72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(157,184,212,.85);
+    margin-top: 4px;
+  }
+  /* Toggle interno del sidebar no aplica en mobile (el menu se abre/cierra via hamburguesa) */
   .sidebar-toggle { display: none; }
 
-  /* Nav horizontal con scroll y gradient hint en el borde derecho */
+  /* Encabezado "NAVEGACIÓN" antes de los items */
+  .nav::before {
+    content: 'Navegación';
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(157,184,212,.70);
+    padding: 16px 4px 12px;
+    border-top: 1px solid rgba(255,255,255,.07);
+    margin-top: 4px;
+  }
+
+  /* Nav: vertical, items grandes con icono + texto, item activo destacado */
   .nav {
-    flex-direction: row;
-    overflow-x: auto;
+    flex-direction: column;
     gap: 6px;
-    padding-bottom: 2px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
-    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    overflow: visible;
+    padding: 0 2px;
   }
-  .nav::-webkit-scrollbar { display: none; }
   .nav__item {
-    flex: 0 0 auto;
-    padding: 9px 14px;
-    font-size: .82rem;
-    scroll-snap-align: start;
-    gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: rgba(217,233,247,.86);
   }
-  .nav__item .nav__icon { width: 18px; height: 18px; }
-  .nav__item .nav__icon svg { width: 16px; height: 16px; }
+  .nav__item .nav__icon {
+    width: 22px;
+    height: 22px;
+    color: inherit;
+  }
+  .nav__item .nav__icon svg { width: 20px; height: 20px; }
+  .nav__item:hover {
+    background: rgba(255,255,255,.04);
+    color: #fff;
+  }
+  .nav__item.is-active {
+    background: linear-gradient(135deg, rgba(1,131,239,.88) 0%, rgba(0,82,166,.92) 100%);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(1,131,239,.28), inset 0 0 0 1px rgba(255,255,255,.10);
+  }
+  .nav__item.is-active .nav__icon { color: #fff; }
   .nav__num { display: none; }
   .sidebar__foot { display: none; }
 
+  /* El contenido principal no se desplaza con el drawer (el drawer flota encima) */
   .content {
     margin-left: 0;
-    padding: 6px 14px 48px;
-    transition: none;     /* mobile no hace toggle animado */
+    padding: 78px 14px 48px;     /* 78 = espacio para el botón hamburguesa */
+    transition: none;
   }
   .hero {
     padding: 28px 20px 32px;

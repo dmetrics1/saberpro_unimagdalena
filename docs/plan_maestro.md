@@ -2,9 +2,9 @@
 
 ## Universidad del Magdalena - Oficina Asesora de Planeación
 
-**Versión:** 2.15
+**Versión:** 2.16
 **Fecha de actualización:** Junio 2026
-**Estado:** Listo para producción — datos validados contra la presentación ejecutiva oficial + diseño mobile pulido.
+**Estado:** Listo para producción — datos validados contra la presentación ejecutiva oficial + diseño mobile pulido (drawer estilo app móvil).
 **Stack:** Python para procesamiento; HTML, CSS y JavaScript puro para el informe.
 **Arquitectura:** `datos crudos -> scripts Python -> JSON maestro -> informe HTML`.
 

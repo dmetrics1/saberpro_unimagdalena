@@ -10,6 +10,19 @@
 <link rel="stylesheet" href="assets/css/tokens.css">
 </head>
 <body>
+
+<!-- Botón hamburguesa para abrir el menú en mobile -->
+<button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú de secciones" aria-expanded="false" aria-controls="sidebar">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="4" y1="7" x2="20" y2="7"/>
+    <line x1="4" y1="12" x2="20" y2="12"/>
+    <line x1="4" y1="17" x2="20" y2="17"/>
+  </svg>
+</button>
+
+<!-- Backdrop del drawer (oscurece el contenido cuando el menú está abierto en mobile) -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
 <div class="layout">
 
   <!-- ===================== SIDEBAR ===================== -->
