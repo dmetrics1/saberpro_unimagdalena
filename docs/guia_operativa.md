@@ -29,6 +29,8 @@ El archivo [data/config/parametros.yml](../data/config/parametros.yml) controla:
 - `universidades_dept_magdalena`: lista de universidades del Departamento del Magdalena para el comparativo (cada entrada con `nombre_display`, `busqueda` exacta como aparece en el Excel del Icfes, y `agregacion` = `INSTITUCION` o `SEDE`).
 - `sue_abreviaturas`: mapeo de nombre normalizado de IES SUE → abreviatura corta usada en el eje X del ranking SUE (ej. "UNIVERSIDAD NACIONAL DE COLOMBIA" → "UNAL").
 - `programas_acreditados` *(v2.11)*: lista de programas de UNIMAGDALENA con acreditación de alta calidad. Los nombres deben coincidir con el campo `PROGRAMA_ACADEMICO` del Icfes tras la normalización (mayúsculas y sin tildes). Cada programa de esta lista recibe el badge azul de "Programa acreditado" en la cajita flotante de iconos del explorador.
+- `programas_por_id_icfes` *(v2.13)*: mapeo `{ID interno del Icfes → nuevo nombre}` para separar modalidades del mismo programa. Cuando el Excel del Icfes reporta dos filas con el mismo `NOMBRE_PROGRAMA_ACAD` pero diferente `ID_PROGRAMA_ACAD`, esta config las trata como programas distintos. **Importante:** la columna `ID_PROGRAMA_ACAD` del Excel del Icfes es un identificador interno y **NO corresponde al SNIES del MEN**.
+- `programas_excluidos` *(v2.13)*: lista de programas que NO se incluyen en el informe (decisión editorial). El nombre debe ir normalizado (mayúsculas, sin tildes). Útil para alinear el set con la presentación ejecutiva oficial.
 - Mapeo de programas de UNIMAGDALENA a facultad y NBC.
 
 El archivo [data/config/normalizacion_ies.csv](../data/config/normalizacion_ies.csv) alinea nombres de instituciones entre la Fuente A (base de cruce) y la Fuente B (Excel agregados). Por ejemplo, normaliza `UNIVERSIDAD DE NARIÑO` a `UNIVERSIDAD DE NARINO` para que el cruce con la Fuente B sea exitoso.
@@ -147,7 +149,7 @@ Comprobar que `datos_informe.json` contiene:
 - 6 puntos en `institucional.historico` para 2020-2025; cada entrada con su `competencias[]` de 5 elementos (la usa el radar filtrable por año).
 - 37 universidades en `sue_ranking` (puede variar si el Icfes incorpora o retira IES; ver nota de brecha SUE en el [plan maestro §9](./plan_maestro.md)).
 - 6 facultades.
-- 39 programas.
+- 35 programas (a partir de v2.13: dedup por mayor n, división de Literatura en presencial/distancia, exclusión de 5 programas para alinear con la presentación ejecutiva).
 - Cuadrantes para 2018-2024.
 - `universidades_dept_historico` con 6 años (2020-2025) y 3 universidades por año (Unimagdalena + Sergio Arboleda Santa Marta + Cooperativa Santa Marta).
 - `sue_ranking_historico` con 6 años (2020-2025) y ~37 universidades del SUE por año; cada entrada con `abrev` (etiqueta corta del eje X).

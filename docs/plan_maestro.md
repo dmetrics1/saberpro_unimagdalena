@@ -2,7 +2,7 @@
 
 ## Universidad del Magdalena - Oficina Asesora de Planeación
 
-**Versión:** 2.12
+**Versión:** 2.13
 **Fecha de actualización:** Junio 2026
 **Stack:** Python para procesamiento; HTML, CSS y JavaScript puro para el informe.
 **Arquitectura:** `datos crudos -> scripts Python -> JSON maestro -> informe HTML`.
@@ -53,7 +53,7 @@ informe/informe/index.html
 | Etapa | Nombre | Entregable | Estado |
 |---|---|---|---|
 | 0 | Auditoría y cimientos | Fuentes identificadas, regla metodológica y sistema visual | Completada |
-| 1 | Pipeline de datos | Scripts 01-03 y JSON maestro | Completada |
+| 1 | Pipeline de datos | Scripts 01-03 y JSON maestro | Completada — v2.13: dedup correcto cuando un programa aparece con dos registros (mismo NOMBRE_PROGRAMA_ACAD, distinto ID_PROGRAMA_ACAD del Icfes) — se conserva solo el de mayor n. Nueva config `programas_por_id_icfes` para separar modalidades del mismo nombre (p. ej. Literatura presencial/distancia) y `programas_excluidos` para alinear el conjunto con la presentación ejecutiva (35 programas). Aclaración: la columna `ID_PROGRAMA_ACAD` del Excel del Icfes es un identificador interno, NO el SNIES del MEN. |
 | 2 | Arquitectura narrativa | Mapa de secciones y perfiles de lector | Completada |
 | 3 | Catálogo de visualizaciones | 12 visualizaciones priorizadas | Completada |
 | 4 | Diseño y maquetación | Informe HTML, tokens CSS, navegación y KPIs | Completada — v2.12: **transiciones de aparición** al hacer scroll: cada `.section` entra con fade-in + slide-up (0.7s, cubic-bezier `.16,1,.3,1`) cuando un IntersectionObserver detecta su entrada al viewport; los hijos animan con un stagger interno de 70ms. Footer del sidebar reformulado a "Oficina Asesora de Planeación / Generado: X" en estado expandido y a una píldora compacta "OAP" en estado colapsado. Respeta `prefers-reduced-motion: reduce` desactivando todas las animaciones para accesibilidad. v2.9: **sidebar colapsable** (280px ↔ 72px) con botón toggle dentro del header del brand. En estado colapsado solo muestra los iconos; en cualquier estado, al pasar el cursor por un item del menú aparece una píldora azul (tooltip flotante) con el nombre de la sección. La numeración 01-07 se retiró del menú y queda solo en los `section__eyebrow` del contenido. Estado persistido en `localStorage`. Iconos SVG inline (casa, grid, trending-up, target, briefcase, check-list, info). v2.2: sidebar flotante permanente, hero con identidad ejecutiva y 3 KPIs incrustados. |
@@ -65,7 +65,7 @@ informe/informe/index.html
 
 | Componente | Ubicación | Estado | Comentario |
 |---|---|---|---|
-| Parámetros del pipeline | `data/config/parametros.yml` | Activo | Controla año vigente, umbrales, fuentes, mapeo programa-facultad, la lista de universidades del Departamento del Magdalena (`universidades_dept_magdalena`), las abreviaturas del ranking SUE (`sue_abreviaturas`) y la lista de programas con acreditación de alta calidad (`programas_acreditados`, agregada en v2.11). |
+| Parámetros del pipeline | `data/config/parametros.yml` | Activo | Controla año vigente, umbrales, fuentes, mapeo programa-facultad, la lista de universidades del Departamento del Magdalena (`universidades_dept_magdalena`), las abreviaturas del ranking SUE (`sue_abreviaturas`), la lista de programas con acreditación de alta calidad (`programas_acreditados`, agregada en v2.11), el renombrado por ID interno del Icfes (`programas_por_id_icfes`, agregado en v2.13 — separa modalidades como presencial/distancia) y los programas excluidos del informe (`programas_excluidos`, agregado en v2.13 — alinea con la presentación ejecutiva). |
 | Normalización de IES | `data/config/normalizacion_ies.csv` | Activo | Alinea nombres de instituciones entre fuentes. |
 | Pipeline de cuadrantes | `scripts/01_construir_cuadrantes.py` | Activo | Genera valor agregado desde la Fuente A. |
 | Pipeline de agregados | `scripts/02_construir_agregados.py` | Activo | Genera indicadores agregados desde la Fuente B. **v2.5:** lee con `polars` + `fastexcel` (motor calamine en Rust) y cachea cada Excel a `*.cache.parquet` al lado. Speedup ~4x: corrida en caliente ~30s (antes ~120s con openpyxl). El segundo recorrido (histórico) reutiliza el mismo cache, eliminando la doble lectura. |

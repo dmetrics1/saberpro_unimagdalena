@@ -3284,7 +3284,7 @@
         },
         {
           "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje": 142.04
+          "puntaje": 138.66
         },
         {
           "competencia": "COMPETENCIAS CIUDADANAS",
@@ -3292,7 +3292,7 @@
         },
         {
           "competencia": "COMUNICACIÓN ESCRITA",
-          "puntaje": 145.96
+          "puntaje": 151.34
         },
         {
           "competencia": "INGLÉS",
@@ -3302,28 +3302,28 @@
     },
     {
       "facultad": "Facultad de Ciencias de la Educación",
-      "puntaje_global": 133.94,
-      "n": 814,
+      "puntaje_global": 133.76,
+      "n": 812,
       "competencias": [
         {
           "competencia": "LECTURA CRÍTICA",
-          "puntaje": 145.99
+          "puntaje": 138.97
         },
         {
           "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje": 124.88
+          "puntaje": 123.94
         },
         {
           "competencia": "COMPETENCIAS CIUDADANAS",
-          "puntaje": 128.29
+          "puntaje": 128.34
         },
         {
           "competencia": "COMUNICACIÓN ESCRITA",
-          "puntaje": 150.31
+          "puntaje": 143.88
         },
         {
           "competencia": "INGLÉS",
-          "puntaje": 133.89
+          "puntaje": 133.67
         }
       ]
     },
@@ -3467,28 +3467,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 127.87,
-        "n": 335,
+        "puntaje_global": 127.77,
+        "n": 334,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 130.15
+            "puntaje": 130.05
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 121.93
+            "puntaje": 121.77
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 130.31
+            "puntaje": 130.12
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 124.52
+            "puntaje": 124.5
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 130.79
+            "puntaje": 130.76
           }
         ]
       },
@@ -3795,28 +3795,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 127.52,
-        "n": 315,
+        "puntaje_global": 126.99,
+        "n": 307,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 132.57
+            "puntaje": 132.09
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 125.67
+            "puntaje": 125.27
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 121.24
+            "puntaje": 120.7
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 124.1
+            "puntaje": 123.01
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 134.03
+            "puntaje": 133.82
           }
         ]
       },
@@ -3959,28 +3959,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 124.47,
-        "n": 547,
+        "puntaje_global": 124.28,
+        "n": 536,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 129.47
+            "puntaje": 129.28
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 122.83
+            "puntaje": 121.01
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 115.58
+            "puntaje": 116.16
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 121.7
+            "puntaje": 124.62
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 128.91
+            "puntaje": 128.23
           }
         ]
       },
@@ -4123,28 +4123,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 126.96,
-        "n": 955,
+        "puntaje_global": 127.29,
+        "n": 956,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 134.55
+            "puntaje": 134.86
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 121.45
+            "puntaje": 121.57
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 125.56
+            "puntaje": 125.98
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 121.98
+            "puntaje": 122.4
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 132.39
+            "puntaje": 131.02
           }
         ]
       },
@@ -4287,28 +4287,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 136.42,
-        "n": 638,
+        "puntaje_global": 133.76,
+        "n": 812,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 139.74
+            "puntaje": 138.97
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 124.88
+            "puntaje": 123.63
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 128.29
+            "puntaje": 127.39
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 143.2
+            "puntaje": 143.55
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 133.89
+            "puntaje": 132.68
           }
         ]
       },
@@ -7475,7 +7475,7 @@
         },
         {
           "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 168,
+          "puntaje_programa": 151,
           "puntaje_nbc_nacional": 140,
           "n_nbc_nacional": 18282
         },
@@ -7487,7 +7487,7 @@
         },
         {
           "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 128,
+          "puntaje_programa": 155,
           "puntaje_nbc_nacional": 146,
           "n_nbc_nacional": 18282
         },
@@ -13530,446 +13530,6 @@
       }
     },
     {
-      "programa": "LICENCIATURA EN ARTES",
-      "facultad": "Facultad de Ciencias de la Educación",
-      "nbc_id": 13,
-      "nbc_nombre": "EDUCACIÓN",
-      "acreditado": false,
-      "n_2025": 17,
-      "global_2025": 155,
-      "global_nbc_nacional_2025": 142,
-      "n_nbc_nacional_2025": 25846,
-      "n_bajo": false,
-      "competencias_2025": [
-        {
-          "prueba": "COMPETENCIAS CIUDADANAS",
-          "puntaje_programa": 159,
-          "puntaje_nbc_nacional": 137,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "INGLÉS",
-          "puntaje_programa": 166,
-          "puntaje_nbc_nacional": 147,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 152,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "LECTURA CRÍTICA",
-          "puntaje_programa": 160,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 141,
-          "puntaje_nbc_nacional": 131,
-          "n_nbc_nacional": 25846
-        }
-      ],
-      "especificas_2025": [
-        {
-          "prueba": "FORMAR",
-          "puntaje_programa": 111,
-          "puntaje_nbc_nacional": 144,
-          "n_nbc_nacional": 8440
-        },
-        {
-          "prueba": "ENSEÑAR",
-          "puntaje_programa": 146,
-          "puntaje_nbc_nacional": 155,
-          "n_nbc_nacional": 8440
-        },
-        {
-          "prueba": "EVALUAR",
-          "puntaje_programa": 155,
-          "puntaje_nbc_nacional": 158,
-          "n_nbc_nacional": 8440
-        }
-      ],
-      "niveles_2025": [
-        {
-          "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "distribucion_programa": [
-            29.0,
-            41.0,
-            29.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            43.0,
-            34.0,
-            22.0,
-            1.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "INGLÉS",
-          "distribucion_programa": [
-            12.0,
-            24.0,
-            47.0,
-            18.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            24.0,
-            47.0,
-            19.0,
-            10.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMPETENCIAS CIUDADANAS",
-          "distribucion_programa": [
-            6.0,
-            35.0,
-            53.0,
-            6.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            37.0,
-            33.0,
-            27.0,
-            2.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "LECTURA CRÍTICA",
-          "distribucion_programa": [
-            6.0,
-            47.0,
-            47.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            23.0,
-            37.0,
-            36.0,
-            3.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMUNICACIÓN ESCRITA",
-          "distribucion_programa": [
-            0.0,
-            47.0,
-            41.0,
-            12.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            7.0,
-            38.0,
-            46.0,
-            9.0,
-            0.0
-          ]
-        }
-      ],
-      "historico": [
-        {
-          "anio": 2025,
-          "puntaje": 155,
-          "n": 17
-        }
-      ],
-      "radar_historico": {
-        "2025": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 160,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 141,
-              "puntaje_nbc_nacional": 131,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 159,
-              "puntaje_nbc_nacional": 137,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 152,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 166,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 25846
-            }
-          ],
-          "global_programa": 155,
-          "n_programa": 17,
-          "global_nbc_nacional": 142,
-          "n_nbc_nacional": 25846
-        }
-      },
-      "especificas_historico": {
-        "2025": [
-          {
-            "prueba": "FORMAR",
-            "puntaje_programa": 111,
-            "puntaje_nbc_nacional": 144,
-            "n_nbc_nacional": 8440
-          },
-          {
-            "prueba": "ENSEÑAR",
-            "puntaje_programa": 146,
-            "puntaje_nbc_nacional": 155,
-            "n_nbc_nacional": 8440
-          },
-          {
-            "prueba": "EVALUAR",
-            "puntaje_programa": 155,
-            "puntaje_nbc_nacional": 158,
-            "n_nbc_nacional": 8440
-          }
-        ]
-      }
-    },
-    {
-      "programa": "LICENCIATURA EN CIENCIAS NATURALES Y EDUCACIÓN AMBIENTAL",
-      "facultad": "Facultad de Ciencias de la Educación",
-      "nbc_id": 13,
-      "nbc_nombre": "EDUCACIÓN",
-      "acreditado": false,
-      "n_2025": 22,
-      "global_2025": 154,
-      "global_nbc_nacional_2025": 142,
-      "n_nbc_nacional_2025": 25846,
-      "n_bajo": false,
-      "competencias_2025": [
-        {
-          "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 162,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "INGLÉS",
-          "puntaje_programa": 154,
-          "puntaje_nbc_nacional": 147,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 148,
-          "puntaje_nbc_nacional": 131,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "COMPETENCIAS CIUDADANAS",
-          "puntaje_programa": 149,
-          "puntaje_nbc_nacional": 137,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "LECTURA CRÍTICA",
-          "puntaje_programa": 158,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        }
-      ],
-      "especificas_2025": [
-        {
-          "prueba": "FORMAR",
-          "puntaje_programa": 159,
-          "puntaje_nbc_nacional": 144,
-          "n_nbc_nacional": 8440
-        },
-        {
-          "prueba": "ENSEÑAR",
-          "puntaje_programa": 179,
-          "puntaje_nbc_nacional": 155,
-          "n_nbc_nacional": 8440
-        },
-        {
-          "prueba": "EVALUAR",
-          "puntaje_programa": 174,
-          "puntaje_nbc_nacional": 158,
-          "n_nbc_nacional": 8440
-        }
-      ],
-      "niveles_2025": [
-        {
-          "competencia": "LECTURA CRÍTICA",
-          "distribucion_programa": [
-            0.0,
-            55.0,
-            45.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            23.0,
-            37.0,
-            36.0,
-            3.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMUNICACIÓN ESCRITA",
-          "distribucion_programa": [
-            5.0,
-            32.0,
-            45.0,
-            18.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            7.0,
-            38.0,
-            46.0,
-            9.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "INGLÉS",
-          "distribucion_programa": [
-            0.0,
-            59.0,
-            36.0,
-            5.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            24.0,
-            47.0,
-            19.0,
-            10.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMPETENCIAS CIUDADANAS",
-          "distribucion_programa": [
-            9.0,
-            64.0,
-            27.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            37.0,
-            33.0,
-            27.0,
-            2.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "distribucion_programa": [
-            14.0,
-            41.0,
-            45.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            43.0,
-            34.0,
-            22.0,
-            1.0,
-            0.0
-          ]
-        }
-      ],
-      "historico": [
-        {
-          "anio": 2025,
-          "puntaje": 154,
-          "n": 22
-        }
-      ],
-      "radar_historico": {
-        "2025": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 158,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 148,
-              "puntaje_nbc_nacional": 131,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 149,
-              "puntaje_nbc_nacional": 137,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 162,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 154,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 25846
-            }
-          ],
-          "global_programa": 154,
-          "n_programa": 22,
-          "global_nbc_nacional": 142,
-          "n_nbc_nacional": 25846
-        }
-      },
-      "especificas_historico": {
-        "2025": [
-          {
-            "prueba": "FORMAR",
-            "puntaje_programa": 159,
-            "puntaje_nbc_nacional": 144,
-            "n_nbc_nacional": 8440
-          },
-          {
-            "prueba": "ENSEÑAR",
-            "puntaje_programa": 179,
-            "puntaje_nbc_nacional": 155,
-            "n_nbc_nacional": 8440
-          },
-          {
-            "prueba": "EVALUAR",
-            "puntaje_programa": 174,
-            "puntaje_nbc_nacional": 158,
-            "n_nbc_nacional": 8440
-          }
-        ]
-      }
-    },
-    {
       "programa": "LICENCIATURA EN EDUCACION BASICA CON ENFASIS EN INFORMATICA",
       "facultad": "Facultad de Ciencias de la Educación",
       "nbc_id": 13,
@@ -14478,27 +14038,27 @@
       "nbc_id": 13,
       "nbc_nombre": "EDUCACIÓN",
       "acreditado": false,
-      "n_2025": 1,
+      "n_2025": 33,
       "global_2025": 150,
       "global_nbc_nacional_2025": 142,
       "n_nbc_nacional_2025": 25846,
-      "n_bajo": true,
+      "n_bajo": false,
       "competencias_2025": [
         {
           "prueba": "COMPETENCIAS CIUDADANAS",
-          "puntaje_programa": 168,
+          "puntaje_programa": 152,
           "puntaje_nbc_nacional": 137,
           "n_nbc_nacional": 25846
         },
         {
           "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 124,
+          "puntaje_programa": 151,
           "puntaje_nbc_nacional": 148,
           "n_nbc_nacional": 25846
         },
         {
           "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 113,
+          "puntaje_programa": 131,
           "puntaje_nbc_nacional": 131,
           "n_nbc_nacional": 25846
         },
@@ -14510,7 +14070,7 @@
         },
         {
           "prueba": "INGLÉS",
-          "puntaje_programa": 161,
+          "puntaje_programa": 158,
           "puntaje_nbc_nacional": 147,
           "n_nbc_nacional": 25846
         }
@@ -15294,229 +14854,6 @@
       }
     },
     {
-      "programa": "LICENCIATURA EN ESPAÑOL Y LITERATURA",
-      "facultad": "Facultad de Ciencias de la Educación",
-      "nbc_id": 13,
-      "nbc_nombre": "EDUCACIÓN",
-      "acreditado": false,
-      "n_2025": 1,
-      "global_2025": 139,
-      "global_nbc_nacional_2025": 142,
-      "n_nbc_nacional_2025": 25846,
-      "n_bajo": true,
-      "competencias_2025": [
-        {
-          "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 141,
-          "puntaje_nbc_nacional": 131,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "COMPETENCIAS CIUDADANAS",
-          "puntaje_programa": 129,
-          "puntaje_nbc_nacional": 137,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 163,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "INGLÉS",
-          "puntaje_programa": 124,
-          "puntaje_nbc_nacional": 147,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "LECTURA CRÍTICA",
-          "puntaje_programa": 137,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        }
-      ],
-      "especificas_2025": [],
-      "niveles_2025": [
-        {
-          "competencia": "LECTURA CRÍTICA",
-          "distribucion_programa": [
-            0.0,
-            100.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            23.0,
-            37.0,
-            36.0,
-            3.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMPETENCIAS CIUDADANAS",
-          "distribucion_programa": [
-            0.0,
-            100.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            37.0,
-            33.0,
-            27.0,
-            2.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "distribucion_programa": [
-            0.0,
-            100.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            43.0,
-            34.0,
-            22.0,
-            1.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "INGLÉS",
-          "distribucion_programa": [
-            0.0,
-            100.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            24.0,
-            47.0,
-            19.0,
-            10.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMUNICACIÓN ESCRITA",
-          "distribucion_programa": [
-            0.0,
-            0.0,
-            100.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            7.0,
-            38.0,
-            46.0,
-            9.0,
-            0.0
-          ]
-        }
-      ],
-      "historico": [
-        {
-          "anio": 2020,
-          "puntaje": 161,
-          "n": 1
-        },
-        {
-          "anio": 2025,
-          "puntaje": 139,
-          "n": 1
-        }
-      ],
-      "radar_historico": {
-        "2020": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 163,
-              "puntaje_nbc_nacional": 145,
-              "n_nbc_nacional": 21720
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 176,
-              "puntaje_nbc_nacional": 134,
-              "n_nbc_nacional": 21720
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 196,
-              "puntaje_nbc_nacional": 144,
-              "n_nbc_nacional": 21720
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 131,
-              "puntaje_nbc_nacional": 134,
-              "n_nbc_nacional": 21720
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 141,
-              "puntaje_nbc_nacional": 149,
-              "n_nbc_nacional": 21720
-            }
-          ],
-          "global_programa": 161,
-          "n_programa": 1,
-          "global_nbc_nacional": 141,
-          "n_nbc_nacional": 21720
-        },
-        "2025": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 137,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 141,
-              "puntaje_nbc_nacional": 131,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 129,
-              "puntaje_nbc_nacional": 137,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 163,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 124,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 25846
-            }
-          ],
-          "global_programa": 139,
-          "n_programa": 1,
-          "global_nbc_nacional": 142,
-          "n_nbc_nacional": 25846
-        }
-      },
-      "especificas_historico": {}
-    },
-    {
       "programa": "LICENCIATURA EN ETNOEDUCACIÓN",
       "facultad": "Facultad de Ciencias de la Educación",
       "nbc_id": 13,
@@ -15733,315 +15070,6 @@
           ],
           "global_programa": 133,
           "n_programa": 33,
-          "global_nbc_nacional": 142,
-          "n_nbc_nacional": 25846
-        }
-      },
-      "especificas_historico": {}
-    },
-    {
-      "programa": "LICENCIATURA EN INFORMATICA",
-      "facultad": "Facultad de Ciencias de la Educación",
-      "nbc_id": 13,
-      "nbc_nombre": "EDUCACIÓN",
-      "acreditado": false,
-      "n_2025": 1,
-      "global_2025": 172,
-      "global_nbc_nacional_2025": 142,
-      "n_nbc_nacional_2025": 25846,
-      "n_bajo": true,
-      "competencias_2025": [
-        {
-          "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 177,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "LECTURA CRÍTICA",
-          "puntaje_programa": 181,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "INGLÉS",
-          "puntaje_programa": 193,
-          "puntaje_nbc_nacional": 147,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "COMPETENCIAS CIUDADANAS",
-          "puntaje_programa": 188,
-          "puntaje_nbc_nacional": 137,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 120,
-          "puntaje_nbc_nacional": 131,
-          "n_nbc_nacional": 25846
-        }
-      ],
-      "especificas_2025": [],
-      "niveles_2025": [
-        {
-          "competencia": "LECTURA CRÍTICA",
-          "distribucion_programa": [
-            0.0,
-            0.0,
-            100.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            23.0,
-            37.0,
-            36.0,
-            3.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMPETENCIAS CIUDADANAS",
-          "distribucion_programa": [
-            0.0,
-            0.0,
-            100.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            37.0,
-            33.0,
-            27.0,
-            2.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "distribucion_programa": [
-            100.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            43.0,
-            34.0,
-            22.0,
-            1.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "INGLÉS",
-          "distribucion_programa": [
-            0.0,
-            0.0,
-            100.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            24.0,
-            47.0,
-            19.0,
-            10.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMUNICACIÓN ESCRITA",
-          "distribucion_programa": [
-            0.0,
-            0.0,
-            100.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            7.0,
-            38.0,
-            46.0,
-            9.0,
-            0.0
-          ]
-        }
-      ],
-      "historico": [
-        {
-          "anio": 2022,
-          "puntaje": 148,
-          "n": 8
-        },
-        {
-          "anio": 2023,
-          "puntaje": 134,
-          "n": 12
-        },
-        {
-          "anio": 2024,
-          "puntaje": 131,
-          "n": 8
-        },
-        {
-          "anio": 2025,
-          "puntaje": 172,
-          "n": 1
-        }
-      ],
-      "radar_historico": {
-        "2022": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 151,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 18369
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 141,
-              "puntaje_nbc_nacional": 133,
-              "n_nbc_nacional": 18369
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 142,
-              "puntaje_nbc_nacional": 137,
-              "n_nbc_nacional": 18369
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 166,
-              "puntaje_nbc_nacional": 129,
-              "n_nbc_nacional": 18369
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 142,
-              "puntaje_nbc_nacional": 149,
-              "n_nbc_nacional": 18369
-            }
-          ],
-          "global_programa": 148,
-          "n_programa": 8,
-          "global_nbc_nacional": 139,
-          "n_nbc_nacional": 18369
-        },
-        "2023": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 138,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 19363
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 118,
-              "puntaje_nbc_nacional": 132,
-              "n_nbc_nacional": 19363
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 120,
-              "puntaje_nbc_nacional": 133,
-              "n_nbc_nacional": 19363
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 144,
-              "puntaje_nbc_nacional": 140,
-              "n_nbc_nacional": 19363
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 148,
-              "puntaje_nbc_nacional": 149,
-              "n_nbc_nacional": 19363
-            }
-          ],
-          "global_programa": 134,
-          "n_programa": 12,
-          "global_nbc_nacional": 140,
-          "n_nbc_nacional": 19363
-        },
-        "2024": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 145,
-              "puntaje_nbc_nacional": 151,
-              "n_nbc_nacional": 23392
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 127,
-              "puntaje_nbc_nacional": 133,
-              "n_nbc_nacional": 23392
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 122,
-              "puntaje_nbc_nacional": 141,
-              "n_nbc_nacional": 23392
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 141,
-              "puntaje_nbc_nacional": 134,
-              "n_nbc_nacional": 23392
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 121,
-              "puntaje_nbc_nacional": 152,
-              "n_nbc_nacional": 23392
-            }
-          ],
-          "global_programa": 131,
-          "n_programa": 8,
-          "global_nbc_nacional": 142,
-          "n_nbc_nacional": 23392
-        },
-        "2025": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 181,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 120,
-              "puntaje_nbc_nacional": 131,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 188,
-              "puntaje_nbc_nacional": 137,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 177,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 193,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 25846
-            }
-          ],
-          "global_programa": 172,
-          "n_programa": 1,
           "global_nbc_nacional": 142,
           "n_nbc_nacional": 25846
         }
@@ -16395,7 +15423,7 @@
       }
     },
     {
-      "programa": "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA",
+      "programa": "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (DISTANCIA)",
       "facultad": "Facultad de Ciencias de la Educación",
       "nbc_id": 13,
       "nbc_nombre": "EDUCACIÓN",
@@ -16408,7 +15436,13 @@
       "competencias_2025": [
         {
           "prueba": "LECTURA CRÍTICA",
-          "puntaje_programa": 167,
+          "puntaje_programa": 142,
+          "puntaje_nbc_nacional": 148,
+          "n_nbc_nacional": 25846
+        },
+        {
+          "prueba": "COMUNICACIÓN ESCRITA",
+          "puntaje_programa": 147,
           "puntaje_nbc_nacional": 148,
           "n_nbc_nacional": 25846
         },
@@ -16425,12 +15459,6 @@
           "n_nbc_nacional": 25846
         },
         {
-          "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 171,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
           "prueba": "RAZONAMIENTO CUANTITATIVO",
           "puntaje_programa": 115,
           "puntaje_nbc_nacional": 131,
@@ -16440,13 +15468,13 @@
       "especificas_2025": [
         {
           "prueba": "EVALUAR",
-          "puntaje_programa": 175,
+          "puntaje_programa": 146,
           "puntaje_nbc_nacional": 158,
           "n_nbc_nacional": 8440
         },
         {
           "prueba": "FORMAR",
-          "puntaje_programa": 153,
+          "puntaje_programa": 127,
           "puntaje_nbc_nacional": 144,
           "n_nbc_nacional": 8440
         },
@@ -16461,9 +15489,9 @@
         {
           "competencia": "RAZONAMIENTO CUANTITATIVO",
           "distribucion_programa": [
-            32.0,
-            42.0,
-            26.0,
+            67.0,
+            28.0,
+            6.0,
             0.0,
             0.0
           ],
@@ -16478,9 +15506,9 @@
         {
           "competencia": "LECTURA CRÍTICA",
           "distribucion_programa": [
-            5.0,
-            11.0,
-            84.0,
+            25.0,
+            51.0,
+            24.0,
             0.0,
             0.0
           ],
@@ -16512,10 +15540,10 @@
         {
           "competencia": "COMPETENCIAS CIUDADANAS",
           "distribucion_programa": [
-            21.0,
-            16.0,
-            63.0,
-            0.0,
+            46.0,
+            38.0,
+            15.0,
+            1.0,
             0.0
           ],
           "distribucion_nbc_nacional": [
@@ -16529,10 +15557,10 @@
         {
           "competencia": "COMUNICACIÓN ESCRITA",
           "distribucion_programa": [
-            0.0,
-            21.0,
-            47.0,
-            32.0,
+            6.0,
+            39.0,
+            46.0,
+            9.0,
             0.0
           ],
           "distribucion_nbc_nacional": [
@@ -16551,24 +15579,9 @@
           "n": 149
         },
         {
-          "anio": 2023,
-          "puntaje": 138,
-          "n": 1
-        },
-        {
           "anio": 2024,
           "puntaje": 127,
           "n": 400
-        },
-        {
-          "anio": 2024,
-          "puntaje": 165,
-          "n": 9
-        },
-        {
-          "anio": 2025,
-          "puntaje": 155,
-          "n": 19
         },
         {
           "anio": 2025,
@@ -16587,31 +15600,31 @@
             },
             {
               "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 145,
+              "puntaje_programa": 116,
               "puntaje_nbc_nacional": 132,
               "n_nbc_nacional": 19363
             },
             {
               "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 130,
+              "puntaje_programa": 118,
               "puntaje_nbc_nacional": 133,
               "n_nbc_nacional": 19363
             },
             {
               "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 155,
+              "puntaje_programa": 134,
               "puntaje_nbc_nacional": 140,
               "n_nbc_nacional": 19363
             },
             {
               "competencia": "INGLÉS",
-              "puntaje_programa": 129,
+              "puntaje_programa": 128,
               "puntaje_nbc_nacional": 149,
               "n_nbc_nacional": 19363
             }
           ],
-          "global_programa": 138,
-          "n_programa": 1,
+          "global_programa": 126,
+          "n_programa": 149,
           "global_nbc_nacional": 140,
           "n_nbc_nacional": 19363
         },
@@ -16643,13 +15656,13 @@
             },
             {
               "competencia": "INGLÉS",
-              "puntaje_programa": 159,
+              "puntaje_programa": 129,
               "puntaje_nbc_nacional": 152,
               "n_nbc_nacional": 23392
             }
           ],
-          "global_programa": 165,
-          "n_programa": 9,
+          "global_programa": 127,
+          "n_programa": 400,
           "global_nbc_nacional": 142,
           "n_nbc_nacional": 23392
         },
@@ -16657,7 +15670,7 @@
           "competencias": [
             {
               "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 167,
+              "puntaje_programa": 142,
               "puntaje_nbc_nacional": 148,
               "n_nbc_nacional": 25846
             },
@@ -16675,7 +15688,7 @@
             },
             {
               "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 171,
+              "puntaje_programa": 147,
               "puntaje_nbc_nacional": 148,
               "n_nbc_nacional": 25846
             },
@@ -16736,8 +15749,314 @@
         "2025": [
           {
             "prueba": "EVALUAR",
-            "puntaje_programa": 175,
+            "puntaje_programa": 146,
             "puntaje_nbc_nacional": 158,
+            "n_nbc_nacional": 8440
+          },
+          {
+            "prueba": "FORMAR",
+            "puntaje_programa": 127,
+            "puntaje_nbc_nacional": 144,
+            "n_nbc_nacional": 8440
+          },
+          {
+            "prueba": "ENSEÑAR",
+            "puntaje_programa": 145,
+            "puntaje_nbc_nacional": 155,
+            "n_nbc_nacional": 8440
+          }
+        ]
+      }
+    },
+    {
+      "programa": "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (PRESENCIAL)",
+      "facultad": "Facultad de Ciencias de la Educación",
+      "nbc_id": 13,
+      "nbc_nombre": "EDUCACIÓN",
+      "acreditado": false,
+      "n_2025": 19,
+      "global_2025": 155,
+      "global_nbc_nacional_2025": 142,
+      "n_nbc_nacional_2025": 25846,
+      "n_bajo": false,
+      "competencias_2025": [
+        {
+          "prueba": "COMPETENCIAS CIUDADANAS",
+          "puntaje_programa": 155,
+          "puntaje_nbc_nacional": 137,
+          "n_nbc_nacional": 25846
+        },
+        {
+          "prueba": "INGLÉS",
+          "puntaje_programa": 152,
+          "puntaje_nbc_nacional": 147,
+          "n_nbc_nacional": 25846
+        },
+        {
+          "prueba": "LECTURA CRÍTICA",
+          "puntaje_programa": 167,
+          "puntaje_nbc_nacional": 148,
+          "n_nbc_nacional": 25846
+        },
+        {
+          "prueba": "COMUNICACIÓN ESCRITA",
+          "puntaje_programa": 171,
+          "puntaje_nbc_nacional": 148,
+          "n_nbc_nacional": 25846
+        },
+        {
+          "prueba": "RAZONAMIENTO CUANTITATIVO",
+          "puntaje_programa": 132,
+          "puntaje_nbc_nacional": 131,
+          "n_nbc_nacional": 25846
+        }
+      ],
+      "especificas_2025": [
+        {
+          "prueba": "ENSEÑAR",
+          "puntaje_programa": 188,
+          "puntaje_nbc_nacional": 155,
+          "n_nbc_nacional": 8440
+        },
+        {
+          "prueba": "FORMAR",
+          "puntaje_programa": 153,
+          "puntaje_nbc_nacional": 144,
+          "n_nbc_nacional": 8440
+        },
+        {
+          "prueba": "EVALUAR",
+          "puntaje_programa": 175,
+          "puntaje_nbc_nacional": 158,
+          "n_nbc_nacional": 8440
+        }
+      ],
+      "niveles_2025": [
+        {
+          "competencia": "LECTURA CRÍTICA",
+          "distribucion_programa": [
+            5.0,
+            11.0,
+            84.0,
+            0.0,
+            0.0
+          ],
+          "distribucion_nbc_nacional": [
+            23.0,
+            37.0,
+            36.0,
+            3.0,
+            0.0
+          ]
+        },
+        {
+          "competencia": "RAZONAMIENTO CUANTITATIVO",
+          "distribucion_programa": [
+            32.0,
+            42.0,
+            26.0,
+            0.0,
+            0.0
+          ],
+          "distribucion_nbc_nacional": [
+            43.0,
+            34.0,
+            22.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "competencia": "INGLÉS",
+          "distribucion_programa": [
+            0.0,
+            79.0,
+            21.0,
+            0.0,
+            0.0
+          ],
+          "distribucion_nbc_nacional": [
+            24.0,
+            47.0,
+            19.0,
+            10.0,
+            0.0
+          ]
+        },
+        {
+          "competencia": "COMPETENCIAS CIUDADANAS",
+          "distribucion_programa": [
+            21.0,
+            16.0,
+            63.0,
+            0.0,
+            0.0
+          ],
+          "distribucion_nbc_nacional": [
+            37.0,
+            33.0,
+            27.0,
+            2.0,
+            0.0
+          ]
+        },
+        {
+          "competencia": "COMUNICACIÓN ESCRITA",
+          "distribucion_programa": [
+            0.0,
+            21.0,
+            47.0,
+            32.0,
+            0.0
+          ],
+          "distribucion_nbc_nacional": [
+            7.0,
+            38.0,
+            46.0,
+            9.0,
+            0.0
+          ]
+        }
+      ],
+      "historico": [
+        {
+          "anio": 2023,
+          "puntaje": 138,
+          "n": 1
+        },
+        {
+          "anio": 2024,
+          "puntaje": 165,
+          "n": 9
+        },
+        {
+          "anio": 2025,
+          "puntaje": 155,
+          "n": 19
+        }
+      ],
+      "radar_historico": {
+        "2023": {
+          "competencias": [
+            {
+              "competencia": "LECTURA CRÍTICA",
+              "puntaje_programa": 131,
+              "puntaje_nbc_nacional": 147,
+              "n_nbc_nacional": 19363
+            },
+            {
+              "competencia": "RAZONAMIENTO CUANTITATIVO",
+              "puntaje_programa": 145,
+              "puntaje_nbc_nacional": 132,
+              "n_nbc_nacional": 19363
+            },
+            {
+              "competencia": "COMPETENCIAS CIUDADANAS",
+              "puntaje_programa": 130,
+              "puntaje_nbc_nacional": 133,
+              "n_nbc_nacional": 19363
+            },
+            {
+              "competencia": "COMUNICACIÓN ESCRITA",
+              "puntaje_programa": 155,
+              "puntaje_nbc_nacional": 140,
+              "n_nbc_nacional": 19363
+            },
+            {
+              "competencia": "INGLÉS",
+              "puntaje_programa": 129,
+              "puntaje_nbc_nacional": 149,
+              "n_nbc_nacional": 19363
+            }
+          ],
+          "global_programa": 138,
+          "n_programa": 1,
+          "global_nbc_nacional": 140,
+          "n_nbc_nacional": 19363
+        },
+        "2024": {
+          "competencias": [
+            {
+              "competencia": "LECTURA CRÍTICA",
+              "puntaje_programa": 176,
+              "puntaje_nbc_nacional": 151,
+              "n_nbc_nacional": 23392
+            },
+            {
+              "competencia": "RAZONAMIENTO CUANTITATIVO",
+              "puntaje_programa": 139,
+              "puntaje_nbc_nacional": 133,
+              "n_nbc_nacional": 23392
+            },
+            {
+              "competencia": "COMPETENCIAS CIUDADANAS",
+              "puntaje_programa": 166,
+              "puntaje_nbc_nacional": 141,
+              "n_nbc_nacional": 23392
+            },
+            {
+              "competencia": "COMUNICACIÓN ESCRITA",
+              "puntaje_programa": 182,
+              "puntaje_nbc_nacional": 134,
+              "n_nbc_nacional": 23392
+            },
+            {
+              "competencia": "INGLÉS",
+              "puntaje_programa": 159,
+              "puntaje_nbc_nacional": 152,
+              "n_nbc_nacional": 23392
+            }
+          ],
+          "global_programa": 165,
+          "n_programa": 9,
+          "global_nbc_nacional": 142,
+          "n_nbc_nacional": 23392
+        },
+        "2025": {
+          "competencias": [
+            {
+              "competencia": "LECTURA CRÍTICA",
+              "puntaje_programa": 167,
+              "puntaje_nbc_nacional": 148,
+              "n_nbc_nacional": 25846
+            },
+            {
+              "competencia": "RAZONAMIENTO CUANTITATIVO",
+              "puntaje_programa": 132,
+              "puntaje_nbc_nacional": 131,
+              "n_nbc_nacional": 25846
+            },
+            {
+              "competencia": "COMPETENCIAS CIUDADANAS",
+              "puntaje_programa": 155,
+              "puntaje_nbc_nacional": 137,
+              "n_nbc_nacional": 25846
+            },
+            {
+              "competencia": "COMUNICACIÓN ESCRITA",
+              "puntaje_programa": 171,
+              "puntaje_nbc_nacional": 148,
+              "n_nbc_nacional": 25846
+            },
+            {
+              "competencia": "INGLÉS",
+              "puntaje_programa": 152,
+              "puntaje_nbc_nacional": 147,
+              "n_nbc_nacional": 25846
+            }
+          ],
+          "global_programa": 155,
+          "n_programa": 19,
+          "global_nbc_nacional": 142,
+          "n_nbc_nacional": 25846
+        }
+      },
+      "especificas_historico": {
+        "2025": [
+          {
+            "prueba": "ENSEÑAR",
+            "puntaje_programa": 188,
+            "puntaje_nbc_nacional": 155,
             "n_nbc_nacional": 8440
           },
           {
@@ -16747,9 +16066,9 @@
             "n_nbc_nacional": 8440
           },
           {
-            "prueba": "ENSEÑAR",
-            "puntaje_programa": 145,
-            "puntaje_nbc_nacional": 155,
+            "prueba": "EVALUAR",
+            "puntaje_programa": 175,
+            "puntaje_nbc_nacional": 158,
             "n_nbc_nacional": 8440
           }
         ]
@@ -17476,226 +16795,6 @@
             "prueba": "FORMAR",
             "puntaje_programa": 103,
             "puntaje_nbc_nacional": 144,
-            "n_nbc_nacional": 8440
-          }
-        ]
-      }
-    },
-    {
-      "programa": "LICENCIATURA EN QUÍMICA",
-      "facultad": "Facultad de Ciencias de la Educación",
-      "nbc_id": 13,
-      "nbc_nombre": "EDUCACIÓN",
-      "acreditado": false,
-      "n_2025": 12,
-      "global_2025": 152,
-      "global_nbc_nacional_2025": 142,
-      "n_nbc_nacional_2025": 25846,
-      "n_bajo": false,
-      "competencias_2025": [
-        {
-          "prueba": "COMPETENCIAS CIUDADANAS",
-          "puntaje_programa": 143,
-          "puntaje_nbc_nacional": 137,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "COMUNICACIÓN ESCRITA",
-          "puntaje_programa": 141,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "INGLÉS",
-          "puntaje_programa": 155,
-          "puntaje_nbc_nacional": 147,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje_programa": 151,
-          "puntaje_nbc_nacional": 131,
-          "n_nbc_nacional": 25846
-        },
-        {
-          "prueba": "LECTURA CRÍTICA",
-          "puntaje_programa": 169,
-          "puntaje_nbc_nacional": 148,
-          "n_nbc_nacional": 25846
-        }
-      ],
-      "especificas_2025": [
-        {
-          "prueba": "FORMAR",
-          "puntaje_programa": 159,
-          "puntaje_nbc_nacional": 144,
-          "n_nbc_nacional": 8440
-        },
-        {
-          "prueba": "EVALUAR",
-          "puntaje_programa": 172,
-          "puntaje_nbc_nacional": 158,
-          "n_nbc_nacional": 8440
-        },
-        {
-          "prueba": "ENSEÑAR",
-          "puntaje_programa": 175,
-          "puntaje_nbc_nacional": 155,
-          "n_nbc_nacional": 8440
-        }
-      ],
-      "niveles_2025": [
-        {
-          "competencia": "COMPETENCIAS CIUDADANAS",
-          "distribucion_programa": [
-            33.0,
-            33.0,
-            25.0,
-            8.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            37.0,
-            33.0,
-            27.0,
-            2.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "LECTURA CRÍTICA",
-          "distribucion_programa": [
-            0.0,
-            33.0,
-            58.0,
-            8.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            23.0,
-            37.0,
-            36.0,
-            3.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "INGLÉS",
-          "distribucion_programa": [
-            17.0,
-            50.0,
-            25.0,
-            8.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            24.0,
-            47.0,
-            19.0,
-            10.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "COMUNICACIÓN ESCRITA",
-          "distribucion_programa": [
-            0.0,
-            36.0,
-            55.0,
-            9.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            7.0,
-            38.0,
-            46.0,
-            9.0,
-            0.0
-          ]
-        },
-        {
-          "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "distribucion_programa": [
-            17.0,
-            33.0,
-            50.0,
-            0.0,
-            0.0
-          ],
-          "distribucion_nbc_nacional": [
-            43.0,
-            34.0,
-            22.0,
-            1.0,
-            0.0
-          ]
-        }
-      ],
-      "historico": [
-        {
-          "anio": 2025,
-          "puntaje": 152,
-          "n": 12
-        }
-      ],
-      "radar_historico": {
-        "2025": {
-          "competencias": [
-            {
-              "competencia": "LECTURA CRÍTICA",
-              "puntaje_programa": 169,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "RAZONAMIENTO CUANTITATIVO",
-              "puntaje_programa": 151,
-              "puntaje_nbc_nacional": 131,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMPETENCIAS CIUDADANAS",
-              "puntaje_programa": 143,
-              "puntaje_nbc_nacional": 137,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "COMUNICACIÓN ESCRITA",
-              "puntaje_programa": 141,
-              "puntaje_nbc_nacional": 148,
-              "n_nbc_nacional": 25846
-            },
-            {
-              "competencia": "INGLÉS",
-              "puntaje_programa": 155,
-              "puntaje_nbc_nacional": 147,
-              "n_nbc_nacional": 25846
-            }
-          ],
-          "global_programa": 152,
-          "n_programa": 12,
-          "global_nbc_nacional": 142,
-          "n_nbc_nacional": 25846
-        }
-      },
-      "especificas_historico": {
-        "2025": [
-          {
-            "prueba": "FORMAR",
-            "puntaje_programa": 159,
-            "puntaje_nbc_nacional": 144,
-            "n_nbc_nacional": 8440
-          },
-          {
-            "prueba": "EVALUAR",
-            "puntaje_programa": 172,
-            "puntaje_nbc_nacional": 158,
-            "n_nbc_nacional": 8440
-          },
-          {
-            "prueba": "ENSEÑAR",
-            "puntaje_programa": 175,
-            "puntaje_nbc_nacional": 155,
             "n_nbc_nacional": 8440
           }
         ]
@@ -20313,11 +19412,6 @@
         "n": 74
       },
       {
-        "programa": "LICENCIATURA EN INFORMATICA",
-        "puntaje": 172,
-        "n": 1
-      },
-      {
         "programa": "INGENIERIA CIVIL",
         "puntaje": 171,
         "n": 98
@@ -20351,14 +19445,15 @@
         "programa": "INGENIERIA INDUSTRIAL",
         "puntaje": 162,
         "n": 148
+      },
+      {
+        "programa": "INGENIERIA ELECTRONICA",
+        "puntaje": 162,
+        "n": 89
       }
     ],
     "por_competencia": {
       "LECTURA CRÍTICA": [
-        {
-          "programa": "LICENCIATURA EN INFORMATICA",
-          "puntaje": 181
-        },
         {
           "programa": "MEDICINA",
           "puntaje": 178
@@ -20394,6 +19489,10 @@
         {
           "programa": "ENFERMERIA",
           "puntaje": 169
+        },
+        {
+          "programa": "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (PRESENCIAL)",
+          "puntaje": 167
         }
       ],
       "RAZONAMIENTO CUANTITATIVO": [
@@ -20418,10 +19517,6 @@
           "puntaje": 168
         },
         {
-          "programa": "CONTADURIA PUBLICA",
-          "puntaje": 168
-        },
-        {
           "programa": "INGENIERIA INDUSTRIAL",
           "puntaje": 167
         },
@@ -20436,13 +19531,13 @@
         {
           "programa": "INGENIERIA AMBIENTAL Y SANITARIA",
           "puntaje": 156
+        },
+        {
+          "programa": "ENFERMERIA",
+          "puntaje": 152
         }
       ],
       "COMPETENCIAS CIUDADANAS": [
-        {
-          "programa": "LICENCIATURA EN INFORMATICA",
-          "puntaje": 188
-        },
         {
           "programa": "MEDICINA",
           "puntaje": 177
@@ -20454,10 +19549,6 @@
         {
           "programa": "INGENIERIA CIVIL",
           "puntaje": 171
-        },
-        {
-          "programa": "LICENCIATURA EN EDUCACION INFANTIL",
-          "puntaje": 168
         },
         {
           "programa": "PSICOLOGIA",
@@ -20478,19 +19569,23 @@
         {
           "programa": "ENFERMERIA",
           "puntaje": 161
+        },
+        {
+          "programa": "CINE Y AUDIOVISUALES",
+          "puntaje": 160
+        },
+        {
+          "programa": "INGENIERIA INDUSTRIAL",
+          "puntaje": 159
         }
       ],
       "COMUNICACIÓN ESCRITA": [
-        {
-          "programa": "LICENCIATURA EN INFORMATICA",
-          "puntaje": 177
-        },
         {
           "programa": "LICENCIATURA EN LENGUAS EXTRANJERAS CON ÉNFASIS EN INGLÉS",
           "puntaje": 173
         },
         {
-          "programa": "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA",
+          "programa": "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (PRESENCIAL)",
           "puntaje": 171
         },
         {
@@ -20506,30 +19601,30 @@
           "puntaje": 163
         },
         {
-          "programa": "LICENCIATURA EN ESPAÑOL Y LITERATURA",
-          "puntaje": 163
-        },
-        {
-          "programa": "LICENCIATURA EN CIENCIAS NATURALES Y EDUCACIÓN AMBIENTAL",
-          "puntaje": 162
-        },
-        {
           "programa": "NEGOCIOS INTERNACIONALES",
           "puntaje": 161
         },
         {
           "programa": "DERECHO",
           "puntaje": 159
+        },
+        {
+          "programa": "ANTROPOLOGIA",
+          "puntaje": 158
+        },
+        {
+          "programa": "PSICOLOGIA",
+          "puntaje": 158
+        },
+        {
+          "programa": "INGENIERIA CIVIL",
+          "puntaje": 158
         }
       ],
       "INGLÉS": [
         {
           "programa": "LICENCIATURA EN LENGUAS EXTRANJERAS CON ÉNFASIS EN INGLÉS",
           "puntaje": 209
-        },
-        {
-          "programa": "LICENCIATURA EN INFORMATICA",
-          "puntaje": 193
         },
         {
           "programa": "NEGOCIOS INTERNACIONALES",
@@ -20561,6 +19656,10 @@
         },
         {
           "programa": "INGENIERIA CIVIL",
+          "puntaje": 168
+        },
+        {
+          "programa": "INGENIERIA ELECTRONICA",
           "puntaje": 168
         }
       ]

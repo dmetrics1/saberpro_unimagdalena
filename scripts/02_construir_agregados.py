@@ -79,15 +79,30 @@ def main() -> None:
     if not excel_files:
         raise FileNotFoundError(f"No se encontraron archivos Excel en {agregados_dir}")
         
+    # Programas excluidos del informe (alinear con la presentacion ejecutiva)
+    programas_excluidos_set = {
+        sp.clean_text(nombre) for nombre in (params.get("programas_excluidos") or [])
+    }
+
     # Clasificación de programas de UNIMAGDALENA desde parametros.yml
     program_info = {}
     for p in params["programas_unimagdalena"]:
         clean_p_name = sp.clean_text(p["nombre"])
+        if clean_p_name in programas_excluidos_set:
+            continue  # No incluir en el procesamiento ni en el JSON
         program_info[clean_p_name] = {
             "facultad": p["facultad"],
             "nbc_id": p["nbc_id"],
             "nbc_nombre": p["nbc_nombre"]
         }
+
+    # Renombrado por ID interno del Icfes (NO es SNIES del MEN):
+    # cuando el Excel del Icfes reporta el mismo NOMBRE_PROGRAMA_ACAD con dos valores
+    # distintos de ID_PROGRAMA_ACAD (p. ej. presencial vs distancia), aqui mapeamos
+    # {id_icfes_int: nuevo_nombre} para que se traten como programas separados.
+    programas_por_id_icfes = {
+        int(k): v for k, v in (params.get("programas_por_id_icfes") or {}).items()
+    }
         
     sue_set = {sp.clean_text(name) for name in params["universidades_sue"]}
     caribe_set = {sp.clean_text(name) for name in params["universidades_caribe"]}
@@ -281,6 +296,15 @@ def main() -> None:
             medida = sp.clean_text(r['MEDIDA_AGREGACION'])
             inst = sp.normalize_ies_name(r['NOMBRE_INSTITUCION'], "agregados", norm_mapping)
             prog_name = r['NOMBRE_PROGRAMA_ACAD']
+            # Renombrado por ID interno del Icfes: separar modalidades del mismo nombre
+            _id_icfes_raw = r.get('ID_PROGRAMA_ACAD')
+            if _id_icfes_raw is not None:
+                try:
+                    _id_icfes_int = int(_id_icfes_raw)
+                    if _id_icfes_int in programas_por_id_icfes:
+                        prog_name = programas_por_id_icfes[_id_icfes_int]
+                except (TypeError, ValueError):
+                    pass
             if agreg == "PROGRAMA_ACADEMICO" and inst == "UNIVERSIDAD DEL MAGDALENA" and prog_name is not None and medida == "PUNTAJE_GLOBAL":
                 programas_anual_set.add(sp.clean_text(prog_name))
         conteo_programas_por_anio[str(year)] = len(programas_anual_set)
@@ -475,10 +499,19 @@ def main() -> None:
                 medida = sp.clean_text(r['MEDIDA_AGREGACION'])
                 inst = sp.normalize_ies_name(r['NOMBRE_INSTITUCION'], "agregados", norm_mapping)
                 prog_name = r['NOMBRE_PROGRAMA_ACAD']
-                
+                # Renombrado por ID interno del Icfes: separar modalidades del mismo nombre
+                _id_icfes_raw = r.get('ID_PROGRAMA_ACAD')
+                if _id_icfes_raw is not None:
+                    try:
+                        _id_icfes_int = int(_id_icfes_raw)
+                        if _id_icfes_int in programas_por_id_icfes:
+                            prog_name = programas_por_id_icfes[_id_icfes_int]
+                    except (TypeError, ValueError):
+                        pass
+
                 if agreg == "PROGRAMA_ACADEMICO" and inst == "UNIVERSIDAD DEL MAGDALENA" and prog_name is not None:
                     prog_clean = sp.clean_text(prog_name)
-                    
+
                     if prog_clean in program_info:
                         info = program_info[prog_clean]
                         fac = info["facultad"]
@@ -503,20 +536,24 @@ def main() -> None:
                         if medida == "PUNTAJE_GLOBAL":
                             score = sp.safe_num(r['PROMEDIO_GLOBAL'])
                             n = sp.safe_num(r['CANTIDADEVALUADOS'])
-                            
-                            # Obtener referencia global del NBC
-                            nbc_ref_global = nbc_global_nacionales.get(int(nbc_id), {})
-                            nbc_score_global = nbc_ref_global.get("puntaje")
-                            nbc_n_global = nbc_ref_global.get("n")
-                            
-                            programas_2025[prog_clean]["global"] = round(score, 2) if score is not None else None
-                            programas_2025[prog_clean]["n"] = int(n) if n is not None else 0
-                            programas_2025[prog_clean]["global_nbc_nacional"] = round(nbc_score_global, 2) if nbc_score_global is not None else None
-                            programas_2025[prog_clean]["n_nbc_nacional"] = int(nbc_n_global) if nbc_n_global is not None else None
-                            
-                            # Guardar alertas de N bajo sin abortar
-                            if n is not None and n < umbral_n_bajo:
-                                alertas_n_bajo_2025.append(f"{prog_name} (n={n})")
+
+                            # Cuando un programa aparece con varios registros (p. ej. distintos
+                            # ID_PROGRAMA_ACAD del Icfes o modalidades del mismo nombre), nos quedamos
+                            # solo con el registro de MAYOR n. Asi evitamos que filas con
+                            # n=2 sobrescriban los valores ya correctos de la cohorte principal.
+                            existing_n = programas_2025[prog_clean].get("n") or 0
+                            n_int = int(n) if n is not None else 0
+                            if n_int >= existing_n:
+                                # Obtener referencia global del NBC
+                                nbc_ref_global = nbc_global_nacionales.get(int(nbc_id), {})
+                                nbc_score_global = nbc_ref_global.get("puntaje")
+                                nbc_n_global = nbc_ref_global.get("n")
+
+                                programas_2025[prog_clean]["global"] = round(score, 2) if score is not None else None
+                                programas_2025[prog_clean]["n"] = n_int
+                                programas_2025[prog_clean]["global_nbc_nacional"] = round(nbc_score_global, 2) if nbc_score_global is not None else None
+                                programas_2025[prog_clean]["n_nbc_nacional"] = int(nbc_n_global) if nbc_n_global is not None else None
+                                # Alerta de n bajo se calcula DESPUES (cuando ya se fijó el n máximo de cada programa)
                                 
             # Recopilar las pruebas específicas y genéricas por programa de UNIMAGDALENA y sus niveles
             for r in rows:
@@ -524,6 +561,15 @@ def main() -> None:
                 medida = sp.clean_text(r['MEDIDA_AGREGACION'])
                 inst = sp.normalize_ies_name(r['NOMBRE_INSTITUCION'], "agregados", norm_mapping)
                 prog_name = r['NOMBRE_PROGRAMA_ACAD']
+                # Renombrado por ID interno del Icfes: separar modalidades del mismo nombre
+                _id_icfes_raw = r.get('ID_PROGRAMA_ACAD')
+                if _id_icfes_raw is not None:
+                    try:
+                        _id_icfes_int = int(_id_icfes_raw)
+                        if _id_icfes_int in programas_por_id_icfes:
+                            prog_name = programas_por_id_icfes[_id_icfes_int]
+                    except (TypeError, ValueError):
+                        pass
                 test_name = r['NOMBRE_PRUEBA']
                 
                 if agreg == "PROGRAMA_ACADEMICO" and inst == "UNIVERSIDAD DEL MAGDALENA" and prog_name is not None and test_name is not None:
@@ -537,23 +583,29 @@ def main() -> None:
                         # Buscar puntaje de la prueba
                         if medida == "PUNTAJE_PRUEBA":
                             score = sp.safe_num(r['PROMEDIO_PRUEBA'])
+                            n_prueba = sp.safe_num(r['CANTIDADEVALUADOS'])
                             if score is not None:
                                 # Buscar promedio nacional de referencia del NBC, no de PAIS
                                 nbc_ref = nbc_pruebas_nacionales.get((int(nbc_id), test_clean), {})
                                 nbc_score = nbc_ref.get("puntaje")
                                 nbc_n = nbc_ref.get("n")
-                                
-                                test_obj = {
-                                    "prueba": test_name,
-                                    "puntaje_programa": round(score, 2),
-                                    "puntaje_nbc_nacional": round(nbc_score, 2) if nbc_score is not None else None,
-                                    "n_nbc_nacional": int(nbc_n) if nbc_n is not None else None
-                                }
-                                
-                                if test_clean in competencias_gen:
-                                    prog_obj["competencias"][test_clean] = test_obj
-                                else:
-                                    prog_obj["especificas"][test_clean] = test_obj
+
+                                # Sólo aceptar este registro si la cohorte es la mayor
+                                # vista para esta prueba (evita que filas de n=2 sobrescriban
+                                # la cohorte principal cuando hay codigos SNIES duplicados).
+                                bucket = prog_obj["competencias"] if test_clean in competencias_gen else prog_obj["especificas"]
+                                existing = bucket.get(test_clean)
+                                existing_n = (existing or {}).get("_n_prueba") or 0
+                                n_int = int(n_prueba) if n_prueba is not None else 0
+                                if n_int >= existing_n:
+                                    test_obj = {
+                                        "prueba": test_name,
+                                        "puntaje_programa": round(score, 2),
+                                        "puntaje_nbc_nacional": round(nbc_score, 2) if nbc_score is not None else None,
+                                        "n_nbc_nacional": int(nbc_n) if nbc_n is not None else None,
+                                        "_n_prueba": n_int   # interno: se filtra antes de exportar al JSON
+                                    }
+                                    bucket[test_clean] = test_obj
                                     
                         # Buscar niveles de desempeño (comparados con su NBC, no con PAIS)
                         elif medida == "NIVEL_DESEMPENO_PRUEBA" and test_clean in competencias_gen:
@@ -650,6 +702,15 @@ def main() -> None:
             prog_name = r.get('NOMBRE_PROGRAMA_ACAD')
             if not prog_name:
                 continue
+            # Renombrado por ID interno del Icfes: separar modalidades del mismo nombre
+            _id_icfes_raw = r.get('ID_PROGRAMA_ACAD')
+            if _id_icfes_raw is not None:
+                try:
+                    _id_icfes_int = int(_id_icfes_raw)
+                    if _id_icfes_int in programas_por_id_icfes:
+                        prog_name = programas_por_id_icfes[_id_icfes_int]
+                except (TypeError, ValueError):
+                    pass
             prog_clean = sp.clean_text(prog_name)
             if prog_clean not in programas_2025:
                 continue
@@ -891,8 +952,9 @@ def main() -> None:
             "global_nbc_nacional_2025": p.get("global_nbc_nacional"),
             "n_nbc_nacional_2025": p.get("n_nbc_nacional"),
             "n_bajo": p["n"] < umbral_n_bajo,
-            "competencias_2025": list(p["competencias"].values()),
-            "especificas_2025": list(p["especificas"].values()),
+            # Quitar el campo interno _n_prueba antes de exportar al JSON
+            "competencias_2025": [{k: v for k, v in c.items() if not k.startswith('_')} for c in p["competencias"].values()],
+            "especificas_2025": [{k: v for k, v in c.items() if not k.startswith('_')} for c in p["especificas"].values()],
             "niveles_2025": [
                 {
                     "competencia": next(c for c in params["competencias_genericas"] if sp.clean_text(c) == comp_clean),
@@ -937,8 +999,14 @@ def main() -> None:
     print(f"Años procesados para histórico: {len(excel_files)}")
     print(f"Conteo dinámico de programas por año: {conteo_programas_por_anio}")
     print(f"Total programas de UNIMAGDALENA en 2025 (deduplicados): {len(programas_salida_2025)}")
-    print(f"Programas con N bajo en 2025 (n < {umbral_n_bajo}): {len(alertas_n_bajo_2025)}")
-    for alert in sorted(alertas_n_bajo_2025):
+    # Recalcular alertas DESPUES de toda la deduplicación por mayor n
+    alertas_finales = sorted(
+        f"{p['programa']} (n={p['n']})"
+        for p in programas_2025.values()
+        if (p.get("n") or 0) < umbral_n_bajo
+    )
+    print(f"Programas con N bajo en 2025 (n < {umbral_n_bajo}): {len(alertas_finales)}")
+    for alert in alertas_finales:
         print(f"  - Alerta N bajo: {alert}")
     print("-------------------------------------------------------")
 

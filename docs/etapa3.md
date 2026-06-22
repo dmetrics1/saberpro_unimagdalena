@@ -184,7 +184,7 @@ programa). Aquí se sustituyen por **un único componente filtrable** (G9).
 
 ### G9 · Explorador de programas (componente filtrable) — **Esencial**
 - **Tipo:** componente compuesto con **3 filtros arriba** (facultad → programa → año único compartido) que actualizan **dos cards combinados grandes** + dos cards regulares.
-- **Datos:** `programas[]` (39 programas) con los campos:
+- **Datos:** `programas[]` (35 programas a partir de v2.13: dedup por mayor n, división de Literatura presencial/distancia, exclusión de 5 programas para alinear con la presentación ejecutiva) con los campos:
   - `competencias_2025[]`, `especificas_2025[]`, `historico[]` (rangos vigentes).
   - **`radar_historico` (v2.7):** `{<año>: {global_programa, global_nbc_nacional, n_programa, n_nbc_nacional, competencias: [5 ejes]}}` — alimenta el radar, las dos líneas del histórico global y las barras agrupadas por año.
   - **`especificas_historico` (v2.7):** `{<año>: [{prueba, puntaje_programa, puntaje_nbc_nacional, n_nbc_nacional}, …]}` — alimenta las barras específicas (solo años en que el programa rindió).

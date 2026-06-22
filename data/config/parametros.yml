@@ -118,6 +118,30 @@ universidades_dept_magdalena:
     busqueda: "UNIVERSIDAD COOPERATIVA DE COLOMBIA-SANTA MARTA"
     agregacion: "SEDE"
 
+# PROGRAMAS EXCLUIDOS DEL INFORME
+# Programas que existen en la base del Icfes pero que NO se incluyen en el informe oficial
+# (decision editorial: alinear el informe con la presentacion ejecutiva 2025 que excluye
+# licenciaturas con n bajo o codigos SNIES residuales). Los nombres deben coincidir con
+# el campo PROGRAMA_ACADEMICO del Icfes tras la normalizacion (mayusculas y sin tildes).
+programas_excluidos:
+  - "LICENCIATURA EN ARTES"
+  - "LICENCIATURA EN CIENCIAS NATURALES Y EDUCACION AMBIENTAL"
+  - "LICENCIATURA EN QUIMICA"
+  - "LICENCIATURA EN ESPANOL Y LITERATURA"
+  - "LICENCIATURA EN INFORMATICA"
+
+# RENOMBRADO DE PROGRAMAS POR ID INTERNO DEL ICFES (NO es SNIES del MEN)
+# La columna ID_PROGRAMA_ACAD del Excel del Icfes contiene un identificador interno
+# que el Icfes usa para diferenciar programas con el mismo nombre. No corresponde al
+# codigo SNIES oficial del Ministerio.
+# Cuando dos registros tienen el mismo NOMBRE_PROGRAMA_ACAD pero diferente
+# ID_PROGRAMA_ACAD (p. ej. modalidades presencial / distancia o codigos viejos /
+# nuevos del MEN), aqui mapeamos cada ID a un nombre diferenciado para que el informe
+# los muestre como programas separados.
+programas_por_id_icfes:
+  24800: "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (PRESENCIAL)"
+  25112: "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (DISTANCIA)"
+
 # PROGRAMAS DE UNIMAGDALENA CON ACREDITACION DE ALTA CALIDAD
 # Los nombres deben coincidir (tras normalizacion sin tildes y en mayusculas) con
 # el campo PROGRAMA_ACADEMICO de las bases del Icfes. El front muestra el icono
@@ -268,7 +292,11 @@ programas_unimagdalena:
     facultad: "Facultad de Ciencias de la Educación"
     nbc_id: 13
     nbc_nombre: "EDUCACIÓN"
-  - nombre: "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA"
+  - nombre: "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (PRESENCIAL)"
+    facultad: "Facultad de Ciencias de la Educación"
+    nbc_id: 13
+    nbc_nombre: "EDUCACIÓN"
+  - nombre: "LICENCIATURA EN LITERATURA Y LENGUA CASTELLANA (DISTANCIA)"
     facultad: "Facultad de Ciencias de la Educación"
     nbc_id: 13
     nbc_nombre: "EDUCACIÓN"
