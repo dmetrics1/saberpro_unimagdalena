@@ -3155,22 +3155,54 @@ function initSectionReveal() {
     return;
   }
 
-  // La primera sección se revela inmediatamente (está en viewport al cargar)
-  sections[0].classList.add('is-revealed');
+  // 1) Revelar sin animacion las secciones que ya esten dentro o muy cerca del
+  //    viewport al cargar la pagina (ej: panorama). Esto evita 'sections en
+  //    blanco' cuando el usuario aterriza directo en un hash o recarga.
+  const vpH = window.innerHeight || document.documentElement.clientHeight;
+  sections.forEach(s => {
+    const r = s.getBoundingClientRect();
+    if (r.top < vpH * 0.85) s.classList.add('is-revealed');
+  });
 
+  // 2) Para el resto: IntersectionObserver con trigger EAGER.
+  //    threshold 0 = dispara con cualquier pixel visible.
+  //    rootMargin -10% bottom = dispara cuando la seccion empieza a aparecer
+  //    desde la parte inferior del viewport (sin esperar a que entre demasiado).
   const obs = new IntersectionObserver((entries, observer) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('is-revealed');
-        observer.unobserve(e.target);  // animación una sola vez
+        observer.unobserve(e.target);
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -80px 0px'
+    threshold: 0,
+    rootMargin: '0px 0px -10% 0px'
   });
 
-  sections.slice(1).forEach(s => obs.observe(s));
+  sections.forEach(s => {
+    if (!s.classList.contains('is-revealed')) obs.observe(s);
+  });
+
+  // 3) Cuando el usuario hace click en un item del nav (incluyendo Panorama,
+  //    Metodologia, etc) revelamos inmediatamente la seccion destino para que
+  //    no quede en blanco si el observer no alcanza a dispararse a tiempo.
+  document.querySelectorAll('.nav__item, .hero__button').forEach(link => {
+    link.addEventListener('click', (ev) => {
+      const href = link.getAttribute('href') || '';
+      if (!href.startsWith('#')) return;
+      const target = document.getElementById(href.slice(1));
+      if (!target) return;
+      // Si el target es .section, revelarlo
+      if (target.classList.contains('section')) {
+        target.classList.add('is-revealed');
+      }
+      // Tambien revelar las secciones intermedias (que el usuario va a
+      // 'pasar por encima' al scroll-to). Asi cuando vuelva a scroll arriba
+      // las ve ya animadas y no en blanco.
+      sections.forEach(s => s.classList.add('is-revealed'));
+    });
+  });
 }
 
 /* ---------- Scroll-spy ----------
