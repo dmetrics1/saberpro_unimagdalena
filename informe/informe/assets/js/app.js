@@ -832,9 +832,11 @@ function renderSueRanking(d, yearOverride) {
     const y = yToPx(univ.puntaje);
     const barH = (margin.top + innerH) - y;
 
+    // Solo Unimagdalena se resalta (verde). El resto, incluyendo las del Caribe,
+    // van con el azul institucional. (Decision del equipo: ya no se destacan las
+    // del Caribe porque no aportan al analisis institucional.)
     let color = SUE_COLOR_OTHERS;
     if (univ.es_unimagdalena) color = SUE_COLOR_UM;
-    else if (univ.es_caribe) color = SUE_COLOR_CARIBE;
 
     const rect = createSVGEl('rect', {
       x, y, width: barW, height: barH,
@@ -867,12 +869,11 @@ function renderSueRanking(d, yearOverride) {
     svg.appendChild(xlbl);
   });
 
-  // Leyenda inferior con 3 categorías
+  // Leyenda inferior con 2 categorías (sin Region Caribe).
   svg.appendChild(createLegend([
     { color: SUE_COLOR_UM, text: 'Unimagdalena' },
-    { color: SUE_COLOR_CARIBE, text: 'Región Caribe' },
     { color: SUE_COLOR_OTHERS, text: 'Otras del SUE' }
-  ], (w / 2) - 230, h - 10, {
+  ], (w / 2) - 140, h - 10, {
     fontSize: 11.5, rectW: 18, rectH: 9, gap: 180, textGap: 24, fontWeight: 700
   }));
 
@@ -1340,16 +1341,19 @@ function drawCuadrantePlot(d) {
   axTitleY.textContent = 'Saber Pro (Desempeño de Salida)';
   svg.appendChild(axTitleY);
 
-  // Clasificación de instituciones del Departamento del Magdalena (otras universidades en Santa Marta)
-  const UNIV_MAG_NAMES = [
-    'UNIVERSIDAD SERGIO ARBOLEDA-SANTA MARTA',
-    'UNIVERSIDAD COOPERATIVA DE COLOMBIA-SANTA MARTA'
-  ];
-  const isUnivMagdalena = (nombre) => UNIV_MAG_NAMES.includes(nombre);
+  // Filtro NBC activo: si esta seleccionado un NBC especifico, ocultamos TODO
+  // lo demas (otras IES, universidades del depto, otros NBCs). Solo dejamos
+  // visibles el NBC seleccionado + el punto de Unimagdalena + la referencia
+  // nacional (cruz de medias + cuadrantes de fondo + grid).
+  const filtroNbc = activeNbcCuadrante && activeNbcCuadrante !== 'TODOS' ? activeNbcCuadrante : null;
 
-  // Otras IES (gris suave) — todo lo que NO es UM, NO es univ del depto Magdalena
-  const otrasIES = (yrData.instituciones || []).filter(ies =>
-    ies.nombre !== 'UNIVERSIDAD DEL MAGDALENA' && !isUnivMagdalena(ies.nombre)
+  // Otras IES — TODAS las instituciones distintas de Unimagdalena (incluyendo
+  // Sergio Arboleda y Cooperativa de Santa Marta) se dibujan en gris suave como
+  // contexto. Decision del equipo: ya no se resaltan las universidades del depto
+  // del Magdalena con color naranja porque no aportan al analisis institucional.
+  // Si hay filtro NBC activo, NO se dibujan (vista limpia: solo NBC + UM + nacional).
+  const otrasIES = filtroNbc ? [] : (yrData.instituciones || []).filter(ies =>
+    ies.nombre !== 'UNIVERSIDAD DEL MAGDALENA'
   );
   otrasIES.forEach(ies => {
     const c = createSVGEl('circle', {
@@ -1363,31 +1367,17 @@ function drawCuadrantePlot(d) {
     svg.appendChild(c);
   });
 
-  // Otras Universidades del Departamento del Magdalena (naranja)
-  const univsMag = (yrData.instituciones || []).filter(ies => isUnivMagdalena(ies.nombre));
-  univsMag.forEach(ies => {
-    const c = createSVGEl('circle', {
-      cx: getX(ies.sb11), cy: getY(ies.sbpro), r: 7,
-      fill: VA_COLORS.alerta, stroke: '#fff', 'stroke-width': '1.6',
-      class: 'chart-dot'
-    });
-    c.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>${ies.nombre}</strong>Saber 11: ${ies.sb11}<br>Saber Pro: ${ies.sbpro}<br>n: ${NUM.format(ies.n)}<br>Cuadrante: ${ies.cuadrante}`));
-    c.addEventListener('mousemove', moveTooltip);
-    c.addEventListener('mouseleave', hideTooltip);
-    svg.appendChild(c);
-  });
-
-  // NBCs de Unimagdalena (verde) — aplicar filtro por NBC si está activo
-  const filtroNbc = activeNbcCuadrante && activeNbcCuadrante !== 'TODOS' ? activeNbcCuadrante : null;
+  // NBCs de Unimagdalena (verde). Con filtro activo solo se dibuja el NBC
+  // seleccionado; los demas no aparecen (vista limpia).
   (yrData.nbcs_unimag || []).forEach(nbc => {
     const seleccionado = !filtroNbc || nbc.nbc === filtroNbc;
-    // Si hay filtro y este NBC no es el seleccionado: lo dejamos atenuado pequeño
+    if (filtroNbc && !seleccionado) return;
     const c = createSVGEl('circle', {
       cx: getX(nbc.sb11), cy: getY(nbc.sbpro),
-      r: seleccionado ? 7 : 3.5,
+      r: 7,
       fill: VA_COLORS.aporte,
-      'fill-opacity': seleccionado ? '1' : '0.18',
-      stroke: '#fff', 'stroke-width': seleccionado ? '1.6' : '0.6',
+      'fill-opacity': '1',
+      stroke: '#fff', 'stroke-width': '1.6',
       class: 'chart-dot'
     });
     c.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>NBC: ${nbc.nbc}</strong>Saber 11: ${nbc.sb11}<br>Saber Pro: ${nbc.sbpro}<br>n: ${NUM.format(nbc.n)}<br>Cuadrante: ${nbc.cuadrante}`));
@@ -1446,13 +1436,13 @@ function drawCuadrantePlot(d) {
     svg.appendChild(star);
   }
 
-  // Leyenda al pie del card — 4 categorías
+  // Leyenda al pie del card — 3 categorias (sin 'Univ. del Magdalena': las
+  // del depto ahora se ven en gris como Otras IES por decision del equipo).
   svg.appendChild(createLegend([
     { color: VA_COLORS.desempeno, text: 'Unimagdalena' },
     { color: VA_COLORS.aporte, text: 'NBC Unimagdalena' },
-    { color: VA_COLORS.alerta, text: 'Univ. del Magdalena' },
     { color: VA_COLORS.base, text: 'Otras IES' }
-  ], (w / 2) - 320, h - 14, {
+  ], (w / 2) - 240, h - 14, {
     fontSize: 11.5, rectW: 16, rectH: 9, gap: 188, textGap: 22, fontWeight: 700
   }));
 
