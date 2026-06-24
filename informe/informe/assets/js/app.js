@@ -3043,10 +3043,11 @@ function drawTop10Plot(d) {
   }
 
   const w = 500;
-  const h = 360;
+  const h = 420;
   // margin.left amplio para que los nombres de programa usen mas espacio
   // horizontal y se vean a 1-2 lineas en lugar de 3 cuando el contenedor
-  // tiene espacio sobrante en desktop.
+  // tiene espacio sobrante en desktop. height incrementado para barras mas
+  // gruesas (aspecto similar al grafico Facultades).
   const margin = { top: 15, right: 50, bottom: 22, left: 250 };
 
   const svg = createSVGEl('svg', { viewBox: `0 0 ${w} ${h}`, class: 'svg-chart' });
@@ -3088,16 +3089,24 @@ function drawTop10Plot(d) {
     svg.appendChild(text);
   }
 
-  // Dibujar barras del Top 10
+  // Dibujar barras del Top 10 con paleta rotativa (mismo estilo que Facultades).
+  // Cada barra tiene color distinto para que el grafico aproveche el espacio
+  // visualmente sin sentirse monotono.
   dataList.forEach((item, idx) => {
     const y = margin.top + idx * barHeight;
     const barW = getWidth(item.puntaje);
+    const color = FAC_PALETTE[idx % FAC_PALETTE.length];
+
+    // Barras mas gruesas: ocupan 75% del slot vertical (antes ~82% pero con
+    // margenes pequeños). Sigue habiendo separacion entre barras.
+    const thickBarH = barHeight * 0.72;
+    const barY = y + (barHeight - thickBarH) / 2;
 
     const rect = createSVGEl('rect', {
-      x: margin.left, y: y + 3,
-      width: Math.max(barW, 2), height: barHeight - 6,
-      fill: COLOR_PRIMARY,
-      rx: 3,
+      x: margin.left, y: barY,
+      width: Math.max(barW, 2), height: thickBarH,
+      fill: color,
+      rx: 4,
       class: 'chart-bar'
     });
 
@@ -3114,7 +3123,7 @@ function drawTop10Plot(d) {
         x: margin.left - 8, y: startY + li * lineH,
         'text-anchor': 'end',
         class: 'axis-label',
-        style: 'font-weight: 700; font-size: 11.5px; fill: var(--brand-primary-dark);'
+        style: `font-weight: 700; font-size: 11.5px; fill: ${color};`
       });
       nt.textContent = ln;
       svg.appendChild(nt);
@@ -3123,7 +3132,7 @@ function drawTop10Plot(d) {
     const scoreText = createSVGEl('text', {
       x: margin.left + barW + 6, y: centerY,
       class: 'axis-label',
-      style: 'font-weight: 800; font-size: 12px; fill: var(--brand-primary-dark);'
+      style: `font-weight: 800; font-size: 12px; fill: ${color};`
     });
     scoreText.textContent = item.puntaje.toFixed(1);
 
