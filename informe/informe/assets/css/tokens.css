@@ -918,8 +918,15 @@ body.sidebar-collapsed .sidebar__foot-short {
     border-radius: 20px;
   }
   .hero h1 strong {
-    font-size: clamp(32px, 9.5vw, 46px);
-    word-break: break-word;     /* protege "UNIMAGDALENA" si la fuente es ancha */
+    /* Buffer mas amplio para que 'UNIMAGDALENA' (12 chars) quepa entera en
+       todos los tamaños de telefono comunes (360-414px) sin tener que partir
+       el palabra mid-syllaba. */
+    font-size: clamp(28px, 8vw, 42px);
+    /* No partir 'UNIMAGDALENA' a la mitad si por algun motivo no cabe — mejor
+       que se desborde un par de pixeles invisible que verlo como 'UNIMAGDA / LENA'. */
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
   .hero h1 span {
     font-size: clamp(20px, 5.5vw, 28px);
@@ -2192,13 +2199,15 @@ body.sidebar-collapsed .sidebar__foot-short {
     padding-right: var(--sp-4);
   }
   .hero h1 {
-    font-size: clamp(2.25rem, 12vw, 2.85rem);
+    font-size: clamp(2rem, 10vw, 2.4rem);
   }
   .hero h1 span {
-    font-size: clamp(1.45rem, 8vw, 1.85rem);
+    font-size: clamp(1.3rem, 6.5vw, 1.7rem);
   }
   .hero h1 strong {
-    font-size: clamp(2.05rem, 10.5vw, 2.55rem);
+    /* Buffer amplio para que 'UNIMAGDALENA' quepa sin partirse en telefonos
+       de 360-414px. word-break: normal heredado del bloque @media 720px. */
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
   }
   .hero__actions {
     width: 100%;
