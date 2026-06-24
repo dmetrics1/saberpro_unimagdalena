@@ -743,10 +743,12 @@ function renderEvolLine(d) {
 }
 
 /* ---------- G4: Ranking SUE (columnas verticales, filtrable por año) ---------- */
-// Paleta SUE: UNIMAGDALENA verde, Caribe naranja, resto azul institucional
-const SUE_COLOR_UM = '#2BA85E';
+// Paleta SUE: UNIMAGDALENA azul institucional (consistente con todos los otros
+// graficos), las demas en verde. SUE_COLOR_CARIBE se conserva como constante por
+// si se vuelve a usar pero ya no se aplica (decision del equipo en v2.x).
+const SUE_COLOR_UM = '#0F4FA8';
 const SUE_COLOR_CARIBE = '#FF9400';
-const SUE_COLOR_OTHERS = '#0F4FA8';
+const SUE_COLOR_OTHERS = '#2BA85E';
 
 function initSueYearPicker(d) {
   const sel = document.getElementById('selAnioSue');
