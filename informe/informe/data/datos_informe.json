@@ -1,7 +1,7 @@
 {
   "meta": {
     "anio_vigente": 2025,
-    "fecha_generacion": "2026-06-23T17:43:50.627130-05:00",
+    "fecha_generacion": "2026-06-24T16:08:45.988959-05:00",
     "convencion_n": "Base de cruce (Fuente A) utiliza 'crossed_n' con umbral >= 25. Bases agregadas (Fuente B) utiliza 'CANTIDADEVALUADOS'.",
     "fuentes": {
       "fuente_a_cruce": {
@@ -14057,55 +14057,55 @@
     },
     {
       "facultad": "Facultad de Ciencias Empresariales y Económicas",
-      "puntaje_global": 148.26,
-      "n": 794,
+      "puntaje_global": 148.0,
+      "n": 805,
       "competencias": [
         {
           "competencia": "LECTURA CRÍTICA",
-          "puntaje": 152.21
+          "puntaje": 151.94
         },
         {
           "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje": 138.66
+          "puntaje": 138.22
         },
         {
           "competencia": "COMPETENCIAS CIUDADANAS",
-          "puntaje": 146.03
+          "puntaje": 145.84
         },
         {
           "competencia": "COMUNICACIÓN ESCRITA",
-          "puntaje": 151.34
+          "puntaje": 151.17
         },
         {
           "competencia": "INGLÉS",
-          "puntaje": 153.79
+          "puntaje": 153.55
         }
       ]
     },
     {
       "facultad": "Facultad de Ciencias de la Educación",
-      "puntaje_global": 134.98,
-      "n": 856,
+      "puntaje_global": 142.26,
+      "n": 495,
       "competencias": [
         {
           "competencia": "LECTURA CRÍTICA",
-          "puntaje": 140.29
+          "puntaje": 149.99
         },
         {
           "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje": 125.17
+          "puntaje": 128.21
         },
         {
           "competencia": "COMPETENCIAS CIUDADANAS",
-          "puntaje": 129.77
+          "puntaje": 138.35
         },
         {
           "competencia": "COMUNICACIÓN ESCRITA",
-          "puntaje": 144.63
+          "puntaje": 151.65
         },
         {
           "competencia": "INGLÉS",
-          "puntaje": 135.15
+          "puntaje": 144.01
         }
       ]
     },
@@ -14138,28 +14138,28 @@
     },
     {
       "facultad": "Facultad de Humanidades",
-      "puntaje_global": 156.85,
-      "n": 295,
+      "puntaje_global": 139.5,
+      "n": 645,
       "competencias": [
         {
           "competencia": "LECTURA CRÍTICA",
-          "puntaje": 167.64
+          "puntaje": 145.49
         },
         {
           "competencia": "RAZONAMIENTO CUANTITATIVO",
-          "puntaje": 139.18
+          "puntaje": 129.55
         },
         {
           "competencia": "COMPETENCIAS CIUDADANAS",
-          "puntaje": 163.72
+          "puntaje": 138.67
         },
         {
           "competencia": "COMUNICACIÓN ESCRITA",
-          "puntaje": 152.91
+          "puntaje": 143.12
         },
         {
           "competencia": "INGLÉS",
-          "puntaje": 162.71
+          "puntaje": 140.94
         }
       ]
     },
@@ -14249,28 +14249,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 126.87,
-        "n": 254,
+        "puntaje_global": 131.22,
+        "n": 134,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 128.92
+            "puntaje": 134.22
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 121.59
+            "puntaje": 119.43
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 130.41
+            "puntaje": 133.47
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 121.18
+            "puntaje": 132.99
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 130.72
+            "puntaje": 134.05
           }
         ]
       },
@@ -14303,28 +14303,28 @@
       },
       {
         "facultad": "Facultad de Humanidades",
-        "puntaje_global": 149.47,
-        "n": 427,
+        "puntaje_global": 143.44,
+        "n": 547,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 157.2
+            "puntaje": 149.7
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 139.69
+            "puntaje": 136.25
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 159.49
+            "puntaje": 152.37
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 142.05
+            "puntaje": 134.58
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 147.87
+            "puntaje": 143.29
           }
         ]
       },
@@ -14413,28 +14413,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 126.56,
-        "n": 142,
+        "puntaje_global": 129.63,
+        "n": 101,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 129.37
+            "puntaje": 136.42
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 113.86
+            "puntaje": 113.4
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 121.7
+            "puntaje": 124.42
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 133.12
+            "puntaje": 135.2
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 134.43
+            "puntaje": 137.85
           }
         ]
       },
@@ -14467,28 +14467,28 @@
       },
       {
         "facultad": "Facultad de Humanidades",
-        "puntaje_global": 149.29,
-        "n": 285,
+        "puntaje_global": 145.48,
+        "n": 326,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 159.44
+            "puntaje": 153.47
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 136.22
+            "puntaje": 133.56
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 157.54
+            "puntaje": 152.19
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 143.18
+            "puntaje": 141.27
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 151.68
+            "puntaje": 148.45
           }
         ]
       },
@@ -14577,28 +14577,28 @@
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 126.5,
-        "n": 272,
+        "puntaje_global": 133.82,
+        "n": 88,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 132.18
+            "puntaje": 143.02
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 124.83
+            "puntaje": 122.39
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 120.97
+            "puntaje": 131.35
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 120.96
+            "puntaje": 133.41
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 133.4
+            "puntaje": 138.41
           }
         ]
       },
@@ -14631,28 +14631,28 @@
       },
       {
         "facultad": "Facultad de Humanidades",
-        "puntaje_global": 153.42,
-        "n": 191,
+        "puntaje_global": 138.49,
+        "n": 375,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 167.15
+            "puntaje": 147.45
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 141.58
+            "puntaje": 133.94
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 162.17
+            "puntaje": 139.51
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 136.45
+            "puntaje": 125.93
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 158.86
+            "puntaje": 145.19
           }
         ]
       },
@@ -14714,55 +14714,55 @@
       },
       {
         "facultad": "Facultad de Ciencias Empresariales y Económicas",
-        "puntaje_global": 147.99,
-        "n": 803,
+        "puntaje_global": 147.55,
+        "n": 815,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 151.56
+            "puntaje": 151.16
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 143.85
+            "puntaje": 143.44
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 144.16
+            "puntaje": 143.62
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 144.83
+            "puntaje": 144.21
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 158.64
+            "puntaje": 158.0
           }
         ]
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 124.36,
-        "n": 528,
+        "puntaje_global": 128.92,
+        "n": 224,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 129.19
+            "puntaje": 136.46
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 120.94
+            "puntaje": 118.06
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 116.1
+            "puntaje": 121.85
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 124.86
+            "puntaje": 134.16
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 128.54
+            "puntaje": 131.98
           }
         ]
       },
@@ -14795,28 +14795,28 @@
       },
       {
         "facultad": "Facultad de Humanidades",
-        "puntaje_global": 153.13,
-        "n": 217,
+        "puntaje_global": 134.77,
+        "n": 509,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 165.15
+            "puntaje": 141.54
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 136.19
+            "puntaje": 128.79
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 160.2
+            "puntaje": 132.64
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 143.13
+            "puntaje": 128.81
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 160.64
+            "puntaje": 140.74
           }
         ]
       },
@@ -14878,55 +14878,55 @@
       },
       {
         "facultad": "Facultad de Ciencias Empresariales y Económicas",
-        "puntaje_global": 149.94,
-        "n": 642,
+        "puntaje_global": 149.61,
+        "n": 662,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 156.67
+            "puntaje": 156.34
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 143.37
+            "puntaje": 143.15
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 150.5
+            "puntaje": 150.18
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 138.92
+            "puntaje": 138.53
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 160.81
+            "puntaje": 160.36
           }
         ]
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 127.17,
-        "n": 945,
+        "puntaje_global": 129.6,
+        "n": 534,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 134.82
+            "puntaje": 139.3
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 121.44
+            "puntaje": 117.72
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 125.84
+            "puntaje": 128.16
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 122.22
+            "puntaje": 130.55
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 130.81
+            "puntaje": 131.47
           }
         ]
       },
@@ -14959,28 +14959,28 @@
       },
       {
         "facultad": "Facultad de Humanidades",
-        "puntaje_global": 150.12,
-        "n": 211,
+        "puntaje_global": 132.66,
+        "n": 602,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 163.46
+            "puntaje": 140.51
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 135.28
+            "puntaje": 128.92
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 161.55
+            "puntaje": 135.95
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 128.51
+            "puntaje": 117.32
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 162.87
+            "puntaje": 140.99
           }
         ]
       },
@@ -15042,55 +15042,55 @@
       },
       {
         "facultad": "Facultad de Ciencias Empresariales y Económicas",
-        "puntaje_global": 147.62,
-        "n": 638,
+        "puntaje_global": 147.3,
+        "n": 649,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 152.21
+            "puntaje": 151.94
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 135.69
+            "puntaje": 135.2
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 146.03
+            "puntaje": 145.84
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 150.35
+            "puntaje": 150.16
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 153.79
+            "puntaje": 153.55
           }
         ]
       },
       {
         "facultad": "Facultad de Ciencias de la Educación",
-        "puntaje_global": 134.98,
-        "n": 856,
+        "puntaje_global": 142.26,
+        "n": 495,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 140.29
+            "puntaje": 149.99
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 124.92
+            "puntaje": 127.97
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 128.92
+            "puntaje": 137.44
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 144.35
+            "puntaje": 151.64
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 134.27
+            "puntaje": 143.05
           }
         ]
       },
@@ -15123,28 +15123,28 @@
       },
       {
         "facultad": "Facultad de Humanidades",
-        "puntaje_global": 156.85,
-        "n": 295,
+        "puntaje_global": 139.5,
+        "n": 645,
         "competencias": [
           {
             "competencia": "LECTURA CRÍTICA",
-            "puntaje": 167.64
+            "puntaje": 145.49
           },
           {
             "competencia": "RAZONAMIENTO CUANTITATIVO",
-            "puntaje": 139.18
+            "puntaje": 129.55
           },
           {
             "competencia": "COMPETENCIAS CIUDADANAS",
-            "puntaje": 163.72
+            "puntaje": 138.67
           },
           {
             "competencia": "COMUNICACIÓN ESCRITA",
-            "puntaje": 152.91
+            "puntaje": 143.12
           },
           {
             "competencia": "INGLÉS",
-            "puntaje": 162.71
+            "puntaje": 140.94
           }
         ]
       },
@@ -20188,7 +20188,7 @@
     },
     {
       "programa": "GESTIÓN CULTURAL Y DE INDUSTRIAS CREATIVAS",
-      "facultad": "Facultad de Humanidades",
+      "facultad": "Facultad de Ciencias Empresariales y Económicas",
       "nbc_id": 4,
       "nbc_nombre": "ARTES PLÁSTICAS, VISUALES Y AFINES",
       "acreditado": false,
@@ -30033,7 +30033,7 @@
     },
     {
       "programa": "PROFESIONAL EN DEPORTE",
-      "facultad": "Facultad de Ciencias de la Educación",
+      "facultad": "Facultad de Humanidades",
       "nbc_id": 58,
       "nbc_nombre": "DEPORTES, EDUCACIÓN FÍSICA Y RECREACIÓN",
       "acreditado": false,

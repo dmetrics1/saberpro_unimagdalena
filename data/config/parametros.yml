@@ -220,7 +220,7 @@ programas_unimagdalena:
     nbc_id: 41
     nbc_nombre: "ENFERMERÍA"
   - nombre: "GESTIÒN CULTURAL Y DE INDUSTRIAS CREATIVAS"
-    facultad: "Facultad de Humanidades"
+    facultad: "Facultad de Ciencias Empresariales y Económicas"
     nbc_id: 4
     nbc_nombre: "ARTES PLÁSTICAS, VISUALES Y AFINES"
   - nombre: "HISTORIA Y PATRIMONIO"
@@ -332,7 +332,7 @@ programas_unimagdalena:
     nbc_id: 47
     nbc_nombre: "ODONTOLOGÍA"
   - nombre: "PROFESIONAL EN DEPORTE"
-    facultad: "Facultad de Ciencias de la Educación"
+    facultad: "Facultad de Humanidades"
     nbc_id: 58
     nbc_nombre: "DEPORTES, EDUCACIÓN FÍSICA Y RECREACIÓN"
   - nombre: "PSICOLOGIA"
