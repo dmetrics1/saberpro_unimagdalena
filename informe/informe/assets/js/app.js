@@ -357,14 +357,14 @@ function renderRadar(d, yearOverride) {
     const anchor = Math.abs(Math.cos(angle)) < 0.15 ? 'middle' : (Math.cos(angle) > 0 ? 'start' : 'end');
 
     const lines = axes[a].label.split('\n');
-    const lineHeight = 14;
-    const startY = ly - ((lines.length - 1) * lineHeight) / 2 + 4;
+    const lineHeight = 16;
+    const startY = ly - ((lines.length - 1) * lineHeight) / 2 + 5;
     lines.forEach((line, idx) => {
       const t = createSVGEl('text', {
         x: lx,
         y: startY + idx * lineHeight,
         'text-anchor': anchor,
-        style: 'font-family: var(--font-display); font-weight: 700; font-size: 12px; fill: var(--brand-primary-dark);'
+        style: 'font-family: var(--font-display); font-weight: 700; font-size: 14px; fill: var(--brand-primary-dark);'
       });
       t.textContent = line;
       svg.appendChild(t);
@@ -1922,19 +1922,38 @@ function renderFacultades(d, yearOverride) {
     rect.addEventListener('mouseleave', hideTooltip);
     svg.appendChild(rect);
 
-    // Nombre de la facultad (a la izquierda)
-    const nameText = createSVGEl('text', {
-      x: margin.left - 12, y: y + barH / 2 + 5,
-      'text-anchor': 'end',
-      style: `font-family: var(--font-display); font-weight: 600; font-size: 13px; fill: ${color};`
+    // Nombre de la facultad (a la izquierda) con wrap multi-linea para los nombres
+    // largos como 'Ciencias Empresariales y Económicas'. Font aumentado a 15px.
+    const facName = fac.facultad.replace(/^Facultad de /, '');
+    const wrapFac = (name, maxChars = 22) => {
+      const words = name.split(/\s+/);
+      const out = []; let cur = '';
+      for (const w of words) {
+        if (!cur) { cur = w; continue; }
+        if ((cur + ' ' + w).length <= maxChars) cur += ' ' + w;
+        else { out.push(cur); cur = w; }
+      }
+      if (cur) out.push(cur);
+      return out;
+    };
+    const facLines = wrapFac(facName, 22);
+    const facLineH = 17;
+    const facCenterY = y + barH / 2 + 6;
+    const facStartY = facCenterY - ((facLines.length - 1) * facLineH) / 2;
+    facLines.forEach((ln, li) => {
+      const t = createSVGEl('text', {
+        x: margin.left - 12, y: facStartY + li * facLineH,
+        'text-anchor': 'end',
+        style: `font-family: var(--font-display); font-weight: 700; font-size: 15px; fill: ${color};`
+      });
+      t.textContent = ln;
+      svg.appendChild(t);
     });
-    nameText.textContent = fac.facultad.replace(/^Facultad de /, '');
-    svg.appendChild(nameText);
 
     // Puntaje (al final de la barra)
     const scoreText = createSVGEl('text', {
-      x: margin.left + barW + 8, y: y + barH / 2 + 5,
-      style: `font-family: var(--font-display); font-weight: 800; font-size: 13.5px; fill: ${color};`
+      x: margin.left + barW + 8, y: y + barH / 2 + 6,
+      style: `font-family: var(--font-display); font-weight: 800; font-size: 15px; fill: ${color};`
     });
     scoreText.textContent = v.toFixed(1);
     svg.appendChild(scoreText);
@@ -2971,13 +2990,28 @@ function drawTop10Plot(d) {
   }
 
   const w = 500;
-  const h = 320;
-  const margin = { top: 15, right: 50, bottom: 20, left: 160 };
+  const h = 360;
+  const margin = { top: 15, right: 50, bottom: 22, left: 200 };
 
   const svg = createSVGEl('svg', { viewBox: `0 0 ${w} ${h}`, class: 'svg-chart' });
 
   const totalBars = dataList.length;
   const barHeight = (h - margin.top - margin.bottom) / totalBars;
+
+  // Helper de wrap: divide un nombre en lineas de hasta maxChars sin partir
+  // palabras. Usado en los labels izquierdos.
+  const wrapName = (name, maxChars = 24) => {
+    const words = name.split(/\s+/);
+    const lines = [];
+    let current = '';
+    for (const w of words) {
+      if (!current) { current = w; continue; }
+      if ((current + ' ' + w).length <= maxChars) current += ' ' + w;
+      else { lines.push(current); current = w; }
+    }
+    if (current) lines.push(current);
+    return lines;
+  };
 
   // Escalar en base al tipo de puntaje (Global: max ~200, Específicas/Prueba: max ~200)
   const minVal = activeTopCompetence === 'Global' ? 120 : 100;
@@ -3011,20 +3045,29 @@ function drawTop10Plot(d) {
       class: 'chart-bar'
     });
 
-    const nameText = createSVGEl('text', {
-      x: margin.left - 8, y: y + barHeight / 2 + 3,
-      'text-anchor': 'end',
-      class: 'axis-label',
-      style: 'font-weight: 600; font-size: 8.5px; fill: var(--brand-primary-dark);'
+    // Wrap del nombre del programa: lineas de hasta 24 chars sin truncar.
+    // Prefijo '1. ' va en la primera linea.
+    const prog = titleCase(item.programa);
+    const lines = wrapName(prog, 24);
+    if (lines.length > 0) lines[0] = `${idx + 1}. ${lines[0]}`;
+    const lineH = 11;
+    const centerY = y + barHeight / 2 + 4;
+    const startY = centerY - ((lines.length - 1) * lineH) / 2;
+    lines.forEach((ln, li) => {
+      const nt = createSVGEl('text', {
+        x: margin.left - 8, y: startY + li * lineH,
+        'text-anchor': 'end',
+        class: 'axis-label',
+        style: 'font-weight: 700; font-size: 10px; fill: var(--brand-primary-dark);'
+      });
+      nt.textContent = ln;
+      svg.appendChild(nt);
     });
-    let cleanName = item.programa;
-    if (cleanName.length > 25) cleanName = cleanName.substring(0, 23) + '...';
-    nameText.textContent = `${idx + 1}. ${cleanName}`;
 
     const scoreText = createSVGEl('text', {
-      x: margin.left + barW + 6, y: y + barHeight / 2 + 3,
+      x: margin.left + barW + 6, y: centerY,
       class: 'axis-label',
-      style: 'font-weight: 800; font-size: 9px; fill: var(--brand-primary-dark);'
+      style: 'font-weight: 800; font-size: 11px; fill: var(--brand-primary-dark);'
     });
     scoreText.textContent = item.puntaje.toFixed(1);
 
@@ -3035,7 +3078,6 @@ function drawTop10Plot(d) {
     rect.addEventListener('mouseleave', hideTooltip);
 
     svg.appendChild(rect);
-    svg.appendChild(nameText);
     svg.appendChild(scoreText);
   });
 
