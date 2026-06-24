@@ -3041,7 +3041,10 @@ function drawTop10Plot(d) {
 
   const w = 500;
   const h = 360;
-  const margin = { top: 15, right: 50, bottom: 22, left: 200 };
+  // margin.left amplio para que los nombres de programa usen mas espacio
+  // horizontal y se vean a 1-2 lineas en lugar de 3 cuando el contenedor
+  // tiene espacio sobrante en desktop.
+  const margin = { top: 15, right: 50, bottom: 22, left: 250 };
 
   const svg = createSVGEl('svg', { viewBox: `0 0 ${w} ${h}`, class: 'svg-chart' });
 
@@ -3095,12 +3098,12 @@ function drawTop10Plot(d) {
       class: 'chart-bar'
     });
 
-    // Wrap del nombre del programa: lineas de hasta 24 chars sin truncar.
-    // Prefijo '1. ' va en la primera linea.
+    // Wrap del nombre del programa: lineas de hasta 36 chars sin truncar
+    // (aprovecha el margin.left ampliado a 250). Prefijo '1. ' va en la primera linea.
     const prog = titleCase(item.programa);
-    const lines = wrapName(prog, 24);
+    const lines = wrapName(prog, 36);
     if (lines.length > 0) lines[0] = `${idx + 1}. ${lines[0]}`;
-    const lineH = 11;
+    const lineH = 13;
     const centerY = y + barHeight / 2 + 4;
     const startY = centerY - ((lines.length - 1) * lineH) / 2;
     lines.forEach((ln, li) => {
@@ -3108,7 +3111,7 @@ function drawTop10Plot(d) {
         x: margin.left - 8, y: startY + li * lineH,
         'text-anchor': 'end',
         class: 'axis-label',
-        style: 'font-weight: 700; font-size: 10px; fill: var(--brand-primary-dark);'
+        style: 'font-weight: 700; font-size: 11.5px; fill: var(--brand-primary-dark);'
       });
       nt.textContent = ln;
       svg.appendChild(nt);
@@ -3117,7 +3120,7 @@ function drawTop10Plot(d) {
     const scoreText = createSVGEl('text', {
       x: margin.left + barW + 6, y: centerY,
       class: 'axis-label',
-      style: 'font-weight: 800; font-size: 11px; fill: var(--brand-primary-dark);'
+      style: 'font-weight: 800; font-size: 12px; fill: var(--brand-primary-dark);'
     });
     scoreText.textContent = item.puntaje.toFixed(1);
 
