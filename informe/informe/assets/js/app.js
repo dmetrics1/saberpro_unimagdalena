@@ -2356,9 +2356,11 @@ function renderExplorerRadar(p, yearOverride) {
     svg.appendChild(nbcLbl);
   }
 
-  // Leyenda inferior unificada (centrada bajo el radar w=600 h=600)
+  // Leyenda inferior unificada (centrada bajo el radar w=600 h=600).
+  // El item del programa muestra el NOMBRE del programa activo para que el
+  // grafico sea auto-explicativo cuando alguien tome un screenshot.
   svg.appendChild(createLegend([
-    { color: COLOR_PROG, text: 'Programa' },
+    { color: COLOR_PROG, text: titleCase(p.programa) },
     { color: COLOR_NBC, text: 'Promedio nacional del NBC' }
   ], cx - 200, h - 22, { fontSize: 14, rectW: 22, rectH: 12, gap: 280, textGap: 32, fontWeight: 700 }));
 
@@ -2529,9 +2531,11 @@ function renderExplorerSpecifics(p, yearOverride) {
     svg.appendChild(lblNbc);
   });
 
-  // Leyenda inferior unificada (centrada para w=600 h=600, mismo estilo que el radar)
+  // Leyenda inferior unificada (centrada para w=600 h=600, mismo estilo que el radar).
+  // El item del programa muestra el NOMBRE del programa activo para que el grafico
+  // sea auto-explicativo cuando alguien tome un screenshot.
   svg.appendChild(createLegend([
-    { color: COLOR_PROG, text: 'Programa' },
+    { color: COLOR_PROG, text: titleCase(p.programa) },
     { color: COLOR_NBC, text: 'Promedio nacional del NBC' }
   ], (w / 2) - 200, h - 22, { fontSize: 14, rectW: 22, rectH: 12, gap: 280, textGap: 32, fontWeight: 700 }));
 
@@ -2659,9 +2663,11 @@ function renderExplorerHistory(p) {
   // Línea programa (azul, etiqueta arriba)
   drawLine('prog', COLOR_PROG, -10, false);
 
-  // Leyenda inferior (centrada para w=580, h=440)
+  // Leyenda inferior (centrada para w=580, h=440).
+  // El item del programa muestra el NOMBRE del programa activo para que el grafico
+  // sea auto-explicativo cuando alguien tome un screenshot.
   svg.appendChild(createLegend([
-    { color: COLOR_PROG, text: 'Programa' },
+    { color: COLOR_PROG, text: titleCase(p.programa) },
     { color: COLOR_NBC, text: 'Promedio nacional del NBC' }
   ], (w / 2) - 160, h - 16, { fontSize: 12, rectW: 18, rectH: 10, gap: 210, textGap: 26, fontWeight: 700 }));
 
