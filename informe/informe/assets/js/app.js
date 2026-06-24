@@ -2046,14 +2046,12 @@ function updateProgramExplorerData(d) {
   // Indicador de estado del programa según las convenciones
   updateProgramStatus(p);
 
-  // Etiqueta del programa activo en cada uno de los 4 sub-graficos para que sean
-  // auto-explicativos en screenshots (los filtros estan arriba del card).
-  const progLabelText = titleCase(p.programa);
-  ['progRadarProgLbl', 'progSpecProgLbl', 'progNivelesProgLbl', 'progHistProgLbl']
-    .forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = progLabelText;
-    });
+  // Etiqueta del programa activo SOLO en el grafico 'Competencias genericas
+  // evolucion 2020-2025' porque su leyenda es de años y no muestra el nombre del
+  // programa. Los otros 3 (radar, especificas, historico) lo tienen en su leyenda
+  // inferior y no necesitan badge adicional.
+  const lblEl = document.getElementById('progNivelesProgLbl');
+  if (lblEl) lblEl.textContent = titleCase(p.programa);
 
   // Selector único de año (unión de años con data en radar o específicas)
   initProgYearPicker(d, p);

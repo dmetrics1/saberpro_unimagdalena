@@ -1404,9 +1404,9 @@ body.sidebar-collapsed .sidebar__foot-short {
   font-weight: 500;
 }
 
-/* Etiqueta del programa activo debajo del titulo de cada card del explorador
-   de programas. Aparece como pildora suave en azul institucional para que
-   sea visible al tomar screenshots del grafico fuera de contexto. */
+/* Etiqueta del programa activo debajo del titulo. Solo se usa en el grafico
+   'Competencias genericas evolucion 2020-2025' porque su leyenda es de años
+   (no muestra el nombre del programa). Pildora suave en azul institucional. */
 .card__program-label {
   display: inline-block;
   margin: 4px 0 10px;
@@ -1420,6 +1420,27 @@ body.sidebar-collapsed .sidebar__foot-short {
   letter-spacing: 0.01em;
 }
 .card__program-label:empty { display: none; }
+
+/* Centrado del badge: contenedor block con flex que centra horizontalmente la
+   pildora. Se aplica a la misma pildora (override de display) o a un wrapper. */
+.card__program-label--centered {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+  margin: 8px 0 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0F4FA8;
+}
+.card__program-label--centered:not(:empty) {
+  padding: 5px 14px;
+  background: rgba(15, 79, 168, 0.08);
+  border-radius: 999px;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Meta-información debajo del título del card (NBC, evaluados, etc.) */
 .card__meta {

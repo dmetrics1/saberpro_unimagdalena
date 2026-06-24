@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/tokens.css?v=234">
+<link rel="stylesheet" href="assets/css/tokens.css?v=235">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
   <aside class="sidebar" id="sidebar" aria-label="Menu de secciones">
     <div class="sidebar__brand">
       <div class="sidebar__logo" id="brandLogo">
-        <img src="assets/img/escudo-unimagdalena.png?v=234"
+        <img src="assets/img/escudo-unimagdalena.png?v=235"
              alt="Escudo Universidad del Magdalena"
              onerror="this.parentNode.textContent='UM'">
       </div>
@@ -249,7 +249,6 @@
               <!-- Columna izquierda: Genéricas (radar) -->
               <div class="prog-genspec-side prog-genspec-side--with-status">
                 <h3 class="card__title prog-genspec-side__title">Competencias genéricas vs. NBC <span id="progRadarYearLbl">2025</span></h3>
-                <div class="card__program-label" id="progRadarProgLbl"></div>
                 <!-- Cajita flotante con los iconos del estado del programa (anclada al chart del radar) -->
                 <div id="progStatus" class="prog-status-box" hidden></div>
                 <div class="chart-container" id="progRadar"></div>
@@ -257,7 +256,6 @@
               <!-- Columna derecha: Específicas (barras) -->
               <div class="prog-genspec-side" id="progSpecCard">
                 <h3 class="card__title prog-genspec-side__title">Competencias específicas vs. NBC <span id="progSpecYearLbl">2025</span></h3>
-                <div class="card__program-label" id="progSpecProgLbl"></div>
                 <div class="chart-container" id="progSpecBar"></div>
               </div>
             </div>
@@ -267,12 +265,11 @@
             <div class="prog-history-grid">
               <div class="prog-history-side">
                 <h3 class="card__title prog-genspec-side__title">Competencias genéricas <span class="card__title-soft">evolución 2020 – 2025</span></h3>
-                <div class="card__program-label" id="progNivelesProgLbl"></div>
+                <div class="card__program-label card__program-label--centered" id="progNivelesProgLbl"></div>
                 <div class="chart-container" id="progNiveles"></div>
               </div>
               <div class="prog-history-side">
                 <h3 class="card__title prog-genspec-side__title">Histórico puntaje global <span class="card__title-soft">programa vs. NBC nacional</span></h3>
-                <div class="card__program-label" id="progHistProgLbl"></div>
                 <div class="chart-container" id="progHist"></div>
               </div>
             </div>
@@ -530,6 +527,6 @@
   </main>
 </div>
 
-<script src="assets/js/app.js?v=234"></script>
+<script src="assets/js/app.js?v=235"></script>
 </body>
 </html>
