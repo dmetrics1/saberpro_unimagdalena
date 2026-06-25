@@ -207,7 +207,7 @@ a { color: var(--brand-accent); }
    ============================================================ */
 .layout { min-height: 100vh; }
 
-/* Hamburger y backdrop: solo visibles en mobile (ver @media (max-width: 720px) abajo) */
+/* Hamburger y backdrop: solo visibles en mobile (ver @media (max-width: 900px) abajo) */
 .menu-toggle, .sidebar-backdrop { display: none; }
 
 .sidebar {
@@ -734,8 +734,12 @@ body.sidebar-collapsed .sidebar__foot-short {
   }
 }
 
-/* Mobile: sidebar pasa a drawer que se abre con un boton hamburguesa */
-@media (max-width: 720px) {
+/* Mobile/landscape/foldable: sidebar pasa a drawer hasta 900px.
+   Se subio de 720 a 900 porque entre 721 y 1100 el sidebar tablet (240px) +
+   margenes (48) deja solo ~430px para contenido, lo cual hace que el hero
+   y los cards se vean comprimidos en telefonos en landscape, plegables y
+   tablets pequeñas. */
+@media (max-width: 900px) {
   /* Boton hamburguesa flotante en la esquina superior izquierda */
   .menu-toggle {
     display: inline-flex;
@@ -2222,7 +2226,7 @@ body.sidebar-collapsed .sidebar__foot-short {
    sobre las reglas section-specific (#facultades .card, etc).
    Sin !important; solo aprovecha el orden de cascade.
    ============================================================ */
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   /* Cards: padding compacto unificado para TODAS las secciones */
   #panorama .card,
   #posicionamiento .card,

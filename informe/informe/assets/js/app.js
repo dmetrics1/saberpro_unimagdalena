@@ -3198,7 +3198,7 @@ function renderHeatmap(d, yearOverride) {
   // Etiquetas cortas reutilizando el mapping de los tabs de Facultades
   // En mobile usamos labels todavia mas cortos con line-break controlado para
   // que wrappen limpio en 2 lineas (sin partir palabras mid-sylaba).
-  const isMobileHM = window.matchMedia('(max-width: 720px)').matches;
+  const isMobileHM = window.matchMedia('(max-width: 900px)').matches;
   const COMP_MOBILE_LABEL = {
     'LECTURA CRÍTICA': 'Lect.\nCrít.',
     'RAZONAMIENTO CUANTITATIVO': 'Raz.\nCuant.',
@@ -3259,7 +3259,7 @@ function renderHeatmap(d, yearOverride) {
 
   // En mobile abreviamos "Ciencias" -> "C." para que los nombres de facultad caben
   // en menos lineas en el heatmap. En desktop usamos el nombre completo.
-  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+  const isMobile = window.matchMedia('(max-width: 900px)').matches;
   const fmtFac = (nombre) => {
     let s = nombre.replace('Facultad de ', '');
     if (isMobile) {
