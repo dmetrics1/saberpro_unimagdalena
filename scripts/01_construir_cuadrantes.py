@@ -136,6 +136,34 @@ def main() -> None:
                     "cuadrante": sp.classify_quadrant(sb11_n, sbpro_n, x_mean, y_mean)
                 })
 
+        # IES por NBC: para cada NBC de Unimagdalena, lista de todas las IES
+        # que lo ofrecen con su sb11 y sbpro para ese NBC. Se usa cuando el
+        # usuario filtra por NBC en la grafica de cuadrantes para mostrar
+        # todas las instituciones que tienen ese NBC.
+        ies_por_nbc = {}
+        if not nacional_nbc_df.is_empty():
+            # Excluimos Unimagdalena (se dibuja con su propio dot azul)
+            ies_nbc_df = nacional_nbc_df.filter(pl.col("inst_normalized") != "UNIVERSIDAD DEL MAGDALENA")
+            for nbc_name in unimag_nbc_names:
+                ies_for_this_nbc = ies_nbc_df.filter(pl.col("nbc_norm") == nbc_name)
+                if ies_for_this_nbc.is_empty():
+                    continue
+                ies_list = []
+                for row in ies_for_this_nbc.iter_rows(named=True):
+                    sb11_i = row["sb11_global_mean"]
+                    sbpro_i = row["sbpro_global_mean"]
+                    if sb11_i is None or sbpro_i is None:
+                        continue
+                    ies_list.append({
+                        "nombre": row["inst_normalized"],
+                        "sb11": round(sb11_i, 2),
+                        "sbpro": round(sbpro_i, 2),
+                        "n": int(row["crossed_n"]),
+                        "cuadrante": sp.classify_quadrant(sb11_i, sbpro_i, x_mean, y_mean)
+                    })
+                if ies_list:
+                    ies_por_nbc[nbc_name] = ies_list
+
         cuadrantes_por_anio[str(year)] = {
             "limites": {
                 "x_mean": round(x_mean, 2) if x_mean is not None else None,
@@ -143,7 +171,8 @@ def main() -> None:
             },
             "instituciones": instituciones,
             "nbcs_unimag": nbcs_unimag,
-            "nbcs_nacional": nbcs_nacional
+            "nbcs_nacional": nbcs_nacional,
+            "ies_por_nbc": ies_por_nbc
         }
         
         # Guardar coordenadas de la trayectoria para UNIMAGDALENA

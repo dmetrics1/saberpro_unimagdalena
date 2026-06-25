@@ -1362,11 +1362,10 @@ function drawCuadrantePlot(d) {
   // nacional (cruz de medias + cuadrantes de fondo + grid).
   const filtroNbc = activeNbcCuadrante && activeNbcCuadrante !== 'TODOS' ? activeNbcCuadrante : null;
 
-  // Otras IES — TODAS las instituciones distintas de Unimagdalena (incluyendo
-  // Sergio Arboleda y Cooperativa de Santa Marta) se dibujan en gris suave como
-  // contexto. Decision del equipo: ya no se resaltan las universidades del depto
-  // del Magdalena con color naranja porque no aportan al analisis institucional.
-  // Si hay filtro NBC activo, NO se dibujan (vista limpia: solo NBC + UM + nacional).
+  // Otras IES — todas las instituciones distintas de Unimagdalena se dibujan
+  // en gris suave como contexto cuando NO hay filtro NBC. Cuando SI hay filtro,
+  // mostramos en su lugar las IES que ofrecen ese NBC especifico (ver bloque
+  // ies_por_nbc abajo).
   const otrasIES = filtroNbc ? [] : (yrData.instituciones || []).filter(ies =>
     ies.nombre !== 'UNIVERSIDAD DEL MAGDALENA'
   );
@@ -1381,6 +1380,26 @@ function drawCuadrantePlot(d) {
     c.addEventListener('mouseleave', hideTooltip);
     svg.appendChild(c);
   });
+
+  // IES POR NBC: cuando se filtra por un NBC especifico, dibujamos todas las
+  // instituciones del pais que ofrecen ese mismo NBC para que el lector vea
+  // como se compara Unimagdalena contra cada una. Color gris suave (mismo
+  // que 'Otras IES' cuando no hay filtro) para no competir con los puntos
+  // protagonistas (verde NBC UM, naranja NBC nacional, azul UM).
+  if (filtroNbc) {
+    const iesPorNbc = (yrData.ies_por_nbc || {})[filtroNbc] || [];
+    iesPorNbc.forEach(ies => {
+      const c = createSVGEl('circle', {
+        cx: getX(ies.sb11), cy: getY(ies.sbpro), r: 4,
+        fill: VA_COLORS.base, 'fill-opacity': '0.45',
+        stroke: 'var(--border)', 'stroke-width': '0.5'
+      });
+      c.addEventListener('mouseenter', (e) => showTooltip(e, `<strong>${ies.nombre}</strong>NBC: ${titleCase(filtroNbc)}<br>Saber 11: ${ies.sb11}<br>Saber Pro: ${ies.sbpro}<br>n: ${NUM.format(ies.n)}<br>Cuadrante: ${ies.cuadrante}`));
+      c.addEventListener('mousemove', moveTooltip);
+      c.addEventListener('mouseleave', hideTooltip);
+      svg.appendChild(c);
+    });
+  }
 
   // NBCs de Unimagdalena (verde solido). Con filtro activo solo se dibuja el
   // NBC seleccionado; los demas no aparecen (vista limpia).
@@ -1489,15 +1508,19 @@ function drawCuadrantePlot(d) {
     ? [
         { color: VA_COLORS.desempeno, text: 'Unimagdalena' },
         { color: VA_COLORS.aporte, text: 'NBC Unimagdalena' },
-        { color: VA_COLORS.alerta, text: 'NBC Nacional' }
+        { color: VA_COLORS.alerta, text: 'NBC Nacional' },
+        { color: VA_COLORS.base, text: 'Otras IES con este NBC' }
       ]
     : [
         { color: VA_COLORS.desempeno, text: 'Unimagdalena' },
         { color: VA_COLORS.aporte, text: 'NBC Unimagdalena' },
         { color: VA_COLORS.base, text: 'Otras IES' }
       ];
-  svg.appendChild(createLegend(legendItems, (w / 2) - 240, h - 14, {
-    fontSize: 11.5, rectW: 16, rectH: 9, gap: 188, textGap: 22, fontWeight: 700
+  // Con 4 items en el modo filtro, reducimos el gap para que quepan en el ancho.
+  const lgStartX = filtroNbc ? (w / 2) - 360 : (w / 2) - 240;
+  const lgGap = filtroNbc ? 175 : 188;
+  svg.appendChild(createLegend(legendItems, lgStartX, h - 14, {
+    fontSize: 11.5, rectW: 16, rectH: 9, gap: lgGap, textGap: 22, fontWeight: 700
   }));
 
   container.innerHTML = '';
