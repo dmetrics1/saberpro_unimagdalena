@@ -1067,35 +1067,73 @@ body.is-presentation-mode .slide[data-slide="programas-b"] .slide__content {
 
 
 /* ----------------------------------------------------------------------------
-   13. SLIDE 07 — VALOR AGREGADO: cuadrante cards + cuadrante chart
+   13. SLIDE 08 — VALOR AGREGADO: cuadrante chips (compactos) + 2 charts grandes
    ---------------------------------------------------------------------------- */
 .slide[data-slide="valor-agregado"] .slide__content {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: clamp(16px, 2.4vh, 28px);
+  display: flex;
+  flex-direction: column;
 }
+/* La seccion #valor-agregado lleva el grid auto 1fr para distribuir
+   cuadrante-cards (auto) y charts-grid (1fr fills remaining space) */
+.slide[data-slide="valor-agregado"] .section {
+  display: grid !important;
+  grid-template-rows: auto 1fr !important;
+  gap: clamp(14px, 2vh, 22px) !important;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Cuadrante cards: chips horizontales compactos con icono + titulo + descripcion corta */
 .slide[data-slide="valor-agregado"] .cuadrante-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(10px, 1.2vw, 16px);
+  gap: clamp(10px, 1vw, 14px);
   margin: 0;
 }
 .slide[data-slide="valor-agregado"] .cuadrante-card {
-  padding: clamp(12px, 1.6vh, 18px) clamp(14px, 1.6vw, 22px);
+  padding: clamp(10px, 1.4vh, 14px) clamp(12px, 1.4vw, 18px);
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 32px rgba(0, 30, 80, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 30, 80, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.6vh, 8px);
 }
-.slide[data-slide="valor-agregado"] .cuadrante-card h4 { font-size: clamp(0.92rem, 1.1vw, 1.1rem); }
+.slide[data-slide="valor-agregado"] .cuadrante-card h4 {
+  font-size: clamp(0.85rem, 1vw, 1rem) !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.2;
+}
 .slide[data-slide="valor-agregado"] .cuadrante-card p {
-  font-size: clamp(0.76rem, 0.88vw, 0.9rem);
-  line-height: 1.4;
+  font-size: clamp(0.7rem, 0.78vw, 0.8rem) !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
 }
+
+/* Charts grandes side-by-side ocupando la mayor parte del slide */
 .slide[data-slide="valor-agregado"] .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 2vw, 28px);
+  gap: clamp(14px, 1.6vw, 24px);
   height: 100%;
+  min-height: 0;
+}
+.slide[data-slide="valor-agregado"] .charts-grid .card {
+  padding: clamp(14px, 1.8vh, 22px) clamp(16px, 1.8vw, 26px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.slide[data-slide="valor-agregado"] .charts-grid .card__title {
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem) !important;
+  margin-bottom: clamp(8px, 1vh, 12px);
+}
+.slide[data-slide="valor-agregado"] .chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 
