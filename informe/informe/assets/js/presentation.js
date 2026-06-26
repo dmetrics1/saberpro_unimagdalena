@@ -32,52 +32,70 @@
      ------------------------------------------------------------------------- */
   const SLIDE_GROUPS = [
     {
+      id: 'portada',
+      title: 'Portada',
+      subtitle: 'Informe Saber Pro 2025',
+      eyebrow: 'Slide 01',
+      selectors: ['.hero', '.kpi-grid'],   // KPIs viven en la portada (impacto inicial)
+      hideHead: true   // La portada NO muestra slide__head — el hero ES el head
+    },
+    {
       id: 'panorama',
       title: 'Panorama Institucional',
       subtitle: 'Resultados Saber Pro 2025 · UNIMAGDALENA',
-      eyebrow: 'Slide 01',
-      selectors: ['.hero', '.kpi-grid', '#panorama']
+      eyebrow: 'Slide 02',
+      selectors: ['#panorama']   // KPIs movidos a portada; aqui solo radar + evolucion
     },
     {
       id: 'posicionamiento',
       title: 'Posicionamiento Externo',
       subtitle: '¿Cómo nos comparamos con las demás universidades del país?',
-      eyebrow: 'Slide 02',
+      eyebrow: 'Slide 03',
       selectors: ['#posicionamiento']
     },
     {
       id: 'facultades',
       title: 'Facultades',
       subtitle: 'Desempeño promedio por facultad y competencia',
-      eyebrow: 'Slide 03',
+      eyebrow: 'Slide 04',
       selectors: ['#facultades']
     },
     {
-      id: 'programas',
-      title: 'Programas',
-      subtitle: 'Explorador de los programas académicos en detalle',
-      eyebrow: 'Slide 04',
-      selectors: ['#programas']
+      id: 'programas-a',
+      title: 'Programas — Competencias 2025',
+      subtitle: 'Genéricas y específicas del programa vs. promedio nacional del NBC',
+      eyebrow: 'Slide 05',
+      // Splitteamos Programas en 2 slides para no comprimir los charts.
+      // Slide A: convenciones + filtros + card con radar + barras
+      selectors: ['#programas .convenciones', '#programas .explorer-controls', '#programas .prog-genspec-card']
+    },
+    {
+      id: 'programas-b',
+      title: 'Programas — Histórico',
+      subtitle: 'Evolución temporal del programa seleccionado',
+      eyebrow: 'Slide 06',
+      // Slide B: card con histórico de competencias + histórico de puntaje global
+      selectors: ['#programas .prog-history-card']
     },
     {
       id: 'competencias',
       title: 'Competencias',
       subtitle: 'Top 10 programas líderes por competencia genérica',
-      eyebrow: 'Slide 05',
+      eyebrow: 'Slide 07',
       selectors: ['#competencias']
     },
     {
       id: 'valor-agregado',
       title: 'Valor Agregado',
       subtitle: 'Trayectoria y cuadrantes de aporte formativo',
-      eyebrow: 'Slide 06',
+      eyebrow: 'Slide 08',
       selectors: ['#valor-agregado']
     },
     {
       id: 'metodologia',
       title: 'Metodología',
       subtitle: 'Fuentes oficiales, flujo de procesamiento y glosario',
-      eyebrow: 'Slide 07',
+      eyebrow: 'Slide 09',
       selectors: ['#metodologia']
     }
   ];
@@ -163,10 +181,10 @@
       this._moveSectionsIntoSlides();
       document.body.classList.add('is-presentation-mode');
       this._attachListeners();
+      this._hookNavToSlides();
       // Pequeño delay para que el body se reflowee antes de activar la slide.
       requestAnimationFrame(() => {
         this.goto(0, { animate: false });
-        // Mostrar ayuda solo la primera vez
         if (!localStorage.getItem(HELP_STORAGE_KEY)) {
           setTimeout(() => this._showHelp(), 400);
         }
@@ -177,7 +195,9 @@
       if (!this.active) return;
       this.active = false;
       this._detachListeners();
-      // Si esta en pantalla completa, salir primero
+      this._unhookNavFromSlides();
+      // Cerrar el drawer si estaba abierto
+      document.body.classList.remove('nav-open');
       if (document.fullscreenElement) {
         try { document.exitFullscreen(); } catch (e) { /* ignore */ }
       }
@@ -204,6 +224,9 @@
       // Marcar slide activa para disparar las animaciones internas
       this.slides.forEach((s, i) => s.wrapper.classList.toggle('is-active', i === clamped));
 
+      // Mostrar/ocultar filtros compartidos de programas segun el slide activo
+      this._updateProgramasTools(this.slides[clamped]?.group.id);
+
       // Actualizar UI
       if (this.progress) this.progress.style.width = `${((clamped + 1) / TOTAL) * 100}%`;
       if (this.counter) this.counter.textContent = `${clamped + 1} / ${TOTAL}`;
@@ -225,6 +248,14 @@
       // Track con 7 slides (los wrappers se llenan en _moveSectionsIntoSlides)
       const track = el('div', { class: 'slides-track' });
       this.slides = SLIDE_GROUPS.map((g, i) => {
+        const content = el('div', { class: 'slide__content', 'data-slide-content': g.id });
+        const wrapperClasses = 'slide' + (g.hideHead ? ' slide--cover' : '');
+        // Slides marcados con hideHead (portada) no muestran el slide__head:
+        // su contenido (.hero) actua como portada de impacto.
+        if (g.hideHead) {
+          const wrapper = el('div', { class: wrapperClasses, 'data-slide': g.id, 'data-index': String(i) }, content);
+          return { wrapper, content, group: g, originals: [] };
+        }
         const head = el('div', { class: 'slide__head' },
           el('div', { class: 'slide__head-text' },
             el('h2', { class: 'slide__title' }, g.title),
@@ -232,8 +263,7 @@
           ),
           el('div', { class: 'slide__number' }, g.eyebrow)
         );
-        const content = el('div', { class: 'slide__content', 'data-slide-content': g.id });
-        const wrapper = el('div', { class: 'slide', 'data-slide': g.id, 'data-index': String(i) }, head, content);
+        const wrapper = el('div', { class: wrapperClasses, 'data-slide': g.id, 'data-index': String(i) }, head, content);
         return { wrapper, content, group: g, originals: [] };
       });
       this.slides.forEach(s => track.appendChild(s.wrapper));
@@ -322,10 +352,55 @@
           s.content.appendChild(node);
         });
       });
+      // Caso especial: convenciones en slide programas-a se mueven al slide__head
+      // (chip compacto al lado del badge SLIDE 05 con tooltip por icono).
+      const programasA = this.slides.find(s => s.group.id === 'programas-a');
+      if (programasA) {
+        const conv = programasA.content.querySelector('.convenciones');
+        const head = programasA.wrapper.querySelector('.slide__head');
+        if (conv && head) {
+          // Insertarlo ANTES del slide__number para que quede a la izquierda del badge
+          const number = head.querySelector('.slide__number');
+          if (number) head.insertBefore(conv, number);
+          else head.appendChild(conv);
+        }
+      }
+
+      // Caso especial: filtros de programa son COMPARTIDOS entre slide 5 y 6.
+      // Los movemos a un container fixed posicionado encima del slide-area; asi
+      // siguen visibles cuando navegas entre programas-a (Competencias) y
+      // programas-b (Histórico) sin necesidad de duplicarlos.
+      if (programasA) {
+        const filters = programasA.content.querySelector('.explorer-controls');
+        if (filters && this.frame) {
+          this._programasFiltersOriginal = {
+            node: filters,
+            parent: filters.parentNode,
+            nextSibling: filters.nextSibling
+          };
+          this.frame.appendChild(filters);
+          filters.classList.add('presentation-programas-tools');
+        }
+      }
+    }
+
+    /* Mostrar/ocultar el container compartido de filtros segun el slide activo */
+    _updateProgramasTools(activeId) {
+      const filters = this.frame?.querySelector('.presentation-programas-tools');
+      if (!filters) return;
+      const visible = (activeId === 'programas-a' || activeId === 'programas-b');
+      filters.classList.toggle('is-visible', visible);
     }
 
     /* Devuelve cada nodo a su parent original en el mismo orden. */
     _restoreSections() {
+      // Restaurar los filtros compartidos de programas a su posicion original
+      if (this._programasFiltersOriginal) {
+        const { node, parent, nextSibling } = this._programasFiltersOriginal;
+        node.classList.remove('presentation-programas-tools', 'is-visible');
+        if (parent) parent.insertBefore(node, nextSibling);
+        this._programasFiltersOriginal = null;
+      }
       this.slides.forEach(s => {
         // Iterar en orden inverso para que nextSibling sea consistente
         for (let i = s.originals.length - 1; i >= 0; i--) {
@@ -334,6 +409,76 @@
         }
       });
     }
+
+    /* ---------- Privados: hook del menu lateral ----------
+       Cuando estamos en presentacion, los .nav__item del sidebar deben navegar
+       al slide correspondiente (en lugar de hacer scroll-to-section). Guardamos
+       los listeners originales para restaurarlos al salir. */
+    _hookNavToSlides() {
+      // Mapeo data-label -> id de slide. El item 'Panorama' lleva a la portada
+      // porque conceptualmente la portada es la entrada al panorama institucional.
+      const LABEL_TO_SLIDE_ID = {
+        'Panorama': 'portada',
+        'Posicionamiento': 'posicionamiento',
+        'Facultades': 'facultades',
+        'Programas': 'programas-a',
+        'Competencias': 'competencias',
+        'Valor agregado': 'valor-agregado',
+        'Metodología': 'metodologia'
+      };
+      this._navHandlers = [];
+      document.querySelectorAll('.nav__item').forEach(link => {
+        const label = link.getAttribute('data-label');
+        const slideId = LABEL_TO_SLIDE_ID[label];
+        if (!slideId) return;
+        const slideIdx = this.slides.findIndex(s => s.group.id === slideId);
+        if (slideIdx < 0) return;
+        const handler = (e) => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          this.goto(slideIdx);
+          // Cerrar el drawer despues de navegar
+          document.body.classList.remove('nav-open');
+        };
+        // capture=true para correr ANTES del listener original del informe
+        link.addEventListener('click', handler, true);
+        this._navHandlers.push({ link, handler });
+      });
+      // Tambien hook al backdrop para cerrar drawer
+      const backdrop = document.getElementById('sidebarBackdrop');
+      if (backdrop) {
+        this._backdropHandler = () => document.body.classList.remove('nav-open');
+        backdrop.addEventListener('click', this._backdropHandler);
+      }
+      // El boton sidebar-toggle (rectangulo dentro del drawer) — en presentacion
+      // su funcion es CERRAR el drawer, no colapsar el sidebar.
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      if (sidebarToggle) {
+        this._sidebarToggleHandler = (e) => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          document.body.classList.remove('nav-open');
+        };
+        sidebarToggle.addEventListener('click', this._sidebarToggleHandler, true);
+      }
+    }
+    _unhookNavFromSlides() {
+      if (this._navHandlers) {
+        this._navHandlers.forEach(({ link, handler }) => link.removeEventListener('click', handler, true));
+        this._navHandlers = null;
+      }
+      const backdrop = document.getElementById('sidebarBackdrop');
+      if (backdrop && this._backdropHandler) {
+        backdrop.removeEventListener('click', this._backdropHandler);
+        this._backdropHandler = null;
+      }
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      if (sidebarToggle && this._sidebarToggleHandler) {
+        sidebarToggle.removeEventListener('click', this._sidebarToggleHandler, true);
+        this._sidebarToggleHandler = null;
+      }
+    }
+
 
     /* ---------- Privados: listeners ---------- */
     _attachListeners() {

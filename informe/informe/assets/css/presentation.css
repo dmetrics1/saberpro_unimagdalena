@@ -1,19 +1,20 @@
 /* ============================================================================
-   PRESENTATION MODE — capa visual sobre el informe.
+   PRESENTATION MODE — premium dashboard ejecutivo.
 
-   No modifica el HTML del informe en tiempo de carga: el script presentation.js
-   mueve los .section y el hero a un .slides-track cuando se activa, y los
-   devuelve a su posicion original al salir. Toda la magia visual vive aqui.
+   Filosofia v3: cada slide es una pieza visual unica diseñada para auditorio.
+   - Charts protagonistas (60-75% del espacio).
+   - KPIs gigantes y respirados.
+   - Tipografia grande pero respetando la jerarquia.
+   - Controles secundarios (year selectors, filtros) ocultos o minimizados.
+   - Mucho whitespace.
 
-   Filosofia: cero !important salvo donde es necesario para sobrescribir reglas
-   de mobile/tablet del informe original.
+   Comparte el HTML del informe sin duplicar — los nodos se MUEVEN al
+   .slides-track al entrar y vuelven a su posicion al salir.
    ============================================================================ */
 
 
 /* ----------------------------------------------------------------------------
-   1. BOTON FLOTANTE PARA ACTIVAR EL MODO
-   Visible solo en modo informe. Se posiciona en la esquina superior derecha
-   del hero. En tablet/mobile se mueve para no chocar con el menu drawer.
+   1. BOTON FLOTANTE TRIGGER (visible solo en modo informe)
    ---------------------------------------------------------------------------- */
 .presentation-trigger {
   position: absolute;
@@ -45,75 +46,286 @@
   box-shadow: 0 10px 30px rgba(0, 30, 80, 0.28);
   background: #fff;
 }
-.presentation-trigger:focus-visible {
-  outline: 3px solid #A5CA00;
-  outline-offset: 3px;
-}
-.presentation-trigger svg {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-}
+.presentation-trigger:focus-visible { outline: 3px solid #A5CA00; outline-offset: 3px; }
+.presentation-trigger svg { width: 17px; height: 17px; flex-shrink: 0; }
 
-/* En mobile el boton queda mas compacto */
 @media (max-width: 720px) {
-  .presentation-trigger {
-    top: 18px;
-    right: 14px;
-    padding: 9px 14px;
-    font-size: 0.78rem;
-  }
+  .presentation-trigger { top: 18px; right: 14px; padding: 9px 14px; font-size: 0.78rem; }
   .presentation-trigger svg { width: 15px; height: 15px; }
 }
 
-/* En modo presentacion el trigger se oculta */
 body.is-presentation-mode .presentation-trigger { display: none; }
 
 
 /* ----------------------------------------------------------------------------
-   2. ESTADO GLOBAL CUANDO LA PRESENTACION ESTA ACTIVA
-   Bloqueamos scroll del body, ocultamos sidebar y elementos secundarios.
-   El .slides-track se posiciona fixed y cubre toda la viewport.
+   2. ESTADO GLOBAL EN MODO PRESENTACION
+   El sidebar se mantiene FUNCIONAL como drawer en cualquier viewport.
    ---------------------------------------------------------------------------- */
 body.is-presentation-mode {
   overflow: hidden;
   background: #f6f8fb;
 }
-body.is-presentation-mode .sidebar,
-body.is-presentation-mode .sidebar-backdrop,
-body.is-presentation-mode .menu-toggle,
 body.is-presentation-mode .content {
   visibility: hidden;
-}
-/* Excepcion: el .content debe seguir teniendo height para que la pagina no
-   colapse al salir (sus hijos fueron movidos temporalmente al slides-track). */
-body.is-presentation-mode .content {
   pointer-events: none;
 }
 
+/* MODO PRESENTACION (todos los viewports): Sidebar como DRAWER oculto por
+   defecto, se abre via boton hamburger flotante. Igual comportamiento que en
+   el informe (sliding drawer), pero con el styling navy + nav blanco activo. */
+
+/* Forzar sidebar EXPANDIDO siempre en modo presentacion (anular cualquier
+   toggle de body.sidebar-collapsed que venga del informe) */
+body.is-presentation-mode.sidebar-collapsed .nav__text,
+body.is-presentation-mode.sidebar-collapsed .sidebar__title,
+body.is-presentation-mode.sidebar-collapsed .sidebar__foot-full {
+  display: block !important;
+}
+body.is-presentation-mode.sidebar-collapsed .sidebar__foot-short { display: none !important; }
+body.is-presentation-mode.sidebar-collapsed .nav__item {
+  justify-content: flex-start !important;
+  padding: 12px 14px !important;
+}
+
+/* Hamburger flotante SIEMPRE visible en presentacion */
+body.is-presentation-mode .menu-toggle {
+  display: inline-flex !important;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 130;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.96);
+  color: #0F4FA8;
+  border: 1px solid rgba(15, 79, 168, 0.10);
+  box-shadow: 0 6px 22px rgba(0, 30, 80, 0.15);
+  cursor: pointer;
+}
+body.is-presentation-mode .menu-toggle svg { width: 22px; height: 22px; }
+
+/* Sidebar oculto por defecto (drawer estilo informe original) — COMPACTO */
+body.is-presentation-mode .sidebar {
+  position: fixed !important;
+  top: 16px !important;
+  left: 16px !important;
+  bottom: 16px !important;
+  width: 280px !important;
+  max-width: 86vw;
+  height: auto !important;
+  transform: translateX(calc(-100% - 24px)) !important;
+  transition: transform .3s cubic-bezier(.22,.61,.36,1) !important;
+  z-index: 140 !important;
+  border-radius: 24px !important;
+  margin: 0 !important;
+  padding: 18px 14px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  visibility: visible !important;
+  overflow-y: hidden !important;       /* NO scroll — items deben caber */
+  background: linear-gradient(180deg, rgba(0,36,63,.96) 0%, rgba(0,41,75,.96) 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 20px 60px rgba(0, 30, 80, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+body.is-presentation-mode.nav-open .sidebar {
+  transform: translateX(0) !important;
+}
+
+/* Backdrop NO usado al abrir el drawer en presentacion — los slides se
+   comprimen empujando el contenido a la derecha (estilo informe principal).
+   Mantenemos un backdrop transparente click-through para cerrar al hacer
+   click fuera del sidebar. */
+body.is-presentation-mode .sidebar-backdrop {
+  display: block !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 135 !important;
+  transition: opacity .25s ease !important;
+  visibility: visible !important;
+}
+body.is-presentation-mode.nav-open .sidebar-backdrop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* DRAWER ABIERTO: empuja el contenido del slide hacia la derecha.
+   La sidebar tiene 290px de ancho + 24px de margin izquierdo = 314px ocupados.
+   Agregamos ese offset como padding-left al slide para que el contenido se
+   "comprima" en lugar de quedar tapado por el drawer. */
+body.is-presentation-mode .slide {
+  transition: padding-left .3s cubic-bezier(.22,.61,.36,1);
+}
+body.is-presentation-mode.nav-open .slide {
+  padding-left: calc(330px + clamp(20px, 2vw, 40px)) !important;
+}
+/* Slide portada tambien se comprime (hero + KPIs se reposicionan) */
+body.is-presentation-mode.nav-open .slide--cover {
+  padding-left: calc(330px + clamp(20px, 2vw, 40px)) !important;
+}
+/* Flechas laterales se mueven con el contenido */
+body.is-presentation-mode .presentation-nav--prev {
+  transition: left .3s cubic-bezier(.22,.61,.36,1);
+}
+body.is-presentation-mode.nav-open .presentation-nav--prev {
+  left: 340px !important;
+}
+/* Toolbar inferior tambien se recentra */
+body.is-presentation-mode .presentation-toolbar {
+  transition: left .3s cubic-bezier(.22,.61,.36,1), transform .3s cubic-bezier(.22,.61,.36,1);
+}
+body.is-presentation-mode.nav-open .presentation-toolbar {
+  left: calc(50% + 165px) !important;
+}
+
+/* Brand: logo + titulo COMPACTOS */
+body.is-presentation-mode .sidebar__brand {
+  padding: 0 6px 12px !important;
+  margin-bottom: 10px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body.is-presentation-mode .sidebar__logo {
+  width: 38px !important;
+  height: 38px !important;
+  background: #fff !important;
+  border-radius: 9px !important;
+  border: 1px solid rgba(255, 255, 255, 0.20) !important;
+  flex-shrink: 0;
+  padding: 3px;
+}
+body.is-presentation-mode .sidebar__logo img {
+  filter: none;
+  opacity: 1;
+}
+body.is-presentation-mode .sidebar__title {
+  color: #fff !important;
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  font-size: 0.98rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em !important;
+}
+body.is-presentation-mode .sidebar__title span {
+  display: block !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  font-weight: 500 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  margin-top: 2px !important;
+}
+/* Toggle button = ahora CIERRA el drawer (en presentacion) */
+body.is-presentation-mode .sidebar-toggle {
+  display: inline-flex !important;
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.70) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .15s ease, color .15s ease;
+}
+body.is-presentation-mode .sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+body.is-presentation-mode .sidebar-toggle svg { width: 16px; height: 16px; }
+
+/* Nav contenedor */
+body.is-presentation-mode .nav {
+  margin-top: 0 !important;
+  padding: 0 !important;
+  flex: 1 1 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+/* Items del menu COMPACTOS: blanco semi + activo pildora azul */
+body.is-presentation-mode .nav__item {
+  color: rgba(255, 255, 255, 0.78) !important;
+  background: transparent !important;
+  border-radius: 10px !important;
+  padding: 9px 14px !important;
+  margin: 1px 0 !important;
+  font-weight: 600 !important;
+  font-size: 0.88rem !important;
+  transition: background .18s ease, color .18s ease !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+body.is-presentation-mode .nav__item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #fff !important;
+}
+body.is-presentation-mode .nav__item.is-active {
+  background: rgba(15, 79, 168, 0.35) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(165, 202, 0, 0.55) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+body.is-presentation-mode .nav__item .nav__icon {
+  color: inherit !important;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+body.is-presentation-mode .nav__item .nav__icon svg { width: 18px; height: 18px; }
+
+/* Foot COMPACTO */
+body.is-presentation-mode .sidebar__foot {
+  color: rgba(255, 255, 255, 0.55) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding-top: 10px !important;
+  margin-top: 8px !important;
+  font-size: 0.7rem !important;
+  flex-shrink: 0;
+}
+body.is-presentation-mode .sidebar__foot strong { color: rgba(255, 255, 255, 0.90) !important; }
+
 
 /* ----------------------------------------------------------------------------
-   3. CONTENEDOR DE SLIDES + PISTA HORIZONTAL
-   Cada slide ocupa 100vw x 100vh. La pista se mueve con translateX
-   (transform animado, GPU friendly).
+   3. FRAME, TRACK y SLIDE BASE
    ---------------------------------------------------------------------------- */
 .presentation-frame {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #f6f8fb 0%, #eef2f7 100%);
+  background:
+    radial-gradient(ellipse at top right, rgba(15, 79, 168, 0.04), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(43, 168, 94, 0.03), transparent 50%),
+    linear-gradient(180deg, #f7f9fc 0%, #eef2f7 100%);
   z-index: 100;
   overflow: hidden;
   opacity: 0;
   transition: opacity .4s ease;
 }
-body.is-presentation-mode .presentation-frame {
-  opacity: 1;
-}
+body.is-presentation-mode .presentation-frame { opacity: 1; }
 
 .slides-track {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   height: 100%;
   display: flex;
   will-change: transform;
@@ -124,66 +336,65 @@ body.is-presentation-mode .presentation-frame {
   flex: 0 0 100vw;
   width: 100vw;
   height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: clamp(48px, 6vh, 88px) clamp(28px, 5vw, 96px) clamp(96px, 12vh, 120px);
   position: relative;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(56px, 6.5vh, 88px) clamp(48px, 6vw, 120px) clamp(80px, 10vh, 110px);
 }
-.slide::-webkit-scrollbar { width: 6px; }
-.slide::-webkit-scrollbar-thumb { background: rgba(15, 79, 168, 0.18); border-radius: 999px; }
 
 
 /* ----------------------------------------------------------------------------
-   4. HEADER DE CADA SLIDE — titulo + subtitulo + numero
+   4. HEADER DE CADA SLIDE — card blanca estilo dashboard SaberPro
    ---------------------------------------------------------------------------- */
 .slide__head {
+  flex: 0 0 auto;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: clamp(20px, 3vh, 40px);
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(15, 79, 168, 0.08);
+  gap: 32px;
+  margin-bottom: clamp(12px, 1.6vh, 18px);
+  padding: clamp(12px, 1.6vh, 18px) clamp(20px, 2.2vw, 28px);
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 79, 168, 0.04);
+  box-shadow: 0 6px 20px rgba(0, 30, 80, 0.05);
   opacity: 0;
   transform: translateY(16px);
   transition: opacity .55s cubic-bezier(.22,.61,.36,1),
               transform .55s cubic-bezier(.22,.61,.36,1);
 }
-.slide__head-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
+.slide__head-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .slide__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
   color: var(--brand-primary-dark, #0F4FA8);
   margin: 0;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 .slide__subtitle {
   font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-size: clamp(0.82rem, 1vw, 1rem);
   color: var(--text-soft, #5b6b7f);
   font-weight: 500;
   margin: 0;
+  line-height: 1.4;
 }
 .slide__number {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-size: clamp(0.72rem, 0.95vw, 0.88rem);
   color: var(--brand-accent, #A5CA00);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   flex-shrink: 0;
+  padding: 6px 14px;
+  background: rgba(165, 202, 0, 0.10);
+  border-radius: 999px;
 }
-
-/* Animacion stagger: el header aparece al activarse la slide */
 .slide.is-active .slide__head {
   opacity: 1;
   transform: translateY(0);
@@ -192,57 +403,663 @@ body.is-presentation-mode .presentation-frame {
 
 
 /* ----------------------------------------------------------------------------
-   5. CONTENIDO DENTRO DE LA SLIDE — usa el HTML existente del informe
-   Cada hijo directo (los .card, .charts-grid, etc del informe) aparece con
-   un pequeño retraso para sensacion de "armado" de la slide.
+   5. CONTENT — base flex column con stagger animations
    ---------------------------------------------------------------------------- */
+.slide__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vh, 26px);
+}
 .slide__content > * {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity .65s cubic-bezier(.22,.61,.36,1),
               transform .65s cubic-bezier(.22,.61,.36,1);
 }
-.slide.is-active .slide__content > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-.slide.is-active .slide__content > *:nth-child(1) { transition-delay: .25s; }
-.slide.is-active .slide__content > *:nth-child(2) { transition-delay: .35s; }
-.slide.is-active .slide__content > *:nth-child(3) { transition-delay: .45s; }
-.slide.is-active .slide__content > *:nth-child(4) { transition-delay: .55s; }
-.slide.is-active .slide__content > *:nth-child(5) { transition-delay: .65s; }
-.slide.is-active .slide__content > *:nth-child(6) { transition-delay: .75s; }
+.slide.is-active .slide__content > * { opacity: 1; transform: translateY(0); }
+.slide.is-active .slide__content > *:nth-child(1) { transition-delay: .28s; }
+.slide.is-active .slide__content > *:nth-child(2) { transition-delay: .38s; }
+.slide.is-active .slide__content > *:nth-child(3) { transition-delay: .48s; }
+.slide.is-active .slide__content > *:nth-child(4) { transition-delay: .58s; }
+.slide.is-active .slide__content > *:nth-child(5) { transition-delay: .68s; }
+.slide.is-active .slide__content > *:nth-child(6) { transition-delay: .78s; }
 
-/* En modo presentacion ocultamos los eyebrows ("01 · Panorama institucional")
-   porque el slide__title ya muestra el nombre de la seccion en grande. */
+/* Eyebrows del informe escondidos (ya tenemos slide__head premium) */
 .slide__content .section__eyebrow { display: none; }
 
-/* El hero en modo presentacion: padding reducido, min-height reducido para que
-   quepan KPIs y panorama en una sola pantalla */
-.slide__content .hero {
-  min-height: auto;
-  padding: clamp(20px, 3vh, 36px) clamp(20px, 3vw, 40px);
-  border-radius: 24px;
-  margin-bottom: 18px;
+/* Reset estructura heredada del informe */
+.slide__content .section {
+  padding: 0 !important;
+  margin: 0;
+  border-top: none;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.8vh, 22px);
 }
-.slide__content .hero h1 { font-size: clamp(1.4rem, 3vw, 2.4rem); }
-.slide__content .hero h1 strong { font-size: clamp(1.8rem, 4vw, 3rem); }
-.slide__content .hero__sub { font-size: clamp(0.92rem, 1.1vw, 1.05rem); margin-bottom: 14px; }
-.slide__content .hero__actions { display: none; }
-.slide__content .kpi-grid { margin-bottom: 18px; }
-.slide__content .section { padding: 0; border-top: none; }
-.slide__content .card { box-shadow: 0 6px 28px rgba(0, 30, 80, 0.06); }
+.slide__content .charts-grid,
+.slide__content .charts-grid--stacked {
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.slide__content .card {
+  box-shadow: 0 10px 32px rgba(0, 30, 80, 0.06);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: clamp(16px, 2vh, 24px) clamp(18px, 2vw, 28px);
+}
+
+/* Chart containers — usan flex para llenar */
+.slide__content .chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  max-height: 100%;
+  overflow: hidden;
+}
+.slide__content .chart-container > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
 
 /* ----------------------------------------------------------------------------
-   6. BARRA DE PROGRESO SUPERIOR
-   Linea horizontal delgada en la parte superior que crece slide a slide.
+   6. OCULTAR CONTROLES SECUNDARIOS QUE DISTRAEN EN EXPOSICION
+   Year selectors, tabs y filters se ocultan en modo presentacion. El director
+   no necesita filtrar — el dato YA fue preparado.
+   ---------------------------------------------------------------------------- */
+.slide__content .select-wrapper,
+.slide__content .control-select,
+.slide__content .card__controls,
+.slide__content .tabs,
+.slide__content .card__title-soft,
+.slide__content .card__header-flex .card__controls,
+.slide__content .control-group {
+  display: none !important;
+}
+.slide__content .card__header-flex {
+  display: block !important;
+}
+/* Excepciones: la matriz de calor del filtro de competencia tabs es estructural */
+.slide[data-slide="facultades"] .tabs--facultad { display: flex !important; }
+.slide[data-slide="competencias"] #topTabs { display: flex !important; }
+/* Panorama: restaurar selectores en panorama-side__header (filtro año + competencia) */
+.slide[data-slide="panorama"] .panorama-side__header { display: flex !important; }
+.slide[data-slide="panorama"] .panorama-side__header .select-wrapper { display: block !important; }
+.slide[data-slide="panorama"] .panorama-side__header .control-select { display: block !important; }
+.slide[data-slide="panorama"] .panorama-side__header .select-wrapper--compact { display: block !important; }
+
+
+/* ----------------------------------------------------------------------------
+   7. SLIDE-COVER — PORTADA con hero a pantalla completa
+   ---------------------------------------------------------------------------- */
+.slide--cover {
+  padding: clamp(24px, 3vh, 40px) clamp(24px, 3vw, 56px);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.slide--cover .slide__content {
+  gap: clamp(14px, 1.8vh, 22px);
+  display: grid;
+  grid-template-rows: 1fr auto;     /* hero arriba grande, KPIs abajo */
+  height: 100%;
+  width: 100%;
+  max-width: 1480px;
+}
+.slide--cover .slide__content > * { width: 100%; }
+
+/* HERO: preservar el estilo original del informe (titulo grande + buttons) */
+.slide--cover .hero {
+  margin: 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(40px, 5.5vh, 80px) clamp(44px, 5.5vw, 100px);
+  border-radius: clamp(20px, 2vw, 32px);
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 41, 75, 0.35);
+}
+.slide--cover .hero__inner { max-width: none; position: relative; z-index: 2; }
+.slide--cover .hero__year-badge {
+  margin-bottom: clamp(14px, 2vh, 22px);
+  padding: 6px 18px;
+  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.slide--cover .hero h1 {
+  margin: 0 0 clamp(16px, 2.4vh, 28px);
+  letter-spacing: -0.035em;
+}
+.slide--cover .hero h1 span {
+  font-size: clamp(1.3rem, 2.2vw, 2.1rem) !important;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  opacity: 0.88;
+}
+.slide--cover .hero h1 strong {
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem) !important;
+  display: block;
+  letter-spacing: -0.045em;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-height: 0.92;
+}
+.slide--cover .hero__sub {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 0 0 clamp(16px, 2.4vh, 26px);
+  color: rgba(217, 233, 247, 0.92);
+}
+/* Botones del hero VISIBLES en presentacion (estilo informe original) */
+.slide--cover .hero__actions {
+  display: flex !important;
+  gap: clamp(10px, 1.2vw, 16px);
+  flex-wrap: wrap;
+}
+.slide--cover .hero__actions .btn {
+  padding: clamp(10px, 1.4vh, 14px) clamp(18px, 2vw, 26px);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+/* KPIs abajo: usar el ESTILO ORIGINAL del informe (con iconos + badges + stripe) */
+.slide--cover .kpi-grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+}
+/* NO override de .kpi — usa los estilos del informe (iconos, badges, ::before stripe) */
+.slide--cover .kpi {
+  padding: clamp(18px, 2.4vh, 26px) clamp(20px, 2vw, 28px);
+}
+.slide--cover .kpi__value {
+  font-size: clamp(2rem, 3.2vw, 2.8rem) !important;
+  margin: clamp(6px, 0.8vh, 10px) 0 clamp(4px, 0.4vh, 6px) !important;
+}
+.slide--cover .kpi__label {
+  font-size: clamp(0.85rem, 1vw, 1rem) !important;
+}
+.slide--cover .kpi__sub {
+  font-size: clamp(0.72rem, 0.82vw, 0.82rem) !important;
+}
+
+
+/* ----------------------------------------------------------------------------
+   8. SLIDE 02 — PANORAMA: KPIs compactos arriba + charts PROTAGONISTAS abajo
+   ---------------------------------------------------------------------------- */
+.slide[data-slide="panorama"] .slide__content {
+  display: grid;
+  grid-template-rows: 1fr;    /* solo panorama-card ocupa todo el espacio */
+  gap: 0;
+}
+
+/* KPIs estilo dashboard SaberPro: cards blancas separadas, label arriba pequeno,
+   numero GIGANTE en azul abajo. */
+.slide[data-slide="panorama"] .kpi-grid {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(12px, 1.2vw, 18px);
+}
+.slide[data-slide="panorama"] .kpi {
+  padding: clamp(12px, 1.6vh, 16px) clamp(16px, 1.8vw, 22px);
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 79, 168, 0.04);
+  box-shadow: 0 6px 18px rgba(0, 30, 80, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+/* Ocultamos icono e gradient stripe del KPI para look limpio del dashboard ref */
+.slide[data-slide="panorama"] .kpi::before,
+.slide[data-slide="panorama"] .kpi__icon { display: none !important; }
+.slide[data-slide="panorama"] .kpi__head {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+.slide[data-slide="panorama"] .kpi__badge {
+  display: none !important;
+}
+.slide[data-slide="panorama"] .kpi__label {
+  font-size: clamp(0.72rem, 0.85vw, 0.88rem) !important;
+  font-weight: 700 !important;
+  color: #0F4FA8 !important;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.25;
+  margin: 0 !important;
+  order: -1;
+}
+.slide[data-slide="panorama"] .kpi__value {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: #0F4FA8 !important;
+  margin: clamp(2px, 0.4vh, 6px) 0 0 !important;
+  line-height: 1 !important;
+}
+.slide[data-slide="panorama"] .kpi__sub {
+  font-size: clamp(0.66rem, 0.75vw, 0.76rem) !important;
+  color: #5b6b7f !important;
+  margin-top: 4px !important;
+}
+
+.slide[data-slide="panorama"] .panorama-card { height: 100%; padding: 0; background: transparent; box-shadow: none; }
+.slide[data-slide="panorama"] .panorama-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(18px, 2vw, 32px);
+}
+.slide[data-slide="panorama"] .panorama-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(18px, 2.5vh, 28px) clamp(18px, 2.2vw, 30px);
+  box-shadow: 0 10px 32px rgba(0, 30, 80, 0.06);
+}
+.slide[data-slide="panorama"] .panorama-side__header { margin-bottom: clamp(10px, 1.4vh, 16px); }
+.slide[data-slide="panorama"] .panorama-side__title {
+  font-size: clamp(1rem, 1.3vw, 1.25rem) !important;
+}
+
+
+/* ----------------------------------------------------------------------------
+   9. SLIDE 03 — POSICIONAMIENTO: SUE ranking protagonista (vertical bars)
+   ---------------------------------------------------------------------------- */
+/* SLIDE 03: dos charts en COLUMNAS lado a lado, SUE protagonista (mas ancho) */
+.slide[data-slide="posicionamiento"] .charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;     /* Departamento | SUE (mas grande) */
+  grid-template-rows: 1fr;
+  gap: clamp(14px, 1.6vw, 24px);
+  height: 100%;
+}
+.slide[data-slide="posicionamiento"] .card {
+  padding: clamp(14px, 2vh, 22px) clamp(16px, 2vw, 26px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.slide[data-slide="posicionamiento"] .card__title {
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem) !important;
+  margin-bottom: clamp(8px, 1vh, 14px);
+}
+.slide[data-slide="posicionamiento"] .chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+
+/* ----------------------------------------------------------------------------
+   10. SLIDE 04 — FACULTADES: bar chart + heatmap side-by-side
+   ---------------------------------------------------------------------------- */
+.slide[data-slide="facultades"] .charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(20px, 2vw, 32px);
+  height: 100%;
+}
+.slide[data-slide="facultades"] .card { padding: clamp(16px, 2vh, 24px) clamp(18px, 2vw, 28px); }
+.slide[data-slide="facultades"] .card__title {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem) !important;
+}
+.slide[data-slide="facultades"] .tabs--facultad {
+  margin: clamp(8px, 1.2vh, 14px) 0;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+
+/* ----------------------------------------------------------------------------
+   11. SLIDES 05-06 — PROGRAMAS (split en 2 slides para que cada chart respire)
+   ---------------------------------------------------------------------------- */
+/* Comun a ambos slides de Programas */
+.slide[data-slide="programas-a"] .slide__content,
+.slide[data-slide="programas-b"] .slide__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.4vh, 16px);
+}
+
+/* Mantener compatibilidad con selectores antiguos (.slide[data-slide^="programas"]) */
+.slide[data-slide="programas-a"] .explorer-container,
+.slide[data-slide^="programas"] .explorer-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.3vh, 18px);
+  height: 100%;
+  min-height: 0;
+}
+/* CONVENCIONES en el HEADER (esquina superior derecha al lado del badge SLIDE).
+   Solo iconos visibles + tooltip con el texto al hacer hover. */
+.slide[data-slide="programas-a"] .slide__head {
+  position: relative;
+}
+.slide[data-slide="programas-a"] .convenciones {
+  position: absolute !important;
+  top: 50%;
+  right: clamp(70px, 8vw, 110px);  /* antes del badge SLIDE 05 */
+  transform: translateY(-50%);
+  background: rgba(15, 79, 168, 0.06) !important;
+  border: 1px solid rgba(15, 79, 168, 0.08) !important;
+  border-radius: 999px !important;
+  padding: 5px 12px 5px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  z-index: 5;
+}
+.slide[data-slide="programas-a"] .convenciones__title {
+  font-size: 0.62rem !important;
+  font-weight: 700 !important;
+  color: #0F4FA8 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+  padding-right: 8px;
+  border-right: 1px solid rgba(15, 79, 168, 0.18);
+}
+.slide[data-slide="programas-a"] .convenciones__items {
+  display: flex !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+/* Cada convencion = solo icono visible. Texto en tooltip al hover. */
+.slide[data-slide="programas-a"] .convencion {
+  position: relative;
+  padding: 4px !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  cursor: help;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide[data-slide="programas-a"] .convencion__icon {
+  width: 22px !important;
+  height: 22px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide[data-slide="programas-a"] .convencion__icon svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+/* Texto: por defecto oculto, se muestra como TOOLTIP al hover */
+.slide[data-slide="programas-a"] .convencion__text {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: #0F4FA8;
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .15s ease, visibility .15s ease;
+  z-index: 100;
+  box-shadow: 0 6px 18px rgba(0, 30, 80, 0.20);
+}
+/* Flecha del tooltip */
+.slide[data-slide="programas-a"] .convencion__text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #0F4FA8;
+}
+.slide[data-slide="programas-a"] .convencion:hover .convencion__text {
+  opacity: 1;
+  visibility: visible;
+}
+/* FILTROS COMPARTIDOS — barra fixed sobre los slides 5 y 6.
+   Estilo: chip compacto blanco con sombra, 3 controls inline en una sola fila. */
+.presentation-programas-tools {
+  position: fixed !important;
+  top: clamp(95px, 11vh, 125px);
+  left: 50%;
+  transform: translate(-50%, -8px);
+  z-index: 108;
+  display: none !important;
+  flex-direction: row !important;
+  align-items: end !important;
+  gap: clamp(12px, 1.6vw, 22px) !important;
+  padding: 10px clamp(18px, 2vw, 28px) !important;
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 24px rgba(0, 30, 80, 0.10) !important;
+  border: 1px solid rgba(15, 79, 168, 0.06) !important;
+  max-width: calc(100% - clamp(56px, 8vw, 110px)) !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease, left .3s ease;
+}
+.presentation-programas-tools.is-visible {
+  display: flex !important;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+/* Cuando el drawer esta abierto, los filtros se mueven con el contenido */
+body.is-presentation-mode.nav-open .presentation-programas-tools {
+  left: calc(50% + 165px) !important;
+}
+.presentation-programas-tools .control-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  margin: 0 !important;
+  min-width: 0;
+}
+.presentation-programas-tools .control-group label {
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  color: #0F4FA8 !important;
+  letter-spacing: 0.04em !important;
+  margin: 0 !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.presentation-programas-tools .control-select,
+.presentation-programas-tools .select-wrapper { display: block !important; }
+.presentation-programas-tools .control-select {
+  font-size: 0.82rem !important;
+  padding: 6px 26px 6px 10px !important;
+  border: 1px solid rgba(15, 79, 168, 0.15) !important;
+  border-radius: 8px !important;
+  background-color: #f7f9fc !important;
+  font-weight: 600;
+  color: #0F4FA8;
+  min-width: 120px;
+  max-width: 220px;
+}
+.presentation-programas-tools .control-group--year .control-select { min-width: 80px; }
+
+/* Charts area se empuja hacia abajo para no chocar con los filtros fixed */
+body.is-presentation-mode .slide[data-slide="programas-a"] .slide__content,
+body.is-presentation-mode .slide[data-slide="programas-b"] .slide__content {
+  padding-top: clamp(48px, 6vh, 64px) !important;
+}
+/* Titulos cards mas pequenos para dar espacio a charts */
+.slide[data-slide^="programas"] .card__title {
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem) !important;
+  margin-bottom: 8px !important;
+}
+.slide[data-slide^="programas"] .card {
+  padding: clamp(14px, 1.8vh, 22px) clamp(16px, 1.8vw, 26px) !important;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 30, 80, 0.05);
+}
+
+/* SLIDE-A: convenciones + filtros + 1 card grande con 2 charts (radar + bars) */
+.slide[data-slide="programas-a"] .prog-genspec-card,
+.slide[data-slide="programas-b"] .prog-history-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.slide[data-slide="programas-a"] .prog-genspec-grid,
+.slide[data-slide="programas-b"] .prog-history-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 28px);
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+.slide[data-slide="programas-a"] .prog-genspec-side,
+.slide[data-slide="programas-b"] .prog-history-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.slide[data-slide="programas-a"] .prog-genspec-side .chart-container,
+.slide[data-slide="programas-b"] .prog-history-side .chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+
+/* ----------------------------------------------------------------------------
+   12. SLIDE 06 — COMPETENCIAS: Top 10 full size
+   ---------------------------------------------------------------------------- */
+.slide[data-slide="competencias"] .charts-grid {
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100%;
+}
+.slide[data-slide="competencias"] .card { height: 100%; }
+.slide[data-slide="competencias"] #topTabs {
+  margin: clamp(8px, 1vh, 14px) 0 clamp(14px, 2vh, 22px);
+  flex-wrap: wrap;
+}
+
+
+/* ----------------------------------------------------------------------------
+   13. SLIDE 07 — VALOR AGREGADO: cuadrante cards + cuadrante chart
+   ---------------------------------------------------------------------------- */
+.slide[data-slide="valor-agregado"] .slide__content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(16px, 2.4vh, 28px);
+}
+.slide[data-slide="valor-agregado"] .cuadrante-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1.2vw, 16px);
+  margin: 0;
+}
+.slide[data-slide="valor-agregado"] .cuadrante-card {
+  padding: clamp(12px, 1.6vh, 18px) clamp(14px, 1.6vw, 22px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(0, 30, 80, 0.06);
+}
+.slide[data-slide="valor-agregado"] .cuadrante-card h4 { font-size: clamp(0.92rem, 1.1vw, 1.1rem); }
+.slide[data-slide="valor-agregado"] .cuadrante-card p {
+  font-size: clamp(0.76rem, 0.88vw, 0.9rem);
+  line-height: 1.4;
+}
+.slide[data-slide="valor-agregado"] .charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 28px);
+  height: 100%;
+}
+
+
+/* ----------------------------------------------------------------------------
+   14. SLIDE 08 — METODOLOGIA: scroll vertical permitido en TODA la slide
+   El contenido es largo (5 bloques explicativos) — permitimos scroll completo
+   en la slide en lugar de comprimirlo a 1 viewport.
+   ---------------------------------------------------------------------------- */
+.slide[data-slide="metodologia"] {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: block !important;        /* anula el flex column de .slide */
+  -webkit-overflow-scrolling: touch;
+}
+.slide[data-slide="metodologia"]::-webkit-scrollbar { width: 8px; }
+.slide[data-slide="metodologia"]::-webkit-scrollbar-track { background: transparent; }
+.slide[data-slide="metodologia"]::-webkit-scrollbar-thumb {
+  background: rgba(15, 79, 168, 0.20);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.slide[data-slide="metodologia"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 79, 168, 0.35);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+/* Header sticky para que el titulo permanezca visible al hacer scroll */
+.slide[data-slide="metodologia"] .slide__head {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(247, 249, 252, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Contenido en bloques apilados (no grid de 2 columnas — mejor legibilidad) */
+.slide[data-slide="metodologia"] .metodologia-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.6vh, 18px);
+  height: auto;
+  overflow: visible;
+}
+.slide[data-slide="metodologia"] .metodologia-block {
+  padding: clamp(14px, 2vh, 22px) clamp(16px, 2vw, 26px);
+  font-size: clamp(0.85rem, 0.98vw, 0.96rem);
+  overflow: visible;
+  max-height: none;
+  flex: 0 0 auto;
+}
+
+
+/* ----------------------------------------------------------------------------
+   15. BARRA DE PROGRESO SUPERIOR
    ---------------------------------------------------------------------------- */
 .presentation-progress {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 3px;
   background: rgba(15, 79, 168, 0.08);
   z-index: 110;
@@ -255,7 +1072,7 @@ body.is-presentation-mode .presentation-frame {
 
 
 /* ----------------------------------------------------------------------------
-   7. BOTONES DE NAVEGACION (flechas laterales)
+   16. NAV BUTTONS (flechas laterales)
    ---------------------------------------------------------------------------- */
 .presentation-nav {
   position: fixed;
@@ -281,16 +1098,10 @@ body.is-presentation-mode .presentation-frame {
   transform: translateY(-50%) scale(1.06);
   box-shadow: 0 8px 26px rgba(0, 30, 80, 0.15);
 }
-.presentation-nav:focus-visible {
-  outline: 3px solid #A5CA00;
-  outline-offset: 3px;
-}
+.presentation-nav:focus-visible { outline: 3px solid #A5CA00; outline-offset: 3px; }
 .presentation-nav--prev { left: 28px; }
 .presentation-nav--next { right: 28px; }
-.presentation-nav[disabled] {
-  opacity: 0.32;
-  cursor: not-allowed;
-}
+.presentation-nav[disabled] { opacity: 0.32; cursor: not-allowed; }
 .presentation-nav svg { width: 22px; height: 22px; }
 
 @media (max-width: 720px) {
@@ -302,7 +1113,7 @@ body.is-presentation-mode .presentation-frame {
 
 
 /* ----------------------------------------------------------------------------
-   8. TOOLBAR INFERIOR — contador + botones (anterior / siguiente / salir / full)
+   17. TOOLBAR INFERIOR
    ---------------------------------------------------------------------------- */
 .presentation-toolbar {
   position: fixed;
@@ -336,9 +1147,7 @@ body.is-presentation-mode .presentation-frame {
   font-size: 0.82rem;
   transition: background .2s ease, color .2s ease;
 }
-.presentation-toolbar__btn:hover {
-  background: rgba(15, 79, 168, 0.06);
-}
+.presentation-toolbar__btn:hover { background: rgba(15, 79, 168, 0.06); }
 .presentation-toolbar__btn--icon {
   padding: 8px;
   border-radius: 50%;
@@ -372,13 +1181,12 @@ body.is-presentation-mode .presentation-frame {
   .presentation-toolbar__btn { padding: 6px 10px; font-size: 0.74rem; }
   .presentation-toolbar__btn--icon { width: 32px; height: 32px; padding: 6px; }
   .presentation-toolbar__counter { padding: 0 8px; min-width: 42px; font-size: 0.78rem; }
-  /* En mobile escondemos los textos para liberar espacio */
   .presentation-toolbar__btn span { display: none; }
 }
 
 
 /* ----------------------------------------------------------------------------
-   9. OVERLAY DE AYUDA (primera vez que se abre el modo)
+   18. HELP OVERLAY
    ---------------------------------------------------------------------------- */
 .presentation-help {
   position: fixed;
@@ -394,10 +1202,7 @@ body.is-presentation-mode .presentation-frame {
   pointer-events: none;
   transition: opacity .35s ease;
 }
-.presentation-help.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
+.presentation-help.is-open { opacity: 1; pointer-events: auto; }
 .presentation-help__panel {
   background: #fff;
   border-radius: 24px;
@@ -428,11 +1233,7 @@ body.is-presentation-mode .presentation-frame {
   gap: 14px 18px;
   margin: 0 0 28px;
 }
-.presentation-help__key {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+.presentation-help__key { display: flex; align-items: center; gap: 10px; }
 .presentation-help__key kbd {
   background: #f4f6fa;
   border: 1px solid rgba(15, 79, 168, 0.10);
@@ -444,10 +1245,7 @@ body.is-presentation-mode .presentation-frame {
   color: #0F4FA8;
   white-space: nowrap;
 }
-.presentation-help__key span {
-  font-size: 0.88rem;
-  color: var(--text, #1a2740);
-}
+.presentation-help__key span { font-size: 0.88rem; color: var(--text, #1a2740); }
 .presentation-help__cta {
   background: #0F4FA8;
   color: #fff;
@@ -465,24 +1263,38 @@ body.is-presentation-mode .presentation-frame {
 
 
 /* ----------------------------------------------------------------------------
-   10. CHARTS ADENTRO DE LA PRESENTACION — usar mas alto y mantener proporcion
-   Los chart-container existentes mantienen su altura predeterminada del informe,
-   pero damos un pequeño boost en pantallas grandes para aprovechar el viewport.
+   19. MOBILE — scroll permitido, grids a 1 columna
    ---------------------------------------------------------------------------- */
-@media (min-width: 1100px) {
-  .slide__content .chart-container {
-    min-height: 320px;
+@media (max-width: 720px) {
+  .slide {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 60px 16px 90px;
+    -webkit-overflow-scrolling: touch;
+    display: block;
   }
-  .slide__content .panorama-card .chart-container,
-  .slide__content .prog-genspec-card .chart-container,
-  .slide__content .prog-history-card .chart-container {
-    height: clamp(320px, 38vh, 480px);
+  .slide::-webkit-scrollbar { width: 4px; }
+  .slide::-webkit-scrollbar-thumb { background: rgba(15, 79, 168, 0.18); border-radius: 999px; }
+
+  /* Grids vuelven a 1 columna en mobile */
+  .slide[data-slide="facultades"] .charts-grid,
+  .slide[data-slide="valor-agregado"] .charts-grid,
+  .slide[data-slide="metodologia"] .metodologia-wrap {
+    grid-template-columns: 1fr;
   }
+  .slide[data-slide="panorama"] .panorama-grid,
+  .slide[data-slide^="programas"] .prog-genspec-grid,
+  .slide[data-slide^="programas"] .prog-history-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .slide[data-slide="valor-agregado"] .cuadrante-cards { grid-template-columns: 1fr 1fr; }
+  .slide__content .chart-container { height: 280px; min-height: 240px; }
 }
 
 
 /* ----------------------------------------------------------------------------
-   11. RESPETO A prefers-reduced-motion
+   20. REDUCED MOTION
    ---------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .slides-track,
