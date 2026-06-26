@@ -1052,17 +1052,81 @@ body.is-presentation-mode .slide[data-slide="programas-b"] .slide__content {
 
 
 /* ----------------------------------------------------------------------------
-   12. SLIDE 06 — COMPETENCIAS: Top 10 full size
+   12. SLIDE 07 — COMPETENCIAS: Top 10 full size + tabs estilo pildoras
    ---------------------------------------------------------------------------- */
-.slide[data-slide="competencias"] .charts-grid {
-  display: grid;
-  grid-template-rows: 1fr;
-  height: 100%;
+.slide[data-slide="competencias"] .slide__content {
+  display: flex;
+  flex-direction: column;
 }
-.slide[data-slide="competencias"] .card { height: 100%; }
+.slide[data-slide="competencias"] .section {
+  display: flex !important;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.slide[data-slide="competencias"] .charts-grid {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  margin: 0 !important;
+}
+.slide[data-slide="competencias"] .card {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(14px, 1.8vh, 22px) clamp(16px, 1.8vw, 26px) !important;
+}
+.slide[data-slide="competencias"] .card__header-flex {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: clamp(8px, 1vh, 12px);
+  flex-shrink: 0;
+}
+.slide[data-slide="competencias"] .card__title {
+  font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
+  margin: 0 !important;
+  line-height: 1.25;
+}
+
+/* TABS estilo pildoras (consistente con Slide 04 Facultades) */
 .slide[data-slide="competencias"] #topTabs {
-  margin: clamp(8px, 1vh, 14px) 0 clamp(14px, 2vh, 22px);
+  margin: 0 0 clamp(12px, 1.5vh, 18px) !important;
+  display: flex !important;
   flex-wrap: wrap;
+  gap: 6px !important;
+  flex-shrink: 0;
+}
+.slide[data-slide="competencias"] #topTabs .tab {
+  padding: 6px 12px !important;
+  font-size: 0.78rem !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(15, 79, 168, 0.12) !important;
+  background: #f7f9fc !important;
+  color: #5b6b7f !important;
+  font-weight: 600 !important;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.slide[data-slide="competencias"] #topTabs .tab:hover {
+  background: rgba(15, 79, 168, 0.06) !important;
+  color: #0F4FA8 !important;
+}
+.slide[data-slide="competencias"] #topTabs .tab.is-active {
+  background: #0F4FA8 !important;
+  color: #fff !important;
+  border-color: #0F4FA8 !important;
+}
+
+/* Chart container llena el espacio restante */
+.slide[data-slide="competencias"] .chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 
