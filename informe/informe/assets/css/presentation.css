@@ -715,20 +715,67 @@ body.is-presentation-mode .presentation-frame { opacity: 1; }
 /* ----------------------------------------------------------------------------
    10. SLIDE 04 — FACULTADES: bar chart + heatmap side-by-side
    ---------------------------------------------------------------------------- */
+/* GRID: heatmap protagonista (necesita ancho para mostrar 6 competencias) */
 .slide[data-slide="facultades"] .charts-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: clamp(20px, 2vw, 32px);
+  grid-template-columns: 0.75fr 1.65fr;    /* heatmap mucho mas ancho */
+  gap: clamp(16px, 1.6vw, 24px);
   height: 100%;
 }
-.slide[data-slide="facultades"] .card { padding: clamp(16px, 2vh, 24px) clamp(18px, 2vw, 28px); }
-.slide[data-slide="facultades"] .card__title {
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem) !important;
+.slide[data-slide="facultades"] .card {
+  padding: clamp(14px, 1.8vh, 22px) clamp(16px, 1.8vw, 26px);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
+.slide[data-slide="facultades"] .card__header-flex {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: clamp(8px, 1vh, 12px);
+}
+.slide[data-slide="facultades"] .card__title {
+  font-size: clamp(0.92rem, 1.1vw, 1.1rem) !important;
+  margin: 0 !important;
+  line-height: 1.25;
+}
+
+/* TABS de competencia compactas en una sola fila horizontal */
 .slide[data-slide="facultades"] .tabs--facultad {
-  margin: clamp(8px, 1.2vh, 14px) 0;
+  margin: 0 0 clamp(10px, 1.2vh, 16px) !important;
+  display: flex !important;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px !important;
+  flex-shrink: 0;
+}
+.slide[data-slide="facultades"] .tabs--facultad .tab {
+  padding: 5px 10px !important;
+  font-size: 0.72rem !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(15, 79, 168, 0.12) !important;
+  background: #f7f9fc !important;
+  color: #5b6b7f !important;
+  font-weight: 600 !important;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.slide[data-slide="facultades"] .tabs--facultad .tab:hover {
+  background: rgba(15, 79, 168, 0.06) !important;
+  color: #0F4FA8 !important;
+}
+.slide[data-slide="facultades"] .tabs--facultad .tab.is-active {
+  background: #0F4FA8 !important;
+  color: #fff !important;
+  border-color: #0F4FA8 !important;
+}
+
+/* Chart containers fill remaining vertical space */
+.slide[data-slide="facultades"] .chart-container {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 
