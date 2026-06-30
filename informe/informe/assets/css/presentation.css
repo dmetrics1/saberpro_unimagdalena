@@ -704,26 +704,70 @@ body.is-presentation-mode .presentation-frame { opacity: 1; }
    9. SLIDE 03 — POSICIONAMIENTO: SUE ranking protagonista (vertical bars)
    ---------------------------------------------------------------------------- */
 /* SLIDE 03: dos charts en COLUMNAS lado a lado, SUE protagonista (mas ancho) */
+.slide[data-slide="posicionamiento"] .slide__content {
+  display: flex;
+  flex-direction: column;
+}
+.slide[data-slide="posicionamiento"] .section {
+  display: flex !important;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+}
 .slide[data-slide="posicionamiento"] .charts-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;     /* Departamento | SUE (mas grande) */
+  grid-template-columns: 1fr 1.5fr;     /* Departamento | SUE (mas grande) */
   grid-template-rows: 1fr;
   gap: clamp(14px, 1.6vw, 24px);
   height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  margin: 0 !important;
 }
 .slide[data-slide="posicionamiento"] .card {
-  padding: clamp(14px, 2vh, 22px) clamp(16px, 2vw, 26px);
+  padding: clamp(16px, 2vh, 22px) clamp(14px, 1.6vw, 22px);
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow: hidden;
 }
 .slide[data-slide="posicionamiento"] .card__title {
-  font-size: clamp(0.95rem, 1.15vw, 1.1rem) !important;
+  font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
   margin-bottom: clamp(8px, 1vh, 14px);
+  line-height: 1.25;
 }
 .slide[data-slide="posicionamiento"] .chart-container {
   flex: 1 1 auto;
   min-height: 0;
+  width: 100%;
+}
+.slide[data-slide="posicionamiento"] .chart-container > svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* SVG TEXT LABELS más grandes para visibilidad en presentación (Slide 03) */
+.slide[data-slide="posicionamiento"] .chart-container text {
+  font-size: 13px !important;
+  font-weight: 500;
+}
+.slide[data-slide="posicionamiento"] .chart-container .axis-label,
+.slide[data-slide="posicionamiento"] .chart-container .tick text {
+  font-size: 13px !important;
+}
+/* Etiquetas de valor (numeros sobre barras) más grandes */
+.slide[data-slide="posicionamiento"] .chart-container .bar-label,
+.slide[data-slide="posicionamiento"] .chart-container .data-label {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+/* Leyenda (Unimagdalena, U. Sergio Arboleda, etc.) más grande */
+.slide[data-slide="posicionamiento"] .chart-container .legend text,
+.slide[data-slide="posicionamiento"] .chart-container .legend-label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
 }
 
 
