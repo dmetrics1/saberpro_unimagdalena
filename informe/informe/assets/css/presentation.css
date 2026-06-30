@@ -829,6 +829,30 @@ body.is-presentation-mode .chart-container .legend-item text {
   margin-bottom: clamp(8px, 1vh, 14px);
   line-height: 1.25;
 }
+
+/* Restaurar filtros año en ambos cards (Departamento + SUE) */
+.slide[data-slide="posicionamiento"] .card__header-flex {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: clamp(8px, 1vh, 12px);
+}
+.slide[data-slide="posicionamiento"] .card__header-flex .select-wrapper,
+.slide[data-slide="posicionamiento"] .card__header-flex .control-select {
+  display: block !important;
+  flex-shrink: 0;
+}
+.slide[data-slide="posicionamiento"] .control-select {
+  font-size: 0.78rem !important;
+  padding: 5px 22px 5px 9px !important;
+  max-width: 110px;
+  border: 1px solid rgba(15, 79, 168, 0.15);
+  border-radius: 8px;
+  background-color: #f7f9fc;
+  font-weight: 600;
+  color: #0F4FA8;
+}
 .slide[data-slide="posicionamiento"] .chart-container {
   flex: 1 1 auto;
   min-height: 0;
@@ -858,30 +882,42 @@ body.is-presentation-mode .chart-container .legend-item text {
   display: none !important;
 }
 
+/* Card__header-flex en Slide 04: title + comp dropdown + year dropdown EN FILA */
+.slide[data-slide="facultades"] .card__header-flex {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(8px, 1vh, 12px);
+}
+
 /* SELECT dinamico de competencia (creado por JS al entrar a presentacion) */
 .slide[data-slide="facultades"] .facultad-comp-wrapper {
   display: block !important;
-  margin: 0 0 clamp(10px, 1.2vh, 14px);
+  margin: 0;
   flex-shrink: 0;
-  width: 100%;
-  max-width: 320px;
+  width: auto;
+  max-width: 200px;
+  margin-left: auto;       /* push to right alongside year filter */
 }
 .slide[data-slide="facultades"] .facultad-comp-select {
   display: block !important;
   width: 100%;
-  font-size: 0.92rem !important;
+  font-size: 0.82rem !important;
   font-weight: 700 !important;
-  padding: 9px 32px 9px 14px !important;
+  padding: 6px 28px 6px 12px !important;
   border: 2px solid rgba(15, 79, 168, 0.20) !important;
   border-radius: 10px !important;
   background-color: #ffffff !important;
   color: #0F4FA8 !important;
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F4FA8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>") !important;
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 16px;
+  background-position: right 8px center;
+  background-size: 14px;
 }
 .slide[data-slide="facultades"] .facultad-comp-select:focus {
   outline: none;

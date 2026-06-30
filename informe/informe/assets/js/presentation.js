@@ -385,11 +385,21 @@
           });
           [...tabs.children].forEach(t => observer.observe(t, { attributes: true, attributeFilter: ['class'] }));
           this._facultadesTabObserver = observer;
-          // Wrapper para el select
+          // Wrapper para el select — insertarlo dentro del card__header-flex
+          // (junto al filtro de año) para que ambos queden en la misma fila
           const wrap = document.createElement('div');
           wrap.className = 'select-wrapper facultad-comp-wrapper';
           wrap.appendChild(select);
-          tabs.parentNode.insertBefore(wrap, tabs);
+          const card = tabs.closest('.card');
+          const header = card?.querySelector('.card__header-flex');
+          const yearWrapper = header?.querySelector('.card__controls, .select-wrapper');
+          if (header && yearWrapper) {
+            header.insertBefore(wrap, yearWrapper);
+          } else if (header) {
+            header.appendChild(wrap);
+          } else {
+            tabs.parentNode.insertBefore(wrap, tabs);
+          }
           this._facultadesSelectWrap = wrap;
         }
       }
