@@ -848,9 +848,45 @@ body.is-presentation-mode .chart-container .legend-item text {
 /* GRID: heatmap protagonista (necesita ancho para mostrar 6 competencias) */
 .slide[data-slide="facultades"] .charts-grid {
   display: grid;
-  grid-template-columns: 1fr 1.55fr;       /* bar chart mas ancho que antes */
-  gap: clamp(16px, 1.6vw, 24px);
+  grid-template-columns: 0.85fr 1.75fr;    /* heatmap mas ancho para Ingles visible */
+  gap: clamp(14px, 1.4vw, 20px);
   height: 100%;
+}
+
+/* Tabs ORIGINALES ocultos — reemplazados por el <select> facultad-comp-select */
+.slide[data-slide="facultades"] .tabs--facultad {
+  display: none !important;
+}
+
+/* SELECT dinamico de competencia (creado por JS al entrar a presentacion) */
+.slide[data-slide="facultades"] .facultad-comp-wrapper {
+  display: block !important;
+  margin: 0 0 clamp(10px, 1.2vh, 14px);
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 320px;
+}
+.slide[data-slide="facultades"] .facultad-comp-select {
+  display: block !important;
+  width: 100%;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  padding: 9px 32px 9px 14px !important;
+  border: 2px solid rgba(15, 79, 168, 0.20) !important;
+  border-radius: 10px !important;
+  background-color: #ffffff !important;
+  color: #0F4FA8 !important;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F4FA8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>") !important;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+.slide[data-slide="facultades"] .facultad-comp-select:focus {
+  outline: none;
+  border-color: #0F4FA8 !important;
+  box-shadow: 0 0 0 3px rgba(15, 79, 168, 0.10);
 }
 
 /* Restaurar filtros de año en ambos cards (estaban hidden por la regla global) */
@@ -895,15 +931,9 @@ body.is-presentation-mode .chart-container .legend-item text {
   line-height: 1.25;
 }
 
-/* TABS de competencia compactas en una sola fila horizontal */
+/* TABS de competencia ocultas — reemplazadas por el dropdown facultad-comp-select */
 .slide[data-slide="facultades"] .tabs--facultad {
-  margin: 0 0 clamp(8px, 1vh, 12px) !important;
-  display: flex !important;
-  flex-wrap: wrap;
-  gap: 4px !important;
-  flex-shrink: 0;
-  max-height: 70px;
-  overflow: hidden;
+  display: none !important;
 }
 /* Bar chart container DEBE llenar el alto restante */
 .slide[data-slide="facultades"] .chart-container#chartFacultades,

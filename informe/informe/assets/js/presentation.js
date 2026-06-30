@@ -352,6 +352,48 @@
           s.content.appendChild(node);
         });
       });
+      // Caso especial: en Slide 04 Facultades, convertir las tabs--facultad
+      // en un <select> dropdown para liberar espacio vertical para el bar chart.
+      const facultades = this.slides.find(s => s.group.id === 'facultades');
+      if (facultades) {
+        const tabs = facultades.content.querySelector('.tabs--facultad');
+        if (tabs && tabs.children.length > 0) {
+          // Crear select
+          const select = document.createElement('select');
+          select.className = 'control-select facultad-comp-select';
+          select.id = 'facultadCompSelect';
+          [...tabs.children].forEach((tab, i) => {
+            const opt = document.createElement('option');
+            opt.value = String(i);
+            opt.textContent = tab.textContent.trim();
+            if (tab.classList.contains('is-active')) opt.selected = true;
+            select.appendChild(opt);
+          });
+          // Sync: al cambiar el select, disparar click del tab equivalente
+          select.addEventListener('change', (e) => {
+            const idx = parseInt(e.target.value, 10);
+            const targetTab = tabs.children[idx];
+            if (targetTab) targetTab.click();
+          });
+          // Sync inverso: si una tab cambia de active (por algun otro flujo),
+          // actualizar el select
+          const observer = new MutationObserver(() => {
+            const activeIdx = [...tabs.children].findIndex(t => t.classList.contains('is-active'));
+            if (activeIdx >= 0 && select.selectedIndex !== activeIdx) {
+              select.selectedIndex = activeIdx;
+            }
+          });
+          [...tabs.children].forEach(t => observer.observe(t, { attributes: true, attributeFilter: ['class'] }));
+          this._facultadesTabObserver = observer;
+          // Wrapper para el select
+          const wrap = document.createElement('div');
+          wrap.className = 'select-wrapper facultad-comp-wrapper';
+          wrap.appendChild(select);
+          tabs.parentNode.insertBefore(wrap, tabs);
+          this._facultadesSelectWrap = wrap;
+        }
+      }
+
       // Caso especial: convenciones en slide programas-a se mueven al slide__head
       // (chip compacto al lado del badge SLIDE 05 con tooltip por icono).
       const programasA = this.slides.find(s => s.group.id === 'programas-a');
@@ -400,6 +442,15 @@
         node.classList.remove('presentation-programas-tools', 'is-visible');
         if (parent) parent.insertBefore(node, nextSibling);
         this._programasFiltersOriginal = null;
+      }
+      // Limpiar el select dinamico de facultades + observer
+      if (this._facultadesTabObserver) {
+        this._facultadesTabObserver.disconnect();
+        this._facultadesTabObserver = null;
+      }
+      if (this._facultadesSelectWrap && this._facultadesSelectWrap.parentNode) {
+        this._facultadesSelectWrap.parentNode.removeChild(this._facultadesSelectWrap);
+        this._facultadesSelectWrap = null;
       }
       this.slides.forEach(s => {
         // Iterar en orden inverso para que nextSibling sea consistente
