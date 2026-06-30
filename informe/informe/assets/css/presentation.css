@@ -477,6 +477,15 @@ body.is-presentation-mode .slide__content > .section {
   width: 100% !important;
   max-width: none !important;
 }
+/* charts-grid + charts-grid--stacked: anular max-width 1080 + auto margins
+   del informe original — en presentacion deben ocupar el ancho completo */
+body.is-presentation-mode .charts-grid,
+body.is-presentation-mode .charts-grid--stacked {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+}
 
 /* SVG TEXT LABELS GLOBALES — visibilidad para presentacion (todos los charts) */
 body.is-presentation-mode .chart-container text,
