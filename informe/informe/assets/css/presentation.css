@@ -869,19 +869,14 @@ body.is-presentation-mode .chart-container .legend-item text {
 /* ----------------------------------------------------------------------------
    10. SLIDE 04 — FACULTADES: bar chart + heatmap side-by-side
    ---------------------------------------------------------------------------- */
-/* GRID: heatmap protagonista — bar chart card mas ancha para que el chart
-   natural sea mas grande horizontalmente */
+/* GRID: cards MISMO TAMAÑO. El chart re-renderiza con h ajustada
+   al aspect del container (en app.js) → llena sin distorsión. */
 .slide[data-slide="facultades"] .charts-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1.4fr;       /* bar chart card mas ancha */
+  grid-template-columns: 1fr 1.4fr;
   gap: clamp(14px, 1.4vw, 20px);
   height: 100%;
-  align-items: start;                       /* cards pueden tener altura distinta */
-}
-/* Bar chart card: altura natural (sin empty space abajo) */
-.slide[data-slide="facultades"] .charts-grid > .card:first-child {
-  height: auto !important;
-  align-self: start;
+  align-items: stretch;
 }
 
 /* Tabs ORIGINALES ocultos — reemplazados por el <select> facultad-comp-select */

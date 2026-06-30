@@ -1882,7 +1882,18 @@ function renderFacultades(d, yearOverride) {
   const sortedFacs = [...dataWithValue].sort((a, b) => valueOf(b) - valueOf(a));
 
   const w = 1000;
-  const h = 400;
+  // En modo presentación, ajustar h según el aspect ratio del container
+  // para que el chart llene el card sin distorsión ni espacio vacío.
+  let h = 400;
+  if (document.body.classList.contains('is-presentation-mode')) {
+    const containerRect = container.getBoundingClientRect();
+    if (containerRect.width > 0 && containerRect.height > 0) {
+      // h = w * containerH / containerW  → svg aspect = container aspect
+      h = Math.round(w * containerRect.height / containerRect.width);
+      // Rango razonable: no menor a 400 (original) ni absurdamente alto
+      h = Math.max(400, Math.min(1200, h));
+    }
+  }
   const margin = { top: 14, right: 60, bottom: 32, left: 240 };
   const innerW = w - margin.left - margin.right;
   const innerH = h - margin.top - margin.bottom;

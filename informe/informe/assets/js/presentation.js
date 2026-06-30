@@ -241,9 +241,20 @@
     next() { this.goto(this.currentSlide + 1); }
     prev() { this.goto(this.currentSlide - 1); }
 
-    /* No-op: stretch SVG removido por distorsion visual.
-       El chart se renderiza con su aspect natural; el card se ajusta. */
-    _stretchActiveSlideCharts(idx) { /* intentional no-op */ }
+    /* Forzar re-render de chartFacultades cuando el slide se activa, asi se
+       recalcula h en presentacion (usa container actual width/height).
+       Esperamos a que termine la transicion CSS de los slides (~550ms). */
+    _stretchActiveSlideCharts(idx) {
+      const slide = this.slides[idx]?.wrapper;
+      if (!slide) return;
+      const slideId = this.slides[idx]?.group.id;
+      if (slideId === 'facultades') {
+        setTimeout(() => {
+          const yearSel = document.getElementById('selAnioFacultad');
+          if (yearSel) yearSel.dispatchEvent(new Event('change', { bubbles: true }));
+        }, 650);
+      }
+    }
 
 
     /* ---------- Privados: DOM ---------- */
