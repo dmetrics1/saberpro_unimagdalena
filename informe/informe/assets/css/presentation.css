@@ -487,31 +487,48 @@ body.is-presentation-mode .charts-grid--stacked {
   width: 100% !important;
 }
 
-/* SVG TEXT LABELS GLOBALES — visibilidad para presentacion (todos los charts) */
+/* SVG TEXT LABELS GLOBALES — visibilidad para presentacion (todos los charts)
+   TAMAÑOS GRANDES: el publico debe leer los valores desde distancia.
+   Se aplica a TODO texto SVG en modo presentacion.
+   IMPORTANTE: uso [style] attribute selectors para override inline styles */
 body.is-presentation-mode .chart-container text,
 body.is-presentation-mode .slide__content svg text {
-  font-size: 13px !important;
-  font-weight: 500;
+  font-size: 20px !important;
+  font-weight: 600;
 }
 body.is-presentation-mode .chart-container .axis-label,
 body.is-presentation-mode .chart-container .axis text,
 body.is-presentation-mode .chart-container .tick text,
 body.is-presentation-mode .chart-container .axis-title {
-  font-size: 13px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
 }
-/* Etiquetas de valor numerico (mas pesadas para destacar) */
+/* Etiquetas de valor numerico (los NUMEROS que aparecen sobre las barras
+   o puntos) — DEBEN destacar mas: 24px bold */
 body.is-presentation-mode .chart-container .bar-label,
 body.is-presentation-mode .chart-container .data-label,
-body.is-presentation-mode .chart-container .value-label {
-  font-size: 14px !important;
-  font-weight: 700 !important;
+body.is-presentation-mode .chart-container .value-label,
+body.is-presentation-mode .chart-container .chart-value {
+  font-size: 24px !important;
+  font-weight: 800 !important;
 }
-/* Leyenda */
+/* Leyenda: 20px semi-bold */
 body.is-presentation-mode .chart-container .legend text,
 body.is-presentation-mode .chart-container .legend-label,
 body.is-presentation-mode .chart-container .legend-item text {
-  font-size: 13px !important;
-  font-weight: 600 !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+/* Override para textos con font-size inline (via style attribute).
+   Los charts JS usan style="font-size: 11.5px" o similar — forzamos grande */
+body.is-presentation-mode .chart-container text[style*="font-size"] {
+  font-size: 20px !important;
+}
+/* Etiquetas numericas (valores sobre barras) — patron text-anchor start/end
+   con font-weight 700 o 800 en style: forzamos aun mas grande */
+body.is-presentation-mode .chart-container text[style*="font-weight: 700"],
+body.is-presentation-mode .chart-container text[style*="font-weight: 800"] {
+  font-size: 22px !important;
 }
 
 
